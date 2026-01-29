@@ -164,7 +164,7 @@
     justify-content: center;
     gap: 25px;
 }
-#ingressos button{
+#ingressos .btn-comprar{
     border: 1px solid var(--azul);
     background-color: var(--azul);
     border-radius: var(--borda-botao);
@@ -173,7 +173,7 @@
     text-align: center;
     cursor: pointer;
 }
-#ingressos button:hover{
+#ingressos .btn-comprar:hover{
     border: 1px solid var(--azul);
     background-color: white;
     color: var(--azul);
@@ -186,6 +186,14 @@
     text-decoration: none;
     text-align: center;
     padding: 10px 12px;
+}
+#ingressos .fechar-menu{
+    display: none;
+}
+#ingressos .titulo-fechar{
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 /*LOCAL CAIXA DE INGRESSO*/
 .local {
@@ -322,6 +330,7 @@
     
 
 }
+
 /*CARROSEL RESPONSIVO*/
 @media screen and (max-width: 1550px){
     .bloco_informacoes{
@@ -351,13 +360,20 @@
         height: 40vh;
     }
 }
+@media screen and (max-width: 390px){
+    .carrosel .bloco_informacoes h1{
+        font-size: 22px;
+    }
+}
 /*MAIN*/
 @media screen and (max-width: 1380px){
     #ingressos{
         display: none;
         position: fixed;
         background-color: white;
-        top: 100px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
         height: 650px;
         justify-content: center;
         box-shadow: 1px 1px 1px 1000px rgba(31, 31, 31, 0.425);
@@ -373,6 +389,17 @@
     .eventos-recomendados{
         width: 60%;
     }
+    #ingressos .fechar-menu{
+    display: block;
+    
+}
+#ingressos .fechar-menu i{
+    font-size: 2.5rem;
+}
+#ingressos h1{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
 }
 @media screen and (max-width: 879px){
     #atracoes{
@@ -385,6 +412,7 @@
     }
     #extras{
         display: none;
+        gap: 7px;
     }
     .linha{
         flex-direction: column;
@@ -405,10 +433,18 @@
     .ler-mais:hover{
         color: var(--verde);
     }
-}
-@media screen and (max-width: 850px){
     #atracoes .titulo_icon{
         padding: 10px;
+    }
+    #extras .titulo_icon{
+        padding-bottom: 0px;
+        padding-top: 0px;
+    }
+    #extras .linha .info_extras p{
+        padding-top: 5px;
+    }
+    #extras .linha{
+        gap: 7px;
     }
 }
 @media screen and (max-width: 630px){
@@ -442,8 +478,14 @@
         font-size: 0.8rem;
         line-height: 0px;
     }
+     #extras .linha .info_extras p{
+        font-size: 0.8rem;
+    }
     .ler-mais{
         margin: 0 auto 0px 15px;
+    }
+    #extras{
+        padding: 15px;
     }
 }
 @media screen and (max-width: 550px){
@@ -462,7 +504,6 @@
         width: 150px;
     }
 }
-
 @media screen and (max-width: 470px){
     #atracoes{
         width: 300px;
@@ -473,6 +514,9 @@
     /*CARROSEL*/
     .carrosel{
         height: 30vh;
+    }
+    #ingressos h1{
+        font-size: 20px;
     }
 }
 @media screen and (max-width: 445px){
@@ -513,6 +557,28 @@
     }
     #ingressos{
         width: 280px;
+        justify-content: initial;
+        gap: 10px;
+        height: 500px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    #ingressos h1{
+        padding-bottom: 0px;
+        font-size: 1rem;
+    }
+    .titulo-fechar{
+        padding-top: 10px;
+    }
+    #ingressos .btns-ingressos{
+        gap: 15px;
+    }
+    #ingressos .btns-ingressos button, #ingressos .btns-ingressos .btn-comprar{
+        padding: 7px 9px;
+        font-size: 0.9rem;
+    }
+    #extras .info_extras{
+        width: 100%;
     }
 }
 @media screen and (max-width: 360px){
