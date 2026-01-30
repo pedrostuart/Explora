@@ -138,9 +138,7 @@ input:focus{
 }
 
 /*CARROSEL EVENTOS*/
-.carrosel-container{
-    display: none;
-}
+
 .carrosel-viewport{
     display: flex;
     align-items: center;
@@ -203,6 +201,7 @@ input:focus{
     background-color: white;
     border: 1px solid black;
 }
+
 /*BARRA PESQUISA*/
 @media screen and (max-width: 770px){
     .carrosel .barra_pesquisa{
@@ -259,9 +258,7 @@ input:focus{
         
 }
 @media screen and (max-width: 706px){
-    .carrosel-container{
-        display: block;
-    }
+    
     .linha_eventos{
         display: none;
     }
