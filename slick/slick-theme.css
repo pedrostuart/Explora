@@ -52,7 +52,7 @@
 .slick-next:hover,
 .slick-next:focus
 {
-    color: black;
+    color: #32aa6c;
     outline: none;
     background: transparent;
 }
@@ -78,7 +78,6 @@
     line-height: 1;
 
     
-    color: var(--verde);
     
     width: 40px;
     -webkit-font-smoothing: antialiased;

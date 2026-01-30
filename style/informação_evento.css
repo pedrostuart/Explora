@@ -461,7 +461,7 @@
 }
 @media screen and (max-width: 604px){
     #atracoes{
-        max-width: 480px;
+        width: 100%;
     }
     .caixas-artistas{
         flex-wrap: nowrap;
@@ -495,11 +495,6 @@
         padding: 15px;
     }
 }
-@media screen and (max-width: 550px){
-    #atracoes{
-        width: 400px;
-    }
-}
 @media screen and (max-width: 510px){
     .eventos-recomendados{
         width: 80%;
@@ -512,9 +507,6 @@
     }
 }
 @media screen and (max-width: 470px){
-    #atracoes{
-        width: 300px;
-    }
     .bloco_informacoes{
         margin-left: 15px;
     }
