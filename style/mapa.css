@@ -22,10 +22,10 @@ html, body{
     border-right: 1px solid #8e8e8e;
     width: 322px;
     padding: 20px 25px 25px 25px;
-    height: 100vh;
+    height: 93.8vh;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 20px;
     background-color: white;
 }
 .fechar-link{

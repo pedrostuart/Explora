@@ -10,7 +10,6 @@ footer{
     display: flex;
     padding: 20px;
     justify-content: space-around;
-    margin-top: 30px;
 }
 .coluna-footer{
     width: 200px;

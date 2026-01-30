@@ -176,6 +176,9 @@ a{
     .box-verde{
         display: none;
     }
+    .cadastro-responsivo :nth-child(2){
+        display: block;
+    }
 }
 @media screen and (max-width: 400px){
     .box-login{
