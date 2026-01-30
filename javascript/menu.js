@@ -15,3 +15,10 @@ window.addEventListener("resize", ()=>{
         menu.style.display = "none";
     }
 });
+/*
+let slick = document.querySelector(".single-item")
+window.addEventListener("resize", ()=>{
+    if(window.innerWidth == 706){
+        slick.style.display = 'block'
+    }
+})*/

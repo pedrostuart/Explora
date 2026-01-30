@@ -120,14 +120,12 @@
     
     .single-item{
         display: block;
-    }
-    .carrosel-eventos{
-        width: 300px;
-    }
-    .single-item{
         width: 350px;
         margin: auto;
         display: flex;
+    }
+    .carrosel-eventos{
+        width: 300px;
     }
     .single-item a img{
         width: 100%;
@@ -136,10 +134,29 @@
     .slick-slide{
         box-shadow: none;
     }
+    .slick-slide .nome_show{
+        padding-top: 4px;
+    }
     .slick-track{
         display: flex;
         gap: 20px;
     }
     
-    
+}
+@media screen and (max-width: 450px){
+    .single-item{
+        width: 300px;
+    }
+}
+@media screen and (max-width: 390px){
+    .single-item{
+        width: 250px;
+
+    }
+    .single-item a img{
+        height: 120px;
+    }
+    .slick-track{
+        gap: 10px;
+    }
 }
