@@ -224,6 +224,10 @@
 }
 .abrir-mapa a:hover{
     cursor: pointer;
+    text-decoration: underline;
+}
+.abrir-mapa span{
+    color: white;
 }
 /*CAIXA PRINCIPAIS ATRAÇÕES*/
 #atracoes{
@@ -327,7 +331,7 @@
     display: flex;
     gap: 4px;
     cursor: pointer;
-    
+    display: none;
 
 }
 
@@ -392,6 +396,9 @@
     #ingressos .fechar-menu{
     display: block;
     
+}
+.btn-preferencia{
+    display: block;
 }
 #ingressos .fechar-menu i{
     font-size: 2.5rem;

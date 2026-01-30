@@ -80,6 +80,7 @@ h2{
     align-items: center;
     font-weight: bold;
     text-decoration: none;
+    cursor: pointer;
 }
 .menu-lateral button{
     display: none;

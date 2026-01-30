@@ -33,6 +33,7 @@ html, body{
     align-items: center;
     justify-content: space-between;
 }
+
 .fechar-link button{
     display: none;
 }
@@ -65,7 +66,6 @@ h2{
     font-weight: bold;
     text-decoration: none;
 }
-
 /*MENU LATERAL (DATA)*/
 
 .filtrar-data{
