@@ -15,7 +15,7 @@
 /*Carrossel*/
 
 .carrosel{
-    background: url(../img/carrosel_info_eventos.png) no-repeat center;
+    background: url(../img/imagem-eveto-web.png) no-repeat center;
     background-size: cover;
     height: 50vh;
     align-items: center;
@@ -534,6 +534,10 @@
     .info-precos-ingressos .precos-ingressos p{
         padding-left: 5px;
         padding-top: 5px;
+    }
+    .carrosel{
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 }
 @media screen and (max-width: 418px){
