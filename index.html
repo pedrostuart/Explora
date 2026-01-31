@@ -64,12 +64,47 @@
             <p>Encontre os melhores shows, festivais, experiências gastronômicas e muito mais. <br>
             Tudo em um só lugar.</p>
             <form class="barra_pesquisa">
-                <input type="text"  placeholder="Buscar eventos, locais...">
+                <input type="text"  placeholder="Buscar eventos, locais..." class="input-pesquisa">
                 <a class="btn_pesquisar">
                     <i class="bi bi-search"></i>
                     Pesquisar
                 </a>
             </form>
+            <div class="itens-pesquisa">
+
+                    <a href="informação_evento.html">
+                        
+                        <img src="img/imagem_evento.jpg" alt="Imagem do Evento">
+                    
+                        <div class="texto-evento">
+                            <span class="data_evento">25/03</span>
+                            <p class="nome_show">Avenged Sevenfold</p>
+                            <p class="distancia_show">Allianz parque - 5km de distância</p>
+                        </div>
+                    </a>
+
+                    <a href="informação_evento.html">
+                        <img src="img/imagem_carrossel.png" alt="Imagem do Evento">
+                        <div class="texto-evento">
+                            <span class="data_evento">01/03</span>
+                            <p class="nome_show">Kali Uchis</p>
+                            <p class="distancia_show">Morumbis - 12km de distância</p>
+                        </div>
+                    </a>
+
+                    <a href="informação_evento.html">
+                        
+                        <img src="img/imagem_carrossel2.png" alt="Imagem do Evento">
+                    
+                        <div class="texto-evento">
+                            <span class="data_evento">22/04</span>
+                            <p class="nome_show">Guns N' Roses</p>
+                            <p class="distancia_show">Allianz parque - 9km de distância</p>
+                        </div>
+                    </a>
+                    <a href="eventos.html" id="txt-vermais-eventos">Ver mais</a>
+                    <p id="txt-pesquisas">Nenhuma pesquisa encontrada</p>
+            </div>
         </section>
         
         <section class="eventos_destaque">
@@ -261,6 +296,7 @@
     </footer>
     
     <script src="javascript/menu.js"></script>
+    <script src="javascript/barra-pesquisa.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="slick/slick.min.js"></script>

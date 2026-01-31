@@ -22,13 +22,15 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    gap: 30px;
+    
     
 }
 .carrosel p{
     font-weight: bold;
     color: white;
     text-align: center;
+
+    margin-bottom: 20px;
 }
 .carrosel .barra_pesquisa{
     width: 693px;
@@ -67,7 +69,79 @@ input:focus{
     color: white;
     
 }
-
+/*CARROSEL BARRA PESQUISA*/
+.itens-pesquisa{
+    background-color: white;
+    max-height: 300px;
+    overflow: auto;
+    width: 550px;
+    box-shadow: var(--sombra);
+    border-bottom-left-radius: var(--borda-caixa);
+    border-bottom-right-radius: var(--borda-caixa);
+    padding: 20px;
+    flex-direction: column;    
+    position: absolute;
+    top: 325px;
+    z-index: 1000;
+    display: none;
+    gap: 5px;
+}
+.itens-pesquisa a{
+    text-decoration: none;
+    display: flex;
+    align-items: center; 
+    display: flex;
+    gap: 14px;
+    justify-content: left;
+    padding: 10px;
+    border-radius: var(--borda-caixa);
+}
+.itens-pesquisa a:hover{
+    background-color: #d9d9d9;
+    transition: 0.2s;
+}
+.itens-pesquisa a img{
+    width: 85px;
+    border-radius: var(--borda-caixa);
+    height: 110px;
+    border: 1px solid var(--verde);
+    box-shadow: var(--sombra);
+}
+.itens-pesquisa .data_evento{
+    position: initial;
+    
+    margin: 0 auto 0 0;
+}
+.itens-pesquisa .texto-evento{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.itens-pesquisa .texto-evento p{
+    color: black;
+    text-align: left;
+    padding: 0px;
+    margin: 0;
+}
+.itens-pesquisa .texto-evento .distancia_show{
+    color: #8e8e8e;
+}
+.itens-pesquisa #txt-pesquisas{
+    display: none;
+    color: black;
+    text-align: center;
+    margin: 0;
+}
+.itens-pesquisa #txt-vermais-eventos{
+    display: none;
+    color: black;
+    font-weight: bold;
+    margin: auto;
+}
+.itens-pesquisa #txt-vermais-eventos:hover{
+    text-decoration: underline;
+    
+}
 /*EVENTOS EM DESTAQUE E PRÓXIMOS*/
 .linha_eventos{
     padding: 20px;
