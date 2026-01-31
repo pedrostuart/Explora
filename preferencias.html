@@ -1,148 +1,156 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/preferencias.css">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <title>Prêferencias</title>
     <link rel="stylesheet" href="style/footer.css">
 </head>
+
 <body>
     <header>
         <a href="cadastro.html"><i class="bi-arrow-left-circle-fill"></i></a>
         <img src="img/logo.png" alt="Logo Explora+">
     </header>
     <main>
-    <div class="box">
-        <h1>Selecione seus gostos</h1>
-        <form action="#" method="post">
-            
-            <div class="barra_input">
-                <img src="img/icone-logo.png" alt="">
-                <select name="local" id="local">
-                    <option value="" selected disabled>Selecione seu local</option>
-                    <option value="acre">Acre</option>
-                    <option value="alagoas">Alagoas</option>
-                    <option value="amapa">Amapá</option>
-                    <option value="amazonas">Amazonas</option>
-                    <option value="bahia">Bahia</option>
-                    <option value="ceara">Ceará</option>
-                    <option value="distrito-federal">Distrito Federal</option>
-                    <option value="espirito-santo">Espírito Santo</option>
-                    <option value="goias">Goiás</option>
-                    <option value="maranhao">Maranhão</option>
-                    <option value="mato-grosso">Mato Grosso</option>
-                    <option value="mato-grosso-do-sul">Mato Grosso do Sul</option>
-                    <option value="minas-gerais">Minas Gerais</option>
-                    <option value="para">Pará</option>
-                    <option value="paraiba">Paraíba</option>
-                    <option value="parana">Paraná</option>
-                    <option value="pernambuco">Pernambuco</option>
-                    <option value="piaui">Piauí</option>
-                    <option value="rio-de-janeiro">Rio de Janeiro</option>
-                    <option value="rio-grande-do-norte">Rio Grande do Norte</option>
-                    <option value="rio-grande-do-sul">Rio Grande do Sul</option>
-                    <option value="rondonia">Rondônia</option>
-                    <option value="roraima">Roraima</option>
-                    <option value="santa-catarina">Santa Catarina</option>
-                    <option value="sao-paulo">São Paulo</option>
-                    <option value="sergipe">Sergipe</option>
-                    <option value="tocantins">Tocantins</option>
-                </select>
-            </div>
-            
-            
-            <div class="barra_input">
-                <span class="material-symbols-outlined">attach_money</span>
-                <input type="number" name="preco" id="preco" placeholder="Orçamento Disponível" min="0">
-            </div>
+        <div class="box">
+            <h1>Selecione seus gostos</h1>
+            <form action="#" method="post">
 
-
-            <button class="aplicar-preferencias">Adicionar Preferências<i class="bi bi-sliders"></i></button>
-
-            
-
-            <div>
-                <div class="barra_input-nascimento">
-                    <span class="material-symbols-outlined">calendar_month</span>
-                    <input type="number" class="data-nascimento" placeholder="Dia" name="data-nascimento" min="1" max="31" id="dia">
-                    <input type="number" class="data-nascimento" placeholder="Mês" name="data-nascimento" min="1" max="12" id="mes">
-                    <input type="number" class="data-nascimento" placeholder="Ano" name="data-nascimento" min="1900" minlength="4" id="ano">
-                    
+                <div class="barra_input">
+                    <img src="img/icone-logo.png" alt="">
+                    <select name="local" id="local">
+                        <option value="" selected disabled>Selecione seu local</option>
+                        <option value="acre">Acre</option>
+                        <option value="alagoas">Alagoas</option>
+                        <option value="amapa">Amapá</option>
+                        <option value="amazonas">Amazonas</option>
+                        <option value="bahia">Bahia</option>
+                        <option value="ceara">Ceará</option>
+                        <option value="distrito-federal">Distrito Federal</option>
+                        <option value="espirito-santo">Espírito Santo</option>
+                        <option value="goias">Goiás</option>
+                        <option value="maranhao">Maranhão</option>
+                        <option value="mato-grosso">Mato Grosso</option>
+                        <option value="mato-grosso-do-sul">Mato Grosso do Sul</option>
+                        <option value="minas-gerais">Minas Gerais</option>
+                        <option value="para">Pará</option>
+                        <option value="paraiba">Paraíba</option>
+                        <option value="parana">Paraná</option>
+                        <option value="pernambuco">Pernambuco</option>
+                        <option value="piaui">Piauí</option>
+                        <option value="rio-de-janeiro">Rio de Janeiro</option>
+                        <option value="rio-grande-do-norte">Rio Grande do Norte</option>
+                        <option value="rio-grande-do-sul">Rio Grande do Sul</option>
+                        <option value="rondonia">Rondônia</option>
+                        <option value="roraima">Roraima</option>
+                        <option value="santa-catarina">Santa Catarina</option>
+                        <option value="sao-paulo">São Paulo</option>
+                        <option value="sergipe">Sergipe</option>
+                        <option value="tocantins">Tocantins</option>
+                    </select>
                 </div>
-                <label for="data-nascimento">Data de Nascimento</label>
-            </div>
-            <button class="btn-finalizar">Finalizar Cadastro</button>
-        </form>
-        <dialog class="modal">
-            <h1>Selecione suas prefêrencias</h1>
-            <form class="preferencias">
-            
-            <div class="label-preferencias">
-                <label>
-                    <input type="checkbox" name="preferencias[]" value="cinema" class="btn-preferencia">
-                    Cinema
-                </label>
-                <label>
-                    <input type="checkbox" name="preferencias[]" value="arte" class="btn-preferencia">
-                    Arte
-                </label>
-                <label>
-                    <input type="checkbox" name="preferencias[]" value="festivais" class="btn-preferencia">
-                    Festivais
-                </label>
-                <label>
-                    <input type="checkbox" name="preferencias[]" value="esportes" class="btn-preferencia">
-                    Esportes
-                </label>
-                <label>
-                    <input type="checkbox" name="preferencias[]" value="gastronomia" class="btn-preferencia">
-                    Gastronomia
-                </label>
-                <label>
-                    <input type="checkbox" name="preferencias[]" value="teatro" class="btn-preferencia">
-                    Teatro
-                </label>
-                <label>
-                    <input type="checkbox" name="preferencias[]" value="musica" class="btn-preferencia">
-                    Música
-                </label>
-            </div>
-            <hr>
-            <button class="aplicar">Aplicar</button>
 
-            
-        </form>
-            
-        </dialog>
-        </main>
-        <footer>
+
+                <div class="barra_input">
+                    <span class="material-symbols-outlined">attach_money</span>
+                    <input type="number" name="preco" id="preco" placeholder="Orçamento Disponível" min="0">
+                </div>
+
+
+                <button class="aplicar-preferencias">Adicionar Preferências<i class="bi bi-sliders"></i></button>
+
+
+
+                <div>
+                    <div class="barra_input-nascimento">
+                        <span class="material-symbols-outlined">calendar_month</span>
+                        <input type="number" class="data-nascimento" placeholder="Dia" name="data-nascimento" min="1"
+                            max="31" id="dia">
+                        <input type="number" class="data-nascimento" placeholder="Mês" name="data-nascimento" min="1"
+                            max="12" id="mes">
+                        <input type="number" class="data-nascimento" placeholder="Ano" name="data-nascimento" min="1900"
+                            minlength="4" id="ano">
+
+                    </div>
+                    <label for="data-nascimento">Data de Nascimento</label>
+                </div>
+                <button class="btn-finalizar">Finalizar Cadastro</button>
+            </form>
+            <dialog class="modal">
+                <h1>Selecione suas prefêrencias</h1>
+                <form class="preferencias">
+
+                    <div class="label-preferencias">
+                        <label>
+                            <input type="checkbox" name="preferencias[]" value="cinema" class="btn-preferencia">
+                            Cinema
+                        </label>
+                        <label>
+                            <input type="checkbox" name="preferencias[]" value="arte" class="btn-preferencia">
+                            Arte
+                        </label>
+                        <label>
+                            <input type="checkbox" name="preferencias[]" value="festivais" class="btn-preferencia">
+                            Festivais
+                        </label>
+                        <label>
+                            <input type="checkbox" name="preferencias[]" value="esportes" class="btn-preferencia">
+                            Esportes
+                        </label>
+                        <label>
+                            <input type="checkbox" name="preferencias[]" value="gastronomia" class="btn-preferencia">
+                            Gastronomia
+                        </label>
+                        <label>
+                            <input type="checkbox" name="preferencias[]" value="teatro" class="btn-preferencia">
+                            Teatro
+                        </label>
+                        <label>
+                            <input type="checkbox" name="preferencias[]" value="musica" class="btn-preferencia">
+                            Música
+                        </label>
+                    </div>
+                    <hr>
+                    <button class="aplicar">Aplicar</button>
+
+
+                </form>
+
+            </dialog>
+    </main>
+    <footer>
         <div class="coluna-footer">
-            <h1>Explora+</h1>
-            <p>Descubra os melhores eventos da sua cidade 
-            e planeje viagens inesquecíveis.</p>
+            <div class="coluna-explora">
+                <h1>Explora+</h1>
+                <p>Descubra os melhores eventos da sua cidade
+                    e planeje viagens inesquecíveis.</p>
+            </div>
         </div>
         <div class="coluna-footer">
             <h1>Sobre Nós</h1>
             <div class="links-footer">
-                <a href="">Sobre Nós</a>
-                <a href="">Carreiras </a>
-                <a href="">Parcerias</a>
-                <a href="">Blog</a>
+                <p>Sobre Nós</p>
+                <p>Carreiras </p>
+                <p>Parcerias</p>
+                <p>Blog</p>
             </div>
         </div>
         <div class="coluna-footer">
             <h1>Suporte</h1>
             <div class="links-footer">
-                <a href="">Ajuda</a>
-                <a href="">Contato</a>
-                <a href="">Política de Privacidade</a>
-                <a href="">Termos De Uso</a>
+                <p>Ajuda</p>
+                <p>Contato</p>
+                <p>Política de Privacidade</p>
+                <p>Termos De Uso</p>
             </div>
         </div>
     </footer>
-        <script src="javascript/preferencias.js"></script>
+    <script src="javascript/preferencias.js"></script>
 </body>
+
 </html>
