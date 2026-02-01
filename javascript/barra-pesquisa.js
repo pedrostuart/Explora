@@ -36,16 +36,8 @@ inputCarrosel.addEventListener("input", (evento)=>{ /*ouvi quando eu digito algo
 
     /*abrir caixa quando clicar no input*/
     
-    /*boxPesquisa.style.display = 'flex'
+    boxPesquisa.style.display = 'flex'
 
-    /*fechar caixa quando clica fora dela*/
-    /*document.addEventListener("click", (event)=>{
-    let documentoClick = event.target
-
-    if (documentoClick !== inputCarrosel && documentoClick !== boxPesquisa){
-        boxPesquisa.style.display = 'none'
-    }
-    })*/
-
+    
 }
 )

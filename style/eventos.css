@@ -14,6 +14,7 @@ html, body{
 }
 main{
     display: flex;
+    min-height: 100%;
 }
 /*MENU LATERAL*/
 
@@ -220,6 +221,12 @@ h2{
     color: white;
     
 }
+.itens-pesquisa #txt-pesquisas{
+    display: none;
+    color: black;
+    text-align: center;
+    margin: 0;
+}
 /*CARROSEL BARRA PESQUISA*/
 
 /*DESCOBIR EVENTOS (EVENTOS)*/
@@ -417,7 +424,7 @@ h2{
     font-size: 0.9rem;
     cursor: pointer;
     display: block;
-    margin: auto;
+    margin: 0 auto;
 }
 }
 @media screen and (max-width: 537px){

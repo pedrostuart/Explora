@@ -9,6 +9,13 @@
     --sombra: 0px 1px 5px #8e8e8ead;
     --borda-botao: 35px;
 }
+html, body{
+    min-height: 100vh;
+}
+main{
+    min-height: 100vh;
+    
+}
 .favoritados{
     display: flex;
     flex-direction: column;
@@ -176,6 +183,12 @@
 }
 .btn-preferencia-resposivo{
     display: none;
+}
+.itens-pesquisa #txt-pesquisas{
+    display: none;
+    color: black;
+    text-align: center;
+    margin: 0;
 }
 /*BARRA DE PESQUISA*/
 @media screen and (max-width: 770px){
