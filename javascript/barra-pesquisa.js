@@ -10,7 +10,6 @@ inputCarrosel.addEventListener("input", (evento)=>{ /*ouvi quando eu digito algo
     /*receber valor do input*/
     let valorInput = formatText(evento.target.value) /*pegando valor digitado e formatando com a função*/
 
-    
 
     let itens = document.querySelectorAll(".itens-pesquisa a")
     let txtSemResultados = document.getElementById("txt-pesquisas")
@@ -19,9 +18,7 @@ inputCarrosel.addEventListener("input", (evento)=>{ /*ouvi quando eu digito algo
     
     itens.forEach(item =>{/*Editando todos ITENS*/
         if(formatText(item.textContent).indexOf(valorInput) == -1){/*se todos os caracteres que tem dentro de ITEM não bater com VALORINPUT, o item ira sumir*/
-
             item.style.display = 'none'
-            
         }else{
             item.style.display = 'flex'
             todosResultados = true /*apenas para definir um valor que eu possa usar em outro if/else*/

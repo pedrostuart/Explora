@@ -28,24 +28,23 @@
 }
 .barra_pesquisa{
     width: 693px;
-    position: relative;
-    
     background-color: white;
     height: 64px;
     border-radius: var(--borda-botao);
     display: flex;
     box-shadow: var(--sombra);
-    margin: auto;
+    margin: 20px auto;
+    flex-direction: row-reverse;
     
 }
 .barra_pesquisa input{
-    width: 500px;
+    width: 600px;
     margin: auto;
     height: 100%;
-    border-bottom-left-radius: 33px;
-    border-top-left-radius: 33px;
+    border-bottom-right-radius: 33px;
+    border-top-right-radius: 33px;
     border: 0;
-    margin-left: 20px;
+    margin-left: 12px;
 }
 .barra_pesquisa input:focus{
     outline: none;
@@ -55,13 +54,12 @@
     border-radius: var(--borda-botao);
     border: 0;
     background-color: var(--verde);
-    margin: auto;
+    margin: auto auto auto 20px;
     padding: 10px;
     gap: 5px;
-    margin-right: 20px;
     cursor: pointer;
     color: white;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: bold;
 }
 .btn_pesquisar .bi-search{
@@ -115,17 +113,16 @@
     display: flex;
 }
 /*EVENTOS*/
-.linha_eventos{
-    padding: 30px 20px 20px 20px;
+/*DESCOBIR EVENTOS (EVENTOS)*/
+.itens-pesquisa{
+    padding: 20px;
     display: flex;
     gap: 20px;
-    align-items: center;
-    justify-content: center;
+    margin: 0 auto;
     flex-wrap: wrap;
     position: relative;
-    overflow: auto;
-    max-width: 1500px;
-    margin: auto;
+    justify-content: center;
+    
 }
 .caixa_eventos{
     width: 241px;
@@ -134,12 +131,14 @@
     border-radius: 14px;
     font-weight: bold;
     box-shadow: 5px 5px 10px #8e8e8e;
+    text-decoration: none;
+    flex-direction: column;
 }
 .caixa_eventos:hover{
     transform: translateY(-5px);
     transition: 0.5s;
 }
-.data_evento{
+.caixa_eventos .data_evento{
     position: absolute;
     padding: 5px;
     background-color: var(--azul);
@@ -149,27 +148,34 @@
     font-size: 0.9rem;
     cursor: pointer;
     font-weight: bold;
-
+    
 }
 .data_evento:hover{
     background-color: white;
     border: 1px solid var(--azul);
     color: var(--azul);
 }
-.caixa_eventos a img{
-    width: 241px;
-    height: 145px;
+.caixa_eventos img{
+    width: 100%;
+    height: 70%;
     border-top-left-radius: 14px;
     border-top-right-radius: 14px;
 }
-.caixa_eventos .nome_show, .distancia_show{
-    padding-left: 7px;
-    padding-top: 7px;
+.texto-evento .nome_show{
+    color: black;
+    
     font-weight: bold;
 }
-.caixa_eventos .distancia_show{
+.texto-evento .distancia_show{
     color: #8e8e8e;
     font-size: 0.7rem;
+}
+.texto-evento{
+    margin-top: 11px;
+    margin-left: 7px;
+}
+.btn-preferencia-resposivo{
+    display: none;
 }
 /*BARRA DE PESQUISA*/
 @media screen and (max-width: 770px){

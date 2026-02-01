@@ -90,7 +90,9 @@
 .titulo_icon i{
     color: var(--verde);
 }
-
+.ler-mais{
+    display: none;
+}
 /*Parte de CIMA*/
  
 .info_sobre_evento{
@@ -297,6 +299,9 @@
     border-top-left-radius: 14px;
     border-top-right-radius: 14px;
 }
+.eventos-recomendados .texto-evento{
+    padding: 5px;
+}
 .eventos-recomendados .data_evento{
     position: absolute;
     padding: 5px;
@@ -309,16 +314,13 @@
     font-weight: bold;
 }
 .nome_show, .distancia_show{
-    padding: 0px 10px 10px 10px;
     font-weight: bold;
 }
 .distancia_show{
     color: #8e8e8e;
     font-size: 0.7rem;
 }
-.ler-mais{
-    display: none;
-}
+
 .btn-preferencia{
     background-color: var(--azul);
     padding: 9px 10px;

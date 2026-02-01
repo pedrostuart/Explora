@@ -129,12 +129,14 @@
     .single-item a img{
         width: 100%;
         height: 155px;
+        border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
     }
     .slick-slide{
         box-shadow: none;
     }
-    .slick-slide .nome_show{
-        padding-top: 4px;
+    .slick-slide .texto-evento{
+        padding: 5px;
     }
     .slick-track{
         display: flex;

@@ -115,7 +115,7 @@ input:focus{
 .itens-pesquisa .texto-evento{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 10px;  
 }
 .itens-pesquisa .texto-evento p{
     color: black;
@@ -196,14 +196,16 @@ input:focus{
     color: var(--azul);
 }
 .caixa_eventos a img{
-    width: 241px;
-    height: 145px;
+    width: 100%;
+    height: 75%;
     border-top-left-radius: 14px;
     border-top-right-radius: 14px;
 }
-.caixa_eventos .nome_show, .distancia_show{
-    padding-left: 7px;
-    padding-top: 7px;
+.caixa_eventos .texto-evento{
+    margin-left: 7px;
+    margin-top: 3px;
+}
+.caixa_eventos .nome_show{
     font-weight: bold;
 }
 .caixa_eventos .distancia_show{
@@ -213,28 +215,6 @@ input:focus{
 
 /*CARROSEL EVENTOS*/
 
-.carrosel-viewport{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    
-}
-
-.carrosel-viewport button{
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-.carrosel-viewport button:hover{
-    transform: translateY(-3px);
-    transition: 0.5s;
-}
-.carrosel-viewport i{
-    font-size: 2.5rem;
-    color: var(--verde);
-    font-weight: bolder;
-}
 .carrosel-eventos{
     width: 400px;
     height: 244px;
@@ -243,37 +223,12 @@ input:focus{
     font-weight: bold;
     box-shadow: 5px 5px 10px #8e8e8e;
 }
-.carrosel-eventos a img{
-    width: 400px;
-    height: 175px;
-    border-top-left-radius: 14px;
-    border-top-right-radius: 14px;
-}
 .carrosel-eventos .nome_show, .distancia_show{
-    padding-left: 8.5px;
-    padding-top: 8.5px;
     font-weight: bold;
 }
 .carrosel-eventos .distancia_show{
     color: #8e8e8e;
     font-size: 0.85rem;
-}
-.carrossel-indicadores{
-    justify-content: center;
-    display: flex;
-    gap: 8px;
-    margin-top: 15px;
-}
-.carrossel-indicadores button {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: none;
-    background-color: #555;
-}
-.carrossel-indicadores .ativo{
-    background-color: white;
-    border: 1px solid black;
 }
 
 /*BARRA PESQUISA*/
@@ -320,25 +275,16 @@ input:focus{
             width: 200px;
             height: 180px;
         }
-        .caixa_eventos a img{
-            width: 200px;
-            height: 120px;
-        }
         .caixa_eventos .data_evento{
             font-size: 0.75rem;
             letter-spacing: 0.2px;
             font-weight: bold;
         }
-        
 }
 @media screen and (max-width: 706px){
     
     .linha_eventos{
         display: none;
-    }
-    .distancia_show{
-        padding-top: 2.5px;
-        padding-bottom: 5px;
     }
 }
 @media screen and (max-width: 537px){
@@ -346,33 +292,14 @@ input:focus{
         width: 100%;
         height: 234px;
     }
-    .carrosel-eventos a img{
-        width: 100%;
-        height: 164px;
-    }
 }    
 @media screen and (max-width: 498px){
     .carrosel-eventos{
         height: 204px;
     }
-    .carrosel-eventos a img{
-        height: 140px;
-    }
-    .carrosel-viewport{
-        gap: 3px;
-    }
-    .nome_show, .distancia_show{
-        padding-top: 5px;
-    }
 }
 @media screen and (max-width: 380px){
     .carrosel-eventos{
         height: 184px;
-    }
-    .carrosel-eventos a img{
-        height: 125px;
-    }
-    .nome_show, .distancia_show{
-        padding-top: 2.5px;
     }
 }
