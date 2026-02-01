@@ -9,8 +9,11 @@
     --sombra: 0px 1px 5px #8e8e8ead;
     --borda-botao: 35px;
 }
+html, body{
+    min-height: 100vh;
+}
 main{
-    display: flex;;
+    display: flex;
 }
 /*MENU LATERAL*/
 
@@ -314,7 +317,9 @@ h2{
     }
 }
 @media screen and (max-width: 660px){
-    
+    .itens-pesquisa{
+        margin: 0;
+    }
     .barra_pesquisa{
         width: 450px;
     }
