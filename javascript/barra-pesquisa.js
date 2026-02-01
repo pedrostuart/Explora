@@ -26,7 +26,7 @@ inputCarrosel.addEventListener("input", (evento)=>{ /*ouvi quando eu digito algo
         
     })  
     
-    if(todosResultados == true){
+    if(todosResultados){
         if(txtSemResultados){txtSemResultados.style.display = 'none'}/*se txtSemResultados existir no html ele faz a ação*/
         if(vermaisEventos){vermaisEventos.style.display = 'block'}/*se vermaisEventos existir no html ele faz a ação*/
     }else{
@@ -49,5 +49,3 @@ inputCarrosel.addEventListener("input", (evento)=>{ /*ouvi quando eu digito algo
 
 }
 )
-
-

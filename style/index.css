@@ -239,6 +239,20 @@ input:focus{
     .carrosel{
         height: 40vh;
     }
+    .itens-pesquisa{
+        width: 450px;
+        top: 288px;
+    }
+}
+@media screen and (max-width: 685px){
+.itens-pesquisa{
+        top: 282px;
+    }
+}
+@media screen and (max-width: 635px){
+    .itens-pesquisa{
+        top: 292px;
+    }
 }
 @media screen and (max-width: 625px){
     .carrosel{
@@ -252,6 +266,11 @@ input:focus{
         padding: 10px;
         font-size: 0.75rem;
     }
+    .itens-pesquisa{
+        top: 251px;
+        width: 300px;
+        padding-left: 10px;
+    }
 }
 @media screen and (max-width: 510px){
     .carrosel .barra_pesquisa{
@@ -263,12 +282,46 @@ input:focus{
     input{
         margin-left: 10px;
     }
+    .itens-pesquisa{
+        width: 270px;
+    }
 }
+@media screen and (max-width: 408px){
+    .itens-pesquisa{
+        top: 239px;
+    }
+} 
 @media screen and (max-width: 400px){
     .carrosel .barra_pesquisa{
         width: 300px;
     }
-} 
+    .itens-pesquisa{
+        width: 220px;
+        padding-right: 0;
+
+    }
+    .itens-pesquisa a{
+        gap: 7px;
+    }
+    .itens-pesquisa .texto-evento{
+        gap: 5px;
+    }
+    .itens-pesquisa .texto-evento .distancia_show{
+        font-size: 0.8rem;
+    }
+}
+@media screen and (max-width: 352px){
+    .itens-pesquisa{
+        top: 232px;
+    }
+}
+@media screen and (max-width: 333px){
+    .itens-pesquisa{
+        top: 242px;
+    }
+}
+/*BARRA PESQUISA*/
+
 /*LINHA EVENTOS*/
 @media screen and (max-width: 1094px){
         .caixa_eventos{
