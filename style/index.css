@@ -38,6 +38,7 @@
     height: 64px;
     border-radius: var(--borda-botao);
     display: flex;
+    position: relative;
 }
 input{
     width: 500px;
@@ -81,7 +82,7 @@ input:focus{
     padding: 20px;
     flex-direction: column;    
     position: absolute;
-    top: 40.3%;
+    top: 64px;
     z-index: 1000;
     display: none;
     gap: 5px;
@@ -241,17 +242,17 @@ input:focus{
     }
     .itens-pesquisa{
         width: 450px;
-        top: 35.2%;
+       /* top: 35.2%;*/
     }
 }
 @media screen and (max-width: 685px){
 .itens-pesquisa{
-        top: 34.6%;
+        /*top: 34.6%;*/
     }
 }
 @media screen and (max-width: 635px){
     .itens-pesquisa{
-        top: 292px;
+       /* top: 292px;*/
     }
 }
 @media screen and (max-width: 625px){
