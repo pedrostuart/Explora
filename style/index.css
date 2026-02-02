@@ -268,7 +268,7 @@ input:focus{
         font-size: 0.75rem;
     }
     .itens-pesquisa{
-        top: 251px;
+       /* top: 251px;*/
         width: 300px;
         padding-left: 10px;
     }
@@ -289,7 +289,7 @@ input:focus{
 }
 @media screen and (max-width: 408px){
     .itens-pesquisa{
-        top: 239px;
+        /*top: 239px;*/
     }
 } 
 @media screen and (max-width: 400px){
@@ -313,12 +313,12 @@ input:focus{
 }
 @media screen and (max-width: 352px){
     .itens-pesquisa{
-        top: 232px;
+        /*top: 232px;*/
     }
 }
 @media screen and (max-width: 333px){
     .itens-pesquisa{
-        top: 242px;
+       /* top: 242px;*/
     }
 }
 /*BARRA PESQUISA*/
