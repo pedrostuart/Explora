@@ -23,14 +23,12 @@
     justify-content: center;
     flex-direction: column;
     
-    
 }
 .carrosel p{
     font-weight: bold;
     color: white;
     text-align: center;
 
-    margin-bottom: 20px;
 }
 .carrosel .barra_pesquisa{
     width: 693px;
@@ -63,7 +61,6 @@ input:focus{
     color: white;
     font-size: 0.9rem;
     font-weight: bold;
-    
 }
 .btn_pesquisar .bi-search{
     color: white;
@@ -79,12 +76,11 @@ input:focus{
     border-bottom-left-radius: var(--borda-caixa);
     border-bottom-right-radius: var(--borda-caixa);
     padding: 20px;
-    flex-direction: column;    
-    position: absolute;
-    top: 325px;
+    flex-direction: column;   
     z-index: 1000;
-    display: none;
     gap: 5px;
+    position: absolute;
+    top: 315px;
 }
 .itens-pesquisa a{
     text-decoration: none;

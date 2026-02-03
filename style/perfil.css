@@ -438,22 +438,21 @@ main i{
     display: flex;
     overflow: auto;
     flex-direction: column;
-    max-height: 418px;
+    max-height: 300px;
+
 }
 .box-icons-conquistas{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
+    flex-direction: column;
     
 }
 .conquistas{
-    width: 117px;
-    height: 147px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     background-color: #d9d9d9;
     border-radius: var(--borda-caixa);
     box-shadow: var(--sombra);
@@ -465,9 +464,38 @@ main i{
     padding: 15px;
     font-size: 1.2rem;
     border-radius: 50%;
+    
 }
-.conquistas h3, p{
-    text-align: center;
+.conquistas p{
+    background-color: white;
+    border-radius: var(--borda-botao);
+    padding: 0px 2px 2px 2px;
+    width: 200px;
+
+}
+.conquistas span{
+    background-color: #1A824D;
+    padding: 2px 2px 2px 5px;
+    margin: -2px;
+    display: inline-block;
+    font-weight: bold;
+    height: 100%;
+    font-size: 12px;
+    color: white;
+    text-align: left;
+    border-radius: var(--borda-botao);
+}
+
+.conquistas span:nth-child(2){
+    width: 100px;
+}
+
+.conquistas h3{
+    font-size: 0.9rem;
+}
+.conquistas .txt{
+    display: flex;
+    flex-direction: column;
 }
 
 /*RESPONSIVIDADE */
