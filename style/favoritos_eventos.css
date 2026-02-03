@@ -129,7 +129,7 @@ main{
     flex-wrap: wrap;
     position: relative;
     justify-content: center;
-    
+    max-width: 1400px;
 }
 .caixa_eventos{
     width: 241px;
