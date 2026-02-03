@@ -20,10 +20,11 @@ footer{
 .coluna-footer h1{
     color: white;
     font-size: 1.3rem;
+    text-align: center;
 }
 .coluna-footer a{
     color: white;
-    text-decoration: underline;
+    text-decoration: none;
     font-size: 0.8rem;
     font-weight: normal;
 }
@@ -32,6 +33,15 @@ footer{
     text-decoration: none;
     font-size: 0.8rem;
     font-weight: normal;
+}
+.links-redes{
+    display: flex;
+    gap: 20px;
+        justify-content: center;
+}
+.links-redes i{
+    
+    font-size: 2rem;
 }
 
 .coluna-explora{

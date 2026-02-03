@@ -513,7 +513,7 @@ main i{
         font-size: 1.1rem;
     }
 }
-@media screen and (max-width: 460px){
+@media screen and (max-width: 490px){
     .cabecalho{
         height:190px;
         margin: 30px 12px;
@@ -587,10 +587,12 @@ main i{
     .box-favoritos{
         max-height: 346px;
         margin: auto; 
+        width: 85%;
     }
     .box-dados{
         max-height: 590px;
         margin: auto; 
+        width: 85%;
     }
     .configuracao{
         flex-direction: column-reverse;
@@ -602,15 +604,13 @@ main i{
 }
 @media screen and (max-width: 774px){
     .box-conquistas{
-        width: 250px;
+        width: 300px;
+        margin: auto;
     }
 }
-@media screen and (max-width: 774px){
+@media screen and (max-width: 760px){
     .barra-lateral{
         flex-direction: column;
-    }
-    .box-conquistas{
-        width: 311px;
     }
 }
 @media screen and (max-width: 636px){
@@ -624,6 +624,11 @@ main i{
         margin: auto;
     }
 }
+@media screen and (max-width: 582px){
+    .box-dados .titulo-dados h2{
+        font-size: 16px;
+    }
+}
 @media screen and (max-width: 480px){
     .box-historico{
         padding: 16px;
@@ -634,9 +639,21 @@ main i{
     .box-notificacao{
         height: 200px;
     }
+    .box-dados{
+        padding: 16px;
+        width: 90%;
+    }
     .box-favoritos{
         padding: 16px;
         width: 90%;
+    }
+    .eventos-salvos{
+        padding: 20px;
+    }
+}
+@media screen and (max-width: 404px){
+    .titulo-atividade h2{
+        font-size: 16px;
     }
 }
 @media screen and (max-width: 390px){

@@ -36,6 +36,8 @@
     height: 64px;
     border-radius: var(--borda-botao);
     display: flex;
+    position: relative;
+    justify-content: center;
 }
 input{
     width: 500px;
@@ -76,11 +78,13 @@ input:focus{
     border-bottom-left-radius: var(--borda-caixa);
     border-bottom-right-radius: var(--borda-caixa);
     padding: 20px;
-    flex-direction: column;   
-    z-index: 1000;
-    gap: 5px;
+    flex-direction: column;    
     position: absolute;
-    top: 315px;
+    top: 64px;
+    z-index: 1000;
+    display: none;
+    
+    gap: 5px;
 }
 .itens-pesquisa a{
     text-decoration: none;
@@ -235,20 +239,6 @@ input:focus{
     .carrosel{
         height: 40vh;
     }
-    .itens-pesquisa{
-        width: 450px;
-        top: 288px;
-    }
-}
-@media screen and (max-width: 685px){
-.itens-pesquisa{
-        top: 282px;
-    }
-}
-@media screen and (max-width: 635px){
-    .itens-pesquisa{
-        top: 292px;
-    }
 }
 @media screen and (max-width: 625px){
     .carrosel{
@@ -263,7 +253,7 @@ input:focus{
         font-size: 0.75rem;
     }
     .itens-pesquisa{
-        top: 251px;
+        top: 54px;
         width: 300px;
         padding-left: 10px;
     }
@@ -282,11 +272,6 @@ input:focus{
         width: 270px;
     }
 }
-@media screen and (max-width: 408px){
-    .itens-pesquisa{
-        top: 239px;
-    }
-} 
 @media screen and (max-width: 400px){
     .carrosel .barra_pesquisa{
         width: 300px;
@@ -304,16 +289,6 @@ input:focus{
     }
     .itens-pesquisa .texto-evento .distancia_show{
         font-size: 0.8rem;
-    }
-}
-@media screen and (max-width: 352px){
-    .itens-pesquisa{
-        top: 232px;
-    }
-}
-@media screen and (max-width: 333px){
-    .itens-pesquisa{
-        top: 242px;
     }
 }
 /*BARRA PESQUISA*/
