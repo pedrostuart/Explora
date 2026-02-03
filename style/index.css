@@ -63,6 +63,7 @@ input:focus{
     color: white;
     font-size: 0.9rem;
     font-weight: bold;
+    text-decoration: none;    
 }
 .btn_pesquisar .bi-search{
     color: white;

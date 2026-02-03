@@ -93,7 +93,7 @@ main i{
     box-shadow: var(--sombra);
     border-radius: var(--borda-caixa);
     padding: 10px;  
-    height: 300px;
+    height: 200px;
     background-color: white;
 }
 
@@ -212,7 +212,7 @@ main i{
     padding: 36px;
     background-color: white;
     display: none;
-    max-height: 673px;
+    max-height: 545PX;
     flex-direction: column;
     overflow: auto;
 }
@@ -438,7 +438,7 @@ main i{
     display: flex;
     overflow: auto;
     flex-direction: column;
-    max-height: 300px;
+    max-height: 100%;
 
 }
 .box-icons-conquistas{
@@ -578,7 +578,13 @@ main i{
     
 }
 /*MAIN*/
-@media screen and (max-width: 860px){
+@media screen and (max-width: 860px){/*360*/
+    .box-notificacao{
+        height: 300px;
+    }
+    .box-conquistas{
+        max-height: 300px;
+    }
     .box-historico{
         max-height: 346px; 
         margin: auto;
@@ -609,10 +615,52 @@ main i{
     }
 }
 @media screen and (max-width: 760px){
+    .configuracao{
+        padding: 20px;
+    }
     .barra-lateral{
-        flex-direction: column;
+        gap: 10px;
+    }
+    
+}
+@media screen and (max-width: 713px){
+    .box-notificacao .input-check{
+        padding-right: 0;    
+        padding-left: 0;
+    }
+    .box-notificacao{
+        width: 270px;
+    }
+    .box-notificacao .input-check label{
+        font-size: 14px;
     }
 }
+@media screen and (max-width: 670px){
+    .barra-lateral{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .box-notificacao{
+        height: 200px;
+    }
+    .box-notificacao .input-check{
+        padding-right: 13px;    
+        padding-left: 13px;
+    }
+    .box-notificacao{
+        width: 311px;
+        padding: 14.5px;
+    }
+    .box-notificacao .input-check label{
+        font-size: 15.8px;
+    }
+    .box-conquistas{
+        padding: 20px;
+    }
+    }
+    
+    
+
 @media screen and (max-width: 636px){
     .config-dados{
         width: 250px;
@@ -675,7 +723,8 @@ main i{
         padding: 10px 0px;
     }
     .box-conquistas{
-        padding: 10px 0px;
+        padding: 20px;
+        width: 270px;
     }
     .configuracao{
         padding: 10px;

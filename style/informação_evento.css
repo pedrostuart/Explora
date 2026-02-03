@@ -197,6 +197,19 @@
     align-items: center;
     gap: 20px;
 }
+.btn-ativo{
+    border: 1px solid var(--azul); 
+    background-color: white;
+    border-radius: var(--borda-botao);
+    color: var(--azul);
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px 12px;
+}
+.btn-ativo i{
+    color: red;
+}
 /*LOCAL CAIXA DE INGRESSO*/
 .local {
     color: black;

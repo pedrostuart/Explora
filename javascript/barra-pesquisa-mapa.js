@@ -7,15 +7,7 @@ btnPesquisar.addEventListener('click', ()=>{
     let formatText = eventos.replaceAll(" ", "+")
     let mapa = document.querySelector(".mapa iframe")
 
-    mapa.src = `https://www.google.com/maps?q=${formatText}&z=10&output=embed`
-})
-
-let inputPreferenca = document.querySelectorAll(".label-preferencias input")  
-let btnFiltrar = document.querySelector(".btn-filtrar ")  
-
-console.log(btnFiltrar)
-btnFiltrar.addEventListener("click", ()=>{
-
+    mapa.src = `https://www.google.com/maps?q=${formatText}&z=13&output=embed`
 })
 
 
