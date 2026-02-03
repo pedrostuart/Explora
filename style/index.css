@@ -239,6 +239,9 @@ input:focus{
     .carrosel{
         height: 40vh;
     }
+    .itens-pesquisa{
+        width: 450px;
+    }
 }
 @media screen and (max-width: 625px){
     .carrosel{
