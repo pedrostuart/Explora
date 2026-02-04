@@ -113,7 +113,6 @@ label{
     align-items: center;
     display: flex;
     gap: 5px;
-    border: 1px solid var(--verde);
     padding: 5px;
     border-radius: var(--borda-caixa);
 }
