@@ -58,8 +58,6 @@ main{
     color: var(--verde);
     font-size: 2.3rem;
 }
-
-
 /*INPUT*/
 form {
     display: flex;
