@@ -58,61 +58,54 @@
     <main>
         <section class="menu-lateral">
             <div class="fechar-link">
-                <a href="eventos.html"><span class="material-symbols-outlined">map_search</span>Visualizar Eventos</a>
+                <a href="mapa.html"><span class="material-symbols-outlined">map_search</span>Visualizar Mapa</a>
                 <button class="fechar-menu"><i class="bi bi-x"></i></button>
             </div>
-            
+
             <div class="preferencias">
-             <h2>Data</h2>   
-            <div class="label-preferencias">
-                
-                <label >
-                    <input type="checkbox" name="preferencias[]" value="cinema" >
-                    Hoje
-                </label>
-                <label>
-                    <input type="checkbox" name="preferencias[]" value="arte" >
-                    Amanhã
-                </label>
-                <label >
-                    <input type="checkbox" name="preferencias[]" value="festivais" >
-                    Esta Semana
-                </label>
-                <label >
-                    <input type="checkbox" name="preferencias[]" value="esportes" >
-                    Este Mês
-                </label>
-                <label >
-                    <input type="checkbox" name="preferencias[]" value="gastronomia" >
-                    Este Ano
-                </label>
-                
-            </div>
+                <h2>Data</h2>
+                <div class="label-preferencias">
+                    
+                    <input type="radio" name="preferencias[]" value="Hoje" id="hoje">
+                    <label for="hoje">Hoje</label>
+                    
+                    <input type="radio" name="preferencias[]" value="Amanhã" id="amanha">
+                    <label for="amanha">Amanhã</label>
+
+                    <input type="radio" name="preferencias[]" value="Esta semana" id="esta-semana">
+                    <label for="esta-semana">Esta Semana</label>
+                    
+                    <input type="radio" name="preferencias[]" value="Este mês" id="este-mes">
+                    <label for="este-mes">Este Mês</label>
+                    
+                    <input type="radio" name="preferencias[]" value="Este ano" id="este-ano">
+                    <label for="este-ano">Este Ano</label>
+                </div>
             </div>
             <div class="filtrar-distancia">
                 <h2>Distância</h2>
                 <div>
-                    <input type="radio" id="5km" name="distancia" class="radio">
+                    <input type="radio" id="5km" name="distancia" class="radio" value="5">
                     <label for="5km"> Até 5km de distância</label>
                 </div>
 
                 <div>
-                    <input type="radio" id="10km" name="distancia" class="radio">
+                    <input type="radio" id="10km" name="distancia" class="radio" value="10">
                     <label for="10km"> Até 10km de distância</label>
                 </div>
 
                 <div>
-                    <input type="radio" id="15km" name="distancia" class="radio">
+                    <input type="radio" id="15km" name="distancia" class="radio" value="15">
                     <label for="15km"> Até 15km de distância</label>
                 </div>
 
                 <div>
-                    <input type="radio" id="30km" name="distancia" class="radio">
+                    <input type="radio" id="30km" name="distancia" class="radio" value="30">
                     <label for="30km"> Até 30km de distância</label>
                 </div>
 
                 <div>
-                    <input type="radio" id="+50km" name="distancia" class="radio">
+                    <input type="radio" id="+50km" name="distancia" class="radio" value="50">
                     <label for="+50km"> Mais de 30km de distância</label>
                 </div>
             </div>
@@ -123,42 +116,22 @@
                     <input type="number" name="preco" id="preco" placeholder="Preço Máximo" min="0">
                 </div>
             </div>
+
             <div class="preferencias">
-             <h2>Preferencias</h2>   
-            <div class="label-preferencias">
-                
-                <label >
-                    <input type="checkbox" name="preferencias[]" value="cinema">
-                    Cinema
-                </label>
-                <label>
-                    <input type="checkbox" name="preferencias[]" value="arte" >
-                    Arte
-                </label>
-                <label >
-                    <input type="checkbox" name="preferencias[]" value="festivais" >
-                    Festivais
-                </label>
-                <label >
-                    <input type="checkbox" name="preferencias[]" value="esportes" >
-                    Esportes
-                </label>
-                <label >
-                    <input type="checkbox" name="preferencias[]" value="gastronomia" >
-                    Gastronomia
-                </label>
-                <label>
-                    <input type="checkbox" name="preferencias[]" value="teatro">
-                    Teatro
-                </label>
-                <label>
-                    <input type="checkbox" name="preferencias[]" value="musica" >
-                    Música
-                </label>
+                <h2>Preferencias</h2>
+                <div class="label-preferencias">
+                    <button name="preferencias[]" value="cinema" id="cinema">Cinema</button>
+                    <button name="preferencias[]" value="arte" id="arte">Arte</button>
+                    <button name="preferencias[]" value="festivais" id="festivais">Festivais</button>
+                    <button name="preferencias[]" value="esportes" id="esportes">Esportes</button>
+                    <button name="preferencias[]" value="gastronomia" id="gastronomia">Gastronomia</button>
+                    <button name="preferencias[]" value="teatro" id="teatro">Teatro</button>
+                    <button name="preferencias[]" value="musica" id="musica">Música</button>
+                </div>
             </div>
-            </div>
-            
+
             <hr>
+
             <div class="btn-filtrar">
                 <button class="btn-preferencia">Filtrar<i class="bi bi-funnel-fill"></i></button>
             </div>

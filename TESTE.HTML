@@ -1,0 +1,34 @@
+<STyle>
+    .grupo-radio {
+        display: flex;
+        gap: 10px;
+    }
+
+    /* esconde o radio real */
+    .grupo-radio input {
+        display: none;
+    }
+
+    /* estilo padrão (desmarcado) */
+    .grupo-radio label {
+        padding: 8px 16px;
+        border: 2px solid #1e40af;
+        border-radius: 999px;
+        color: #1e40af;
+        cursor: pointer;
+        font-weight: 500;
+    }
+
+    /* estilo quando estiver marcado */
+    .grupo-radio input:checked+label {
+        background: #1e40af;
+        color: white;
+    }
+</STyle>
+<div class="grupo-radio">
+    <input type="radio" name="categoria" id="arte">
+    <label for="arte">Arte</label>
+
+    <input type="radio" name="categoria" id="festivais">
+    <label for="festivais">Festivais</label>
+</div>
