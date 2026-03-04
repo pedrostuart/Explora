@@ -51,9 +51,14 @@ let labelsDatas = document.querySelectorAll(".label-preferencias input")
 let spanData = document.querySelectorAll(".label-preferencias label")
 
 let valorData
+
+        
 labelsDatas.forEach(btns =>{
     btns.addEventListener("click", ()=>{
         valorData = btns.value
+        
+        
+        
     })
 })
 
@@ -99,9 +104,8 @@ labelsGostos.forEach(btns =>{
             
             btns.classList.remove("selecionado")
             let posicao = valorPreferencia.indexOf(btns.value)/*indexOf olha o que ta dentro do array e compara com valor do btns*/ 
-            if(posicao == 0){
-                valorPreferencia.splice(posicao, 1)
-            }
+            valorPreferencia.splice(posicao, 1)
+            
         }
     })
 })
@@ -119,7 +123,21 @@ let valorRadio
 /*valor input*/
 
 btnFiltrar.addEventListener("click", ()=>{
-    console.log(valorData)
+    
+    let dataEvento = document.querySelectorAll(".itens-pesquisa a .data_evento")
+
+        dataEvento.forEach(data =>{
+            let mesAtual = new Date().getMonth() 
+            mesAtual + 1 
+            
+            let itens = document.querySelectorAll(".itens-pesquisa a")
+            itens.forEach(item =>{
+                if(data.textContent == mesAtual){
+                    
+                }
+            })
+            
+        })
     console.log(valorRadio)
     let orcamento = Number(document.getElementById("preco").value)
     console.log(orcamento)
