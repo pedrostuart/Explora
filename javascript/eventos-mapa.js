@@ -17,17 +17,73 @@ fecharMenuFiltros.addEventListener("click", ()=>{
     
     menuFiltrar.style.display = ''
 })
-
-
 let btnFiltrar = document.querySelector(".btn-filtrar .btn-preferencia")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*Datas*/
 let labelsDatas = document.querySelectorAll(".label-preferencias input")
+let spanData = document.querySelectorAll(".label-preferencias label")
+
 let valorData
 labelsDatas.forEach(btns =>{
     btns.addEventListener("click", ()=>{
         valorData = btns.value
     })
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*Preferencias*/
 
 let labelsGostos= document.querySelectorAll(".label-preferencias button")

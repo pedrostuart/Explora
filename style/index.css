@@ -171,7 +171,7 @@ input:focus{
 .caixa_eventos{
     width: 241px;
     height: 214px;
-    border: 2px solid var(--verde);
+    border: 1.5px solid var(--verde);
     border-radius: 14px;
     font-weight: bold;
     box-shadow: 5px 5px 10px #8e8e8e;
