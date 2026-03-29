@@ -25,9 +25,10 @@ function formatText(valorText){
     return valorText.toLowerCase().trim()
 }
 
-inputCarrosel.addEventListener("input", (evento)=>{ /*ouvi quando eu digito algo no input*/
+inputCarrosel.addEventListener("input", (evento)=>{ /*ouvi quando eu digito algo no input*/ /*oque eu digitei no input
     /*receber valor do input*/
-    let valorInput = formatText(evento.target.value) /*pegando valor digitado e formatando com a função*/
+    let valorInput = formatText(evento.target.value) /*trasncrevendo o valor digitado e formatando com a função*/
+    /*target lê o que eu digito e value pega o valor final*/
 
     let itens = document.querySelectorAll(".itens-pesquisa a")
     
