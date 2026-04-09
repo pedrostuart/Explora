@@ -47,7 +47,7 @@ h2{
     padding: 0px 0px 5px 5px;
 }
 
-.btn-preferencia{
+.btn-preferencia, .btn-preferencia-mapa{
     background-color: var(--azul);
     padding: 9px 10px;
     border-radius: var(--borda-botao);
@@ -195,7 +195,7 @@ h2{
     gap: 6.5px;
 }
 
-.btn-filtrar .btn-preferencia{
+.btn-filtrar .btn-preferencia-mapa{
     display: flex;
     margin: auto;
     gap: 4px;

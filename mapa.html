@@ -58,30 +58,10 @@
     <main>
         <section class="menu-lateral">
             <div class="fechar-link">
-                <a href="mapa.html"><span class="material-symbols-outlined">map_search</span>Visualizar Mapa</a>
+                <a href="mapa.html"><span class="material-symbols-outlined">map_search</span>Visualizar Eventos</a>
                 <button class="fechar-menu"><i class="bi bi-x"></i></button>
             </div>
 
-            <div class="preferencias">
-                <h2>Data</h2>
-                <div class="label-preferencias">
-                    
-                    <input type="radio" name="preferencias[]" value="Hoje" id="hoje">
-                    <label for="hoje">Hoje</label>
-                    
-                    <input type="radio" name="preferencias[]" value="Amanhã" id="amanha">
-                    <label for="amanha">Amanhã</label>
-
-                    <input type="radio" name="preferencias[]" value="Esta semana" id="esta-semana">
-                    <label for="esta-semana">Esta Semana</label>
-                    
-                    <input type="radio" name="preferencias[]" value="Este mês" id="este-mes">
-                    <label for="este-mes">Este Mês</label>
-                    
-                    <input type="radio" name="preferencias[]" value="Este ano" id="este-ano">
-                    <label for="este-ano">Este Ano</label>
-                </div>
-            </div>
             <div class="filtrar-distancia">
                 <h2>Distância</h2>
                 <div>
@@ -105,17 +85,11 @@
                 </div>
 
                 <div>
-                    <input type="radio" id="+50km" name="distancia" class="radio" value="50">
+                    <input type="radio" id="+50km" name="distancia" class="radio" value="3">
                     <label for="+50km"> Mais de 30km de distância</label>
                 </div>
             </div>
-            <div class="orcamento">
-                <h2>Orçamento Diponível</h2>
-                <div class="barra_input">
-                    <span class="material-symbols-outlined">attach_money</span>
-                    <input type="number" name="preco" id="preco" placeholder="Preço Máximo" min="0">
-                </div>
-            </div>
+            
 
             <div class="preferencias">
                 <h2>Preferencias</h2>
@@ -133,12 +107,12 @@
             <hr>
 
             <div class="btn-filtrar">
-                <button class="btn-preferencia">Filtrar<i class="bi bi-funnel-fill"></i></button>
+                <button class="btn-preferencia-mapa">Filtrar<i class="bi bi-funnel-fill"></i></button>
             </div>
         </section>
         <section class="mapa">
             
-                <iframe src="https://www.google.com/maps?q=eventos&z=13&output=embed" 
+                <iframe src="https://www.google.com/maps?q=eventos&output=embed" 
                 style="border:0;" 
                 allowfullscreen="" 
                 loading="lazy" 
@@ -174,7 +148,7 @@
         </div>
     </footer>
     <script src="javascript/menu.js"></script>
-    <script src="javascript/eventos-mapa.js"></script>
+    <script src="javascript/filtros-eventos-mapa.js"></script>
     <script src="javascript/barra-pesquisa-mapa.js"></script>
 </body>
 </html>

@@ -212,7 +212,6 @@ btnFiltrar.addEventListener("click", ()=>{
                 }
             }
         }
-
         item.style.display = exibirItem ? 'flex' : 'none';
     });
 })
