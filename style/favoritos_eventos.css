@@ -14,7 +14,190 @@ html, body{
 }
 main{
     min-height: 100vh;
+    display: flex;
+}
+/*MENU LATERAL*/
+
+.menu-lateral{
+    border-right: 1px solid #8e8e8e;
+    width: 330px;
+    padding: 20px 25px 25px 25px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: white;
+}
+
+/*MENU LATERAL (BOTÕES) (TITULO)*/
+h2{
+    font-size: 16px;
+    font-weight: bolder;
+    padding: 0px 0px 5px 5px;
+}
+/*BOTOES PREFERENCIAS*/
+.btn-preferencia{
+    background-color: var(--azul);
+    padding: 9px 10px;
+    border-radius: var(--borda-botao);
+    border: 1px solid var(--azul);
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+.label-preferencias{
+    flex-wrap: wrap;
+    display: flex;
+    gap: 6.5px;
+}
+.label-preferencias .selecionado{
+    background-color: white;
+    padding: 9px 10px;
+    border-radius: var(--borda-botao);
+    border: none;
+    color: var(--azul);
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    gap: 5px;
+    align-items: center;
+    border: 1px solid var(--azul);
+    display: flex;
+}
+.label-preferencias button{
+    background-color: var(--azul);
+    padding: 9px 10px;
+    border-radius: var(--borda-botao);
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    gap: 5px;
+    align-items: center;
+    display: flex;
+    border: 1px solid var(--azul);
+}
+/*EDITANDO INPUT DATA*/
+.label-preferencias input{
+    display: none;
+}
+.label-preferencias label{
+    background-color: var(--azul);
+    padding: 9px 10px;
+    border-radius: var(--borda-botao);
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    gap: 5px;
+    border: 1px solid var(--azul);
+}
+.label-preferencias input:checked+label{
+    background-color: white;
+    border: 1px solid var(--azul);
+    color: var(--azul);
+}
+/*MENU LATERAL (LINK)*/
+.menu-lateral .fechar-link{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
     
+}
+.menu-lateral a{
+    color: var(--verde);
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+.menu-lateral .fechar-menu{
+    display: none;
+}
+
+
+/*MENU LATERAL (DATA)*/
+
+.filtrar-data{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6.5px;
+}
+
+
+/*MENU LATERAL (DISTÂNCIA)*/
+
+.filtrar-distancia{
+    display: flex;
+    flex-direction: column;
+}
+.filtrar-distancia div{
+    display: flex;
+    gap: 10px;
+}
+.filtrar-distancia label{
+    color: #8e8e8e;
+    font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+/*MENU LATERAL (ORÇAMRNTO)*/
+
+
+.orcamento{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    
+}
+.orcamento .barra_input{
+    width: 210px;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--verde);
+    border-radius: var(--borda-botao);
+}
+.orcamento #preco{
+    padding: 10px 10px 10px 0px;
+}
+.orcamento label{
+    font-weight: bolder;
+    
+}
+.orcamento .material-symbols-outlined{
+    padding-left: 8px;
+    color: var(--verde);
+    font-size: 1.3rem;
+
+}
+.orcamento input{
+    border-radius: var(--borda-botao);
+    border: none;
+    width: 100%;
+    padding: 10px;
+}
+.orcamento input:focus{
+    outline: none;
+}
+
+/*MENU LATERAL (Gostos)*/
+
+
+.filtrar-gostos{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6.5px;
+}
+
+.btn-filtrar .btn-preferencia{
+    display: flex;
+    margin: auto;
+    gap: 4px;
 }
 .favoritados{
     display: flex;
