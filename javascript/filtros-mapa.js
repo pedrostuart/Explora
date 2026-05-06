@@ -14,6 +14,25 @@ fecharMenuFiltros.addEventListener("click", ()=>{
 })
 
 
+let labelsGostos= document.querySelectorAll(".label-preferencias button")
+
+let valorPreferencia = []
+labelsGostos.forEach(btns =>{
+    btns.addEventListener("click", ()=>{
+        
+        if(btns.className == ""){
+            btns.classList.add("selecionado")
+            valorPreferencia.push(btns.value)
+        }else{
+            
+            btns.classList.remove("selecionado")
+            let posicao = valorPreferencia.indexOf(btns.value)/*indexOf olha o que ta dentro do array e compara com valor do btns*/ 
+            valorPreferencia.splice(posicao, 1)
+            
+        }
+    })
+})
+
 /*valores radios*/
 
 let radiosKm = document.querySelectorAll(".radio")
@@ -25,20 +44,8 @@ let valorRadio
 })
 
 let btnFiltrar = document.querySelector(".btn-filtrar .btn-preferencia-mapa")
-let btnPesquisar = document.querySelector(".barra_pesquisa .btn_pesquisar")
 
-btnPesquisar.addEventListener("click", ()=>{
-    let valorPesquisaLocal = document.querySelector(".input-pesquisa").value
-    let eventos = `${valorPesquisaLocal.trim()}`
-    let formatText = eventos.replaceAll(" ", "+")
-    let mapa = document.querySelector(".mapa iframe")
-
-    if(formatText === ''){
-        mapa.src = `https://www.google.com/maps?q=eventos&z=${valorRadio}&output=embed`     
-    }else{
-        mapa.src = `https://www.google.com/maps?q=${formatText}&z=${valorRadio}&output=embed`
-    }
+btnFiltrar.addEventListener("click", ()=>{
+    console.log(valorRadio)
+    console.log(valorPreferencia)
 })
-
-
-

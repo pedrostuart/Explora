@@ -22,7 +22,7 @@ html, body{
     border-right: 1px solid #8e8e8e;
     width: 322px;
     padding: 20px 25px 25px 25px;
-    height: 93.8vh;
+    height: 180px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -47,69 +47,6 @@ h2{
     padding: 0px 0px 5px 5px;
 }
 
-.btn-preferencia, .btn-preferencia-mapa{
-    background-color: var(--azul);
-    padding: 9px 10px;
-    border-radius: var(--borda-botao);
-    border: 1px solid var(--azul);
-    color: white;
-    font-weight: bold;
-    font-size: 0.9rem;
-    cursor: pointer;
-}
-.label-preferencias{
-    flex-wrap: wrap;
-    display: flex;
-    gap: 6.5px;
-}
-.label-preferencias .selecionado{
-    background-color: white;
-    padding: 9px 10px;
-    border-radius: var(--borda-botao);
-    border: none;
-    color: var(--azul);
-    font-weight: bold;
-    font-size: 0.9rem;
-    cursor: pointer;
-    gap: 5px;
-    align-items: center;
-    border: 1px solid var(--azul);
-    display: flex;
-}
-.label-preferencias button{
-    background-color: var(--azul);
-    padding: 9px 10px;
-    border-radius: var(--borda-botao);
-    border: none;
-    color: white;
-    font-weight: bold;
-    font-size: 0.9rem;
-    cursor: pointer;
-    gap: 5px;
-    align-items: center;
-    display: flex;
-    border: 1px solid var(--azul);
-}
-.label-preferencias input{
-    display: none;
-}
-.label-preferencias label{
-    background-color: var(--azul);
-    padding: 9px 10px;
-    border-radius: var(--borda-botao);
-    border: none;
-    color: white;
-    font-weight: bold;
-    font-size: 0.9rem;
-    cursor: pointer;
-    gap: 5px;
-    border: 1px solid var(--azul);
-}
-.label-preferencias input:checked+label{
-    background-color: white;
-    border: 1px solid var(--azul);
-    color: var(--azul);
-}
 /*MENU LATERAL (LINK)*/
 
 .menu-lateral a{
@@ -187,7 +124,9 @@ h2{
 }
 
 /*MENU LATERAL (Gostos)*/
-
+iframe html .place-details-compact-container{
+    margin-top: 200px;
+}
 
 .filtrar-gostos{
     display: flex;
