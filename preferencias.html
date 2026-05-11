@@ -24,7 +24,7 @@
 
                 <div class="barra_input">
                     <img src="img/icone-logo.png" alt="">
-                    <select name="local" id="local">
+                    <select name="local" id="local" required>
                         <option value="" selected disabled>Selecione seu local</option>
                         <option value="acre">Acre</option>
                         <option value="alagoas">Alagoas</option>
@@ -59,27 +59,30 @@
 
                 <div class="barra_input">
                     <span class="material-symbols-outlined">attach_money</span>
-                    <input type="number" name="preco" id="preco" placeholder="Orçamento Disponível" min="0">
+                    <input type="number" name="preco" id="preco" placeholder="Orçamento Disponível" min="0" required>
                 </div>
 
 
-                <button class="aplicar-preferencias">Adicionar Preferências<i class="bi bi-sliders"></i></button>
-
+                
 
 
                 <div>
-                    <div class="barra_input-nascimento">
-                        <span class="material-symbols-outlined">calendar_month</span>
+                <div class="barra_input-nascimento">
+                    <span class="material-symbols-outlined">calendar_month</span>
+                    <div >
+                        
                         <input type="number" class="data-nascimento" placeholder="Dia" name="data-nascimento" min="1"
-                            max="31" id="dia">
+                            max="31" id="dia" required>/
                         <input type="number" class="data-nascimento" placeholder="Mês" name="data-nascimento" min="1"
-                            max="12" id="mes">
+                            max="12" id="mes" required>/
                         <input type="number" class="data-nascimento" placeholder="Ano" name="data-nascimento" min="1900"
-                            minlength="4" id="ano">
+                            minlength="4" id="ano" required>
 
                     </div>
-                    <label for="data-nascimento">Data de Nascimento</label>
                 </div>
+                <label for="data-nascimento">Data de Nascimento</label>
+                </div>
+                <button class="aplicar-preferencias">Adicionar Preferências<i class="bi bi-sliders"></i></button>
                 <button class="btn-finalizar">Finalizar Cadastro</button>
             </form>
             <dialog class="modal">

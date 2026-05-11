@@ -108,19 +108,23 @@ label{
 .barra_input-nascimento{
     align-items: center;
     display: flex;
+    justify-content: space-between;
     gap: 5px;
-    padding: 5px;
-    border-radius: var(--borda-caixa);
+    border-radius: var(--borda-botao);
+    border: 1px solid var(--verde);
+
+}
+.barra_input-nascimento div{
+    padding: 11px 14px;
+    
 }
 .barra_input-nascimento .material-symbols-outlined{
-    padding: 0;
+    padding-left: 8px;
 }
 .barra_input-nascimento .data-nascimento{
-    border: 1px solid var(--verde);
     padding: 0;
-    width: 42px;
-    border-radius: var(--borda-caixa);
-    padding: 13px 0px 13px 15px;
+    width: 44px;
+   height: 20px;
 }    
 #preferencias{
     padding: 13px 15px 13px  10px;
