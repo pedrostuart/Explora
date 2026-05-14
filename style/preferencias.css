@@ -77,16 +77,32 @@ form {
     color: var(--verde);
     font-size: 1.2rem;
 }
-input{
+.barra_input input{
     border-radius: var(--borda-botao);
     border: none;
     width: 100%;
     padding: 13px 15px;
 }
-input:focus{
+input::placeholder{
+    color: #757575;
+}
+.barra_input input:focus{
     outline: none;
 }
-
+.barra_input div{/*Div das datas*/ 
+    padding: 11px 14px;
+    
+}
+.barra_input .data-nascimento{
+    padding: 0;
+    width: 44px;
+    height: 20px;
+}    
+.barra_input img{
+    padding-left: 12.5px;
+    color: var(--verde);
+    font-size: 1.2rem;
+}
 select {
     border: none;
     padding: 13px 15px ;
@@ -95,37 +111,20 @@ select {
 select:focus{
     outline: none;
 }
-label{
+.barra_input-erro{
+    border: 1px solid red;
+}
+#input-label-preco #labelPreco{
+    display: none;
+    color: red;
+}
+#input-label-dataNascimento label{
     font-size: 0.8rem;
     font-family: Arial, Helvetica, sans-serif;
     padding-left: 5px;
 }
-.barra_input img{
-    padding-left: 12.5px;
-    color: var(--verde);
-    font-size: 1.2rem;
-}
-.barra_input-nascimento{
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    gap: 5px;
-    border-radius: var(--borda-botao);
-    border: 1px solid var(--verde);
 
-}
-.barra_input-nascimento div{
-    padding: 11px 14px;
-    
-}
-.barra_input-nascimento .material-symbols-outlined{
-    padding-left: 8px;
-}
-.barra_input-nascimento .data-nascimento{
-    padding: 0;
-    width: 44px;
-   height: 20px;
-}    
+
 #preferencias{
     padding: 13px 15px 13px  10px;
 }
