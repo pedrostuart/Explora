@@ -12,13 +12,18 @@ function CalcularIdade(event){
     let label = document.querySelector("label")
 
     let idadeDoUsuario = anoAtual - anoIdade
+    let orcamento =Number(document.getElementById("preco").value)
 
-    if(anoIdade > anoAtual || idadeDoUsuario < 6 || mesIdade > 12 || diaIdade > 31 || idadeDoUsuario > 112  || isNaN(diaIdade) || isNaN(mesIdade)|| isNaN(anoIdade)){/*isNaN verifica se é um numero*/
+
+    if(anoIdade > anoAtual || idadeDoUsuario < 6 || mesIdade > 12 || diaIdade > 31 || idadeDoUsuario > 112  || isNaN(diaIdade) || isNaN(mesIdade)|| isNaN(anoIdade) ||isNaN(orcamento)){/*isNaN verifica se é um numero*/
         label.style.color = 'red'
         label.innerHTML = 'Data inválida'
     }else{
         label.innerText = 'Tudo Ok!'
         label.style.color = 'green'
+        location.href = 'perfil.html'
+
+        
     }
     
 }
