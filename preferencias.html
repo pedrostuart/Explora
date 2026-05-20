@@ -55,33 +55,27 @@
                         <option value="tocantins">Tocantins</option>
                     </select>
                 </div>
-
-
+                
+                <div id="input-label-preco">
                 <div class="barra_input">
                     <span class="material-symbols-outlined">attach_money</span>
-                    <input type="number" name="preco" id="preco" placeholder="Orçamento Disponível" min="0" required>
+                    <input type="number" name="preco" id="preco" placeholder="Orçamento Disponível" min="0">
+                </div>
+                    <label for="preco" id="labelPreco">Campo vazio</label>
                 </div>
 
-
-                
-
-
-                <div>
-                <div class="barra_input-nascimento">
+                <div id="input-label-dataNascimento">
+                <div class="barra_input">
                     <span class="material-symbols-outlined">calendar_month</span>
                     <div>
-                        
-                        <input type="number" class="data-nascimento" placeholder="Dia" name="data-nascimento" min="1"
-                            max="31" id="dia" required>/
-                        <input type="number" class="data-nascimento" placeholder="Mês" name="data-nascimento" min="1"
-                            max="12" id="mes" required>/
-                        <input type="number" class="data-nascimento" placeholder="Ano" name="data-nascimento" min="1900"
-                            minlength="4" id="ano" required>
-
+                        <input type="number" class="data-nascimento" placeholder="Dia" name="data-nascimento" min="1" max="31" id="dia"  >/
+                        <input type="number" class="data-nascimento" placeholder="Mês" name="data-nascimento" min="1" max="12" id="mes" >/
+                        <input type="number" class="data-nascimento" placeholder="Ano" name="data-nascimento" min="1900" id="ano" >
                     </div>
                 </div>
-                <label for="data-nascimento">Data de Nascimento</label>
+                    <label for="data-nascimento" id="labelDataNascimento">Data de Nascimento</label>
                 </div>
+
                 <button class="aplicar-preferencias">Adicionar Preferências<i class="bi bi-sliders"></i></button>
                 <button class="btn-finalizar">Finalizar Cadastro</button>
             </form>
@@ -90,41 +84,20 @@
                 <form class="preferencias">
 
                     <div class="label-preferencias">
-                        <label>
-                            <input type="checkbox" name="preferencias[]" value="cinema" class="btn-preferencia">
-                            Cinema
-                        </label>
-                        <label>
-                            <input type="checkbox" name="preferencias[]" value="arte" class="btn-preferencia">
-                            Arte
-                        </label>
-                        <label>
-                            <input type="checkbox" name="preferencias[]" value="festivais" class="btn-preferencia">
-                            Festivais
-                        </label>
-                        <label>
-                            <input type="checkbox" name="preferencias[]" value="esportes" class="btn-preferencia">
-                            Esportes
-                        </label>
-                        <label>
-                            <input type="checkbox" name="preferencias[]" value="gastronomia" class="btn-preferencia">
-                            Gastronomia
-                        </label>
-                        <label>
-                            <input type="checkbox" name="preferencias[]" value="teatro" class="btn-preferencia">
-                            Teatro
-                        </label>
-                        <label>
-                            <input type="checkbox" name="preferencias[]" value="musica" class="btn-preferencia">
-                            Música
-                        </label>
+                        <div class="label-preferencias">
+                        <button name="preferencias" value="cinema" id="cinema">Cinema</button>
+                        <button name="preferencias" value="arte" id="arte">Arte</button>
+                        <button name="preferencias" value="festivais" id="festivais">Festivais</button>
+                        <button name="preferencias" value="esportes" id="esportes">Esportes</button>
+                        <button name="preferencias" value="gastronomia" id="gastronomia">Gastronomia</button>
+                        <button name="preferencias" value="teatro" id="teatro">Teatro</button>
+                        <button name="preferencias" value="musica" id="musica">Música</button>
+                        </div>
                     </div>
                     <hr>
                     <button class="aplicar">Aplicar</button>
 
-
                 </form>
-
             </dialog>
     </main>
     <footer>
