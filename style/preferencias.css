@@ -20,8 +20,6 @@ header{
 }
 header img{
     margin: auto;
-    
-    
 }
 h1{
     font-family: Arial, Helvetica, sans-serif;
@@ -114,9 +112,19 @@ select:focus{
 .barra_input-erro{
     border: 1px solid red;
 }
-#input-label-preco #labelPreco{
+#input-label-local label{
     display: none;
     color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    padding-left: 5px;
+}
+#input-label-preco label{
+    display: none;
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    padding-left: 5px;
 }
 #input-label-dataNascimento label{
     font-size: 0.8rem;

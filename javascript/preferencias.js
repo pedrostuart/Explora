@@ -37,7 +37,19 @@ function verificarInpunts(event){
         labelPreco.style.display = 'none'
     }
 
-    
+    /*LOCAL*/ 
+
+    let local = document.querySelector("#input-label-local .barra_input #local").value
+    let labelLocal = document.querySelector("#labelLocal")
+    let barraLocal = document.querySelector("#input-label-local .barra_input")
+    if(local === ''){
+        labelLocal.style.display = 'block'
+        barraLocal.classList.add("barra_input-erro")
+        
+    }else{
+        labelLocal.style.display = 'none'
+        barraLocal.classList.remove("barra_input-erro")
+    }
 }
 /*DIALOG*/
 let btnEscolherPreferencias = document.querySelector(".aplicar-preferencias")
