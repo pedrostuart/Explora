@@ -6,16 +6,23 @@ let btnCadastrar = document.getElementById("pegarValores")
     let telefone = document.getElementById("telefone").value
     let senha = document.getElementById("senha").value
     let confirmarSenha = document.getElementById("confirmar_senha").value
+    
 btnCadastrar.addEventListener("click", ()=>{
-    let dados = [
-        {
-        nome: nome,
-        sobrenome: sobrenome,
-        email: email,
-        telefone: telefone,
-        senha: senha,
-        confirmarSenha: confirmarSenha
+    let inputs = document.querySelectorAll(".barra_input input")
+    inputs.forEach((input)=>{
+        if(input.value === ''){
+            
+            let barraInput = input.parentElement
+                let alertaErro = document.getElementById("alerta-erro")
+            if(input.value === ''){
+                alertaErro.style.color = 'red'
+                barraInput.style.border = '1px solid red'
+                alertaErro.style.display = 'block'
+            }else{
+                barraInput.style.border = '1px solid #1A824D'
+                alertaErro.style.display = 'none'
+            }
+            
         }
-    ]
-    const verificar = dados.filter(campo => campo)
+    })
 })
