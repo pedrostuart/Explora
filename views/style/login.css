@@ -120,12 +120,10 @@ a{
     gap: 30px;
 }
 .logar-plataformas i{
-    border: 1px solid var(--verde);
     padding: 5px;
     height: 29px;
     color: var(--verde);
     font-size: 1.8rem;
-    border-radius: 2px;
 }
 /*CAIXA VERDE*/
 @keyframes transicao{

@@ -211,13 +211,15 @@ h2{
 /*DESCOBIR EVENTOS (PESQUISAR)*/
 
 .barra_pesquisa{
-    width: 693px;
+    /*width: 693px;*/
+    width: 45%;
     background-color: white;
     height: 64px;
     border-radius: var(--borda-botao);
     display: flex;
     box-shadow: var(--sombra);
     margin: 20px auto;
+    justify-content: center;
     flex-direction: row-reverse;
 }
 

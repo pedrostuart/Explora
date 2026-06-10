@@ -207,9 +207,9 @@ h2{
     display: flex;
     flex-direction: column;
     gap: 20px;
+    margin: 0 auto;
 }
 .favoritados .titulo h1{
-    
     padding: 23px 10px 10px 10px;
     text-align: center;
 }

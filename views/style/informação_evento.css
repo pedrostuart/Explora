@@ -136,7 +136,7 @@
 .precos-ingressos{
     border-radius: var(--borda-caixa);
     height: 70px;
-    width: 198px;
+    width: 40% ;
     border: 1px solid var(--azul);
     box-shadow: var(--sombra);
 }
@@ -163,17 +163,7 @@
 /*BOTÕES DA CAIXA DE INGRESSO*/
 .btns-ingressos{
     display: flex;
-    justify-content: center;
-    gap: 25px;
-}
-#ingressos .btn-comprar{
-    border: 1px solid var(--azul);
-    background-color: var(--azul);
-    border-radius: var(--borda-botao);
-    color: white;
-    padding: 10px 12px;
-    text-align: center;
-    cursor: pointer;
+    justify-content: space-evenly;
 }
 #ingressos .btn-comprar:hover{
     border: 1px solid var(--azul);
@@ -517,8 +507,14 @@
     #ingressos{
         width: 80%; 
     }
-    .info-precos-ingressos .precos-ingressos{
-        width: 150px;
+    .info-precos-ingressos .precos-ingressos p{
+        padding-left: 5px;
+        padding-top: 5px;
+    }
+}
+@media screen and (max-width:490px){
+    .btns-ingressos .btn-comprar{
+        font-size:  13px;
     }
 }
 @media screen and (max-width: 470px){
@@ -533,13 +529,10 @@
         font-size: 20px;
     }
 }
-@media screen and (max-width: 445px){
+@media screen and (max-width: 450px){
     #ingressos .abrir-mapa{
         width: 300px;
     }
-    .info-precos-ingressos .precos-ingressos{
-        width: 110px;
-    } 
     .info-precos-ingressos .precos-ingressos h2{
         font-size: 0.9rem;
         padding-top: 5px;
@@ -554,7 +547,7 @@
         padding-bottom: 10px;
     }
 }
-@media screen and (max-width: 418px){
+@media screen and (max-width: 420px){
     .eventos-recomendados{
         width: 90%;
     }
@@ -576,7 +569,7 @@
     #ingressos{
         width: 280px;
         justify-content: initial;
-        gap: 10px;
+        gap: 20px;
         height: 500px;
         padding-left: 5px;
         padding-right: 5px;
@@ -588,12 +581,9 @@
     .titulo-fechar{
         padding-top: 10px;
     }
-    #ingressos .btns-ingressos{
-        gap: 15px;
-    }
     #ingressos .btns-ingressos button, #ingressos .btns-ingressos .btn-comprar{
-        padding: 7px 9px;
-        font-size: 0.9rem;
+        padding: 6px 7px;
+        font-size: 0.8rem;
     }
     #extras .info_extras{
         width: 100%;

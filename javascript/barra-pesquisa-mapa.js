@@ -33,7 +33,7 @@ btnPesquisar.addEventListener("click", ()=>{
     let formatText = eventos.replaceAll(" ", "+")
     let mapa = document.querySelector(".mapa iframe")
 
-    if(formatText === ''){
+    if(valorPesquisaLocal.value === ''){
         mapa.src = `https://www.google.com/maps?q=eventos&z=${valorRadio}&output=embed`     
     }else{
         mapa.src = `https://www.google.com/maps?q=${formatText}&z=${valorRadio}&output=embed`

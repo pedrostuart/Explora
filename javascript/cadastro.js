@@ -19,6 +19,7 @@ btnCadastrar.addEventListener("click", ()=>{
         }else if(input.value !== ''){
             barraInput.style.border = '1px solid #1A824D'   
             alertaErro.style.display = 'none'
+            location.href = 'perfil.html'
         }
     })
 })

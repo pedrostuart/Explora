@@ -112,6 +112,11 @@ a{
     text-decoration: none;
     margin: 0 auto;
 }
+.btn-preferencia:hover{
+    background-color: white;
+    color: var(--azul);
+    transition: 0.25s;
+}
 /*LOGIN COM PLATAFORMAS*/
 .logar-plataformas{
     margin: 0 auto;
@@ -123,7 +128,6 @@ a{
     height: 29px;
     color: var(--verde);
     font-size: 1.8rem;
-    border-radius: 2px;
 }
 /*CAIXA VERDE*/
 @keyframes transicao{

@@ -157,7 +157,7 @@ input:focus{
     
 }
 
-.eventos_destaque h1{
+.eventos_destaque h1, .eventos_proximos h1{
     text-align: center;
     padding: 20px;
     font-weight: bolder;

@@ -2,11 +2,13 @@ let btnAbrirIngressos = document.querySelector(".btn-preferencia")
 let boxIngressos = document.getElementById("ingressos")
 btnAbrirIngressos.addEventListener("click", ()=>{
     boxIngressos.style.display = 'flex'
+    document.body.style.overflow = 'hidden'
 })
 
 let fecharBox = document.querySelector("#ingressos .fechar-menu")
 fecharBox.addEventListener("click", ()=>{
     boxIngressos.style.display = 'none'
+    document.body.style.overflow = "auto";
 })
 
 let lerMais = document.querySelector(".ler-mais")
