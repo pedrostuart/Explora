@@ -1,6 +1,3 @@
-
-
-
 *{
     padding: 0;
     margin: 0;
@@ -221,15 +218,35 @@
 #ingressos{
     width: 420px;
     height: 100%;
-    
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 25px;
 }
 #ingressos h1{
     text-align: center;
-    padding: 20px;
+    padding: 0;
     font-size: 1.6rem;
+    line-height: 1.4;
+}
+#ingressos .titulo-fechar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    padding: 20px 40px;
+    box-sizing: border-box;
+}
+#ingressos .fechar-menu{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: 0;
+    cursor: pointer;
 }
 /*Ingressos*/
 .info-precos-ingressos{
@@ -237,38 +254,52 @@
     gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
+    width: 100%;
 }
 .precos-ingressos{
     border-radius: var(--borda-caixa);
     height: 70px;
-    width: 40% ;
+    width: calc(50% - 10px);
     border: 1px solid var(--azul);
     box-shadow: var(--sombra);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
 }
 .precos-ingressos:hover{
     transition: 0.3s;
     transform: translateY(-2px);
 }
 .precos-ingressos h2{
-    padding: 10px 0px 0px 10px;
+    padding: 0;
+    margin: 0 0 4px 0;
     font-size: 1.1rem;
+    text-align: left;
 }
 .precos-ingressos p{
     color: var(--azul);
-    padding-left: 2px;
     font-size: 0.9rem;
     display: flex;
     align-items: center;
-    padding: 0px 0px 0px 10px;
+    gap: 4px;
+    padding: 0;
+    margin: 0;
+    text-align: left;
 }
 .precos-ingressos span{
-    font-size: 1.6rem;  
-    margin-bottom: 3.6px;
+    font-size: 1.6rem;
+    line-height: 1;
 }
 /*BOTÕES DA CAIXA DE INGRESSO*/
 .btns-ingressos{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
 }
 #ingressos .btn-comprar:hover{
     border: 1px solid var(--azul);
@@ -283,14 +314,13 @@
     text-decoration: none;
     text-align: center;
     padding: 10px 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
 }
 #ingressos .fechar-menu{
     display: none;
-}
-#ingressos .titulo-fechar{
-    display: flex;
-    align-items: center;
-    gap: 20px;
 }
 .btn-ativo{
     border: 1px solid var(--azul); 
@@ -309,8 +339,18 @@
 .local {
     color: black;
     font-size: 10pt;
-    
-    padding: 9.5px;
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.local h2{
+    margin: 0 0 6px 0;
+    font-size: 1rem;
+}
+.local p{
+    margin: 0;
+    line-height: 1.4;
 }
 /*ABRIR MAPA NA CAIXA DE INGRESSO*/
 .abrir-mapa{
@@ -515,9 +555,8 @@
 #ingressos .fechar-menu i{
     font-size: 2.5rem;
 }
-#ingressos h1{
-    padding-top: 0px;
-    padding-bottom: 0px;
+#ingressos .titulo-fechar{
+    padding: 10px 40px 0;
 }
 }
 @media screen and (max-width: 879px){
@@ -614,10 +653,6 @@
     #ingressos{
         width: 80%; 
     }
-    .info-precos-ingressos .precos-ingressos p{
-        padding-left: 5px;
-        padding-top: 5px;
-    }
 }
 @media screen and (max-width:490px){
     .btns-ingressos .btn-comprar{
@@ -639,15 +674,6 @@
 @media screen and (max-width: 450px){
     #ingressos .abrir-mapa{
         width: 300px;
-    }
-    .info-precos-ingressos .precos-ingressos h2{
-        font-size: 0.9rem;
-        padding-top: 5px;
-        padding-left: 5px;
-    } 
-    .info-precos-ingressos .precos-ingressos p{
-        padding-left: 5px;
-        padding-top: 5px;
     }
     .carrosel{
         padding-top: 10px;

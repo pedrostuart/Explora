@@ -10,6 +10,16 @@
     --borda-caixa: 10px;
     --sombra: 0px 1px 5px #8e8e8ead;
     --borda-botao: 35px;
+    --card-width: 241px;
+    --card-height: 214px;
+    --card-img-height: 161px;
+    --card-radius: 14px;
+    --card-width-md: 200px;
+    --card-height-md: 180px;
+    --card-img-height-md: 135px;
+    --card-carousel-width: 300px;
+    --card-carousel-height: 234px;
+    --card-carousel-img-height: 155px;
 }
 /*MAIN*/
 /*CARROSEL*/
@@ -17,7 +27,6 @@
      background: url(../img/carrosel_tela_inicial.png) no-repeat center;
     background-size: cover; 
     height: 50vh;
-
     align-items: center;
     display: flex;
     justify-content: center;
@@ -32,16 +41,18 @@
 }
 /*BOTÃO BARRA DE PESQUISA*/
 .carrosel .barra_pesquisa{
-    width: 693px;
+    width: min(693px, calc(100% - 40px));
     background-color: white;
     height: 64px;
     border-radius: var(--borda-botao);
     display: flex;
     position: relative;
     justify-content: center;
+    align-items: center;
 }
 input{
-    width: 500px;
+    flex: 1;
+    min-width: 0;
     height: 100%;
     border-bottom-left-radius: 33px;
     border-top-left-radius: 33px;
@@ -62,9 +73,11 @@ input:focus{
     margin-right: 20px;
     cursor: pointer;
     color: white;
-    font-size: 0.9rem;
+    font-size: 14px;
     font-weight: bold;
-    text-decoration: none;    
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 .btn_pesquisar .bi-search{
     color: white;
@@ -75,7 +88,7 @@ input:focus{
     background-color: white;
     max-height: 300px;
     overflow: auto;
-    width: 550px;
+    width: min(550px, calc(100% - 40px));
     box-shadow: var(--sombra);
     border-bottom-left-radius: var(--borda-caixa);
     border-bottom-right-radius: var(--borda-caixa);
@@ -147,14 +160,12 @@ input:focus{
 /*EVENTOS EM DESTAQUE E PRÓXIMOS*/
 .linha_eventos{
     padding: 20px;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, var(--card-width));
     gap: 20px;
     justify-content: center;
-
     max-width: 1400px;
     margin: auto;
-    flex-wrap: wrap;
-    
 }
 
 .eventos_destaque h1, .eventos_proximos h1{
@@ -164,18 +175,20 @@ input:focus{
     font-size: 2rem;
 }
 .caixa_eventos{
-    width: 241px;
-    height: 214px;
-    border: 1.5px solid var(--verde);
-    border-radius: 14px;
+    width: var(--card-width);
+    height: var(--card-height);
+    border: 2px solid var(--verde);
+    border-radius: var(--card-radius);
     font-weight: bold;
     box-shadow: 5px 5px 10px #8e8e8e;
+    flex-shrink: 0;
 }
 .caixa_eventos a img{
     width: 100%;
-    height: 75%;
-    border-top-left-radius: 14px;
-    border-top-right-radius: 14px;
+    height: var(--card-img-height);
+    object-fit: cover;
+    border-top-left-radius: var(--card-radius);
+    border-top-right-radius: var(--card-radius);
 }
 .caixa_eventos .texto-evento{
     margin-left: 7px;
@@ -183,10 +196,11 @@ input:focus{
 }
 .caixa_eventos .nome_show{
     font-weight: bold;
+    font-size: 14px;
 }
 .caixa_eventos .distancia_show{
     color: #8e8e8e;
-    font-size: 0.7rem;
+    font-size: 11px;
 }
 .caixa_eventos:hover{
     transform: translateY(-5px);
@@ -199,7 +213,7 @@ input:focus{
     margin: 10px 0px 0px 10px;
     border-radius: 10px;
     color: white;
-    font-size: 0.9rem;
+    font-size: 14px;
     cursor: pointer;
     font-weight: bold;
 }
@@ -213,31 +227,37 @@ input:focus{
 /*CARROSEL EVENTOS RESPOSIVO*/
 
 .carrosel-eventos{
-    width: 400px;
-    height: 244px;
+    width: var(--card-carousel-width);
+    height: var(--card-carousel-height);
     border: 2px solid var(--verde);
-    border-radius: 14px;
+    border-radius: var(--card-radius);
     font-weight: bold;
     box-shadow: 5px 5px 10px #8e8e8e;
 }
-.carrosel-eventos .nome_show, .distancia_show{
+.carrosel-eventos a img{
+    width: 100%;
+    height: var(--card-carousel-img-height);
+    object-fit: cover;
+    border-top-left-radius: var(--card-radius);
+    border-top-right-radius: var(--card-radius);
+}
+.carrosel-eventos .texto-evento{
+    padding: 5px;
+}
+.carrosel-eventos .nome_show{
     font-weight: bold;
+    font-size: 14px;
 }
 .carrosel-eventos .distancia_show{
     color: #8e8e8e;
-    font-size: 0.85rem;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 /*BARRA PESQUISA*/
 @media screen and (max-width: 770px){
-    .carrosel .barra_pesquisa{
-        width: 550px;
-    }
     .carrosel{
         height: 40vh;
-    }
-    .itens-pesquisa{
-        width: 450px;
     }
 }
 @media screen and (max-width: 625px){
@@ -245,41 +265,28 @@ input:focus{
         height: 30vh;
     }
     .carrosel .barra_pesquisa{
-        width: 450px;
         height: 54px;
     }
     .btn_pesquisar{
-        padding: 10px;
-        font-size: 0.75rem;
+        padding: 8px 10px;
+        font-size: 12px;
     }
     .itens-pesquisa{
         top: 54px;
-        width: 300px;
         padding-left: 10px;
     }
 }
 @media screen and (max-width: 510px){
-    .carrosel .barra_pesquisa{
-        width: 350px;
-    }
     .btn_pesquisar{
         margin-right: 10px;
     }
     input{
         margin-left: 10px;
     }
-    .itens-pesquisa{
-        width: 270px;
-    }
 }
 @media screen and (max-width: 400px){
-    .carrosel .barra_pesquisa{
-        width: 300px;
-    }
     .itens-pesquisa{
-        width: 220px;
         padding-right: 0;
-
     }
     .itens-pesquisa a{
         gap: 7px;
@@ -288,42 +295,103 @@ input:focus{
         gap: 5px;
     }
     .itens-pesquisa .texto-evento .distancia_show{
-        font-size: 0.8rem;
+        font-size: 13px;
     }
 }
 /*BARRA PESQUISA*/
 
 /*LINHA EVENTOS*/
-@media screen and (max-width: 1094px){
-        .caixa_eventos{
-            width: 200px;
-            height: 180px;
-        }
-        .caixa_eventos .data_evento{
-            font-size: 0.75rem;
-            letter-spacing: 0.2px;
-            font-weight: bold;
-        }
+@media screen and (max-width: 1244px){
+    .linha_eventos{
+        grid-template-columns: repeat(auto-fill, var(--card-width-md));
+        max-width: 1040px;
+    }
+    .caixa_eventos{
+        width: var(--card-width-md);
+        height: var(--card-height-md);
+    }
+    .caixa_eventos a img{
+        height: var(--card-img-height-md);
+    }
+    .caixa_eventos .data_evento{
+        font-size: 12px;
+        letter-spacing: 0px;
+    }
+}
+@media screen and (max-width: 900px){
+    .linha_eventos{
+        padding: 16px;
+        gap: 16px;
+        max-width: 680px;
+    }
+    .eventos_destaque h1,
+    .eventos_proximos h1{
+        font-size: 28px;
+        padding: 16px;
+    }
 }
 @media screen and (max-width: 706px){
-    
     .linha_eventos{
         display: none;
     }
-}
-@media screen and (max-width: 537px){
+    .eventos_destaque h1,
+    .eventos_proximos h1{
+        font-size: 24px;
+        padding: 12px 16px;
+    }
+    .single-item{
+        width: min(var(--card-carousel-width), calc(100vw - 40px));
+        margin: 0 auto;
+    }
+    .single-item .slick-list{
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    .single-item .slick-slide{
+        display: flex;
+        justify-content: center;
+    }
+    .single-item .slick-dots{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 0;
+        margin: 16px auto 0;
+    }
     .carrosel-eventos{
         width: 100%;
-        height: 234px;
+        height: var(--card-carousel-height);
+        margin: 0 auto;
     }
-}    
-@media screen and (max-width: 498px){
-    .carrosel-eventos{
-        height: 204px;
+    .carrosel-eventos a img{
+        height: var(--card-carousel-img-height);
     }
 }
-@media screen and (max-width: 380px){
+@media screen and (max-width: 450px){
+    .single-item{
+        width: min(280px, calc(100vw - 40px));
+    }
     .carrosel-eventos{
-        height: 184px;
+        height: 214px;
+    }
+    .carrosel-eventos a img{
+        height: 140px;
+    }
+}
+@media screen and (max-width: 390px){
+    .single-item{
+        width: min(250px, calc(100vw - 40px));
+    }
+    .carrosel-eventos{
+        height: 194px;
+    }
+    .carrosel-eventos a img{
+        height: 120px;
+    }
+    .carrosel-eventos .nome_show{
+        font-size: 13px;
+    }
+    .carrosel-eventos .distancia_show{
+        font-size: 12px;
     }
 }
