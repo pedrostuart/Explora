@@ -1,0 +1,458 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+:root {
+    --verde: #1A824D;
+    --azul: #2678BF;
+    --borda-caixa: 10px;
+    --sombra: 0px 1px 5px #8e8e8ead;
+    --borda-botao: 35px;
+}
+
+/* Carrossel */
+.carrosel {
+    background: url(/img/imagem-eveto-web.png) no-repeat center;
+    background-size: cover;
+    height: 50vh;
+    align-items: center;
+    display: flex;
+}
+
+.header-AVS {
+    color: white;
+    background: linear-gradient(rgba(143, 28, 28, 0.295), rgb(0, 0, 0)), 
+    url('/img/avenged-sevenfold.png') no-repeat center;
+    background-size: cover;
+    height: 50vh;
+    align-items: center;
+    display: flex;
+}
+
+.Header-KaliUchis {
+    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.274), rgb(0, 0, 0)), 
+    url('/img/kali-uchis.webp') no-repeat center;
+    background-size: cover;
+    height: 50vh;
+    align-items: center;
+    display: flex;
+}
+
+.header-GnR {
+    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.274), rgb(0, 0, 0)), 
+    url('/img/guns\ n\ roses.webp') no-repeat center;
+    background-size: cover;
+    height: 50vh;
+    align-items: center;
+    display: flex;
+}
+
+.header-SC {
+    color: rgb(248, 241, 241);
+    background: linear-gradient(rgba(0, 0, 0, 0.274), rgb(0, 0, 0)), 
+    url('/img/sabrina-carpenter.webp') no-repeat center;
+    background-size: cover;
+    background-position: center 10%;
+    height: 50vh;
+    align-items: center;
+    display: flex;
+}
+
+.header-Tyler {
+    color: rgb(248, 241, 241);
+    background: linear-gradient(rgba(0, 0, 0, 0.274), rgba(0, 0, 0, 0.63)), 
+    url('/img/Tyler\ the\ creator.jfif') no-repeat center;
+    background-size: cover;
+    height: 50vh;
+    align-items: center;
+    display: flex;
+}
+
+.header-doja {
+    color: rgb(248, 241, 241);
+    background: linear-gradient(rgba(0, 0, 0, 0.274), rgba(0, 0, 0, 0.63)), 
+    url('/img/Doja\ cat.jfif') no-repeat center;
+    background-size: cover;
+    height: 50vh;
+    align-items: center;
+    display: flex;
+}
+
+.header-badbunny {
+    color: rgb(248, 241, 241);
+    background: linear-gradient(rgba(0, 0, 0, 0.274), rgba(0, 0, 0, 0.63)), 
+    url('/img/badbunny.jpg') no-repeat center;
+    background-size: cover;
+    background-position: center 0%;
+    height: 50vh;
+    align-items: center;
+    display: flex;
+}
+
+.header-mychemical {
+    color: rgb(248, 241, 241);
+    background: linear-gradient(rgba(0, 0, 0, 0.274), rgba(0, 0, 0, 0.63)), 
+    url('/img/My\ Chemical\ Romance.jfif') no-repeat center;
+    background-size: cover;
+    height: 50vh;
+    align-items: center;
+    display: flex;
+}
+
+.header-jason {
+    color: rgb(248, 241, 241);
+    background: linear-gradient(rgba(0, 0, 0, 0.274), rgba(0, 0, 0, 0.63)), 
+    url('/img/jason\ mraz.jpg') no-repeat center;
+    background-size: cover;
+    height: 50vh;
+    align-items: center;
+    display: flex;
+}
+
+.header-theweeknd {
+    color: rgb(255, 255, 255);
+    background: linear-gradient(rgba(0, 0, 0, 0.274), rgba(0, 0, 0, 0.63)), 
+    url('/img/the-weeknd.jpg') no-repeat center;
+    background-size: cover;
+    background-position: center 40%;
+    height: 50vh;
+    align-items: center;
+    display: flex;
+}
+
+.header-bk {
+    color: rgb(248, 241, 241);
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.75)),
+    url('/img/bk.svg') no-repeat center;
+    background-size: cover;
+    height: 50vh;
+    align-items: center;
+    display: flex;
+}
+
+.header-marinasena {
+    color: rgb(248, 241, 241);
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.7)),
+    url('/img/marina-sena.svg') no-repeat center;
+    background-size: cover;
+    height: 50vh;
+    align-items: center;
+    display: flex;
+}
+
+.header-caetano {
+    color: rgb(248, 241, 241);
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.7)),
+    url('/img/caetano-veloso.svg') no-repeat center;
+    background-size: cover;
+    height: 50vh;
+    align-items: center;
+    display: flex;
+}
+
+.header-luedji {
+    color: rgb(248, 241, 241);
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.7)),
+    url('/img/luedji-luna.svg') no-repeat center;
+    background-size: cover;
+    height: 50vh;
+    align-items: center;
+    display: flex;
+}
+
+.header-marisa {
+    color: rgb(248, 241, 241);
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.7)),
+    url('/img/marisa-monte.svg') no-repeat center;
+    background-size: cover;
+    height: 50vh;
+    align-items: center;
+    display: flex;
+}
+
+.header-djavan {
+    color: rgb(248, 241, 241);
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.7)),
+    url('/img/djavan.svg') no-repeat center;
+    background-size: cover;
+    height: 50vh;
+    align-items: center;
+    display: flex;
+}
+
+.bloco_informacoes {
+    margin-left: 250px;
+}
+.carrosel h1 {
+    color: white;
+}
+.carrosel .icons-info {
+    padding-top: 15px;
+}
+.carrosel p {
+    color: rgb(156, 51, 51);
+    gap: 5px;
+    display: flex;
+    padding-top: 5px;
+}
+.icons-info p {
+    font-size: 0.8rem;
+    letter-spacing: 0.85px;
+    align-items: center;
+}
+
+/* INFORMAÇÕES SOBRE O EVENTO */
+.informacoes_eventos {
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: auto;
+    gap: 40px;
+}
+.caixas {
+    box-shadow: var(--sombra);
+    padding: 0px 20px 20px 20px;
+    border-radius: 10px;
+}
+
+/* CAIXA SOBRE O EVENTO */
+#sobre_evento {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 746px;
+    height: 100%;
+}
+#sobre_evento p {
+    line-height: 25px;
+    font-weight: 500;
+    padding-top: 10px;
+}   
+.titulo_icon {
+    display: flex;
+    align-items: center;
+    padding: 10px 10px 10px 0px;
+}
+.titulo_icon h1 {
+    padding-left: 10px;
+}
+.titulo_icon h2 {
+    font-size: 1.2rem;
+    padding-left: 10px;
+}
+.titulo_icon i {
+    color: var(--verde);
+}
+.ler-mais {
+    display: none;
+}
+
+/* Parte de CIMA */
+.info_sobre_evento {
+    padding: 28px;
+}
+
+/* Parte de BAIXO */
+#extras {
+    display: flex;
+    padding: 28px;
+    flex-wrap: wrap;
+    margin: auto;
+}
+.info_extras {
+    width: 340px;
+}
+#extras .linha {
+    gap: 20px;
+    display: flex;
+}
+
+/* CAIXA INGRESSOS */
+#ingressos {
+    width: 420px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+#ingressos h1 {
+    text-align: center;
+    padding: 0;
+    font-size: 1.6rem;
+    line-height: 1.4;
+}
+#ingressos .titulo-fechar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    padding: 20px 40px;
+    box-sizing: border-box;
+}
+#ingressos .fechar-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+
+/* Ingressos */
+.info-precos-ingressos {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.precos-ingressos {
+    border-radius: var(--borda-caixa);
+    height: 70px;
+    width: calc(50% - 10px);
+    border: 1px solid var(--azul);
+    box-shadow: var(--sombra);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.precos-ingressos:hover {
+    transition: 0.3s;
+    transform: translateY(-2px);
+}
+.precos-ingressos h2 {
+    padding: 0;
+    margin: 0 0 4px 0;
+    font-size: 1.1rem;
+    text-align: left;
+}
+.precos-ingressos p {
+    color: var(--azul);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+.precos-ingressos span {
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+/* BOTÕES DA CAIXA DE INGRESSO */
+.btns-ingressos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}
+#ingressos .btn-comprar:hover {
+    border: 1px solid var(--azul);
+    background-color: white;
+    color: var(--azul);
+}
+#ingressos .btn-comprar {
+    border: 1px solid var(--azul); 
+    background-color: var(--azul);
+    border-radius: var(--borda-botao);
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+.btn-ativo {
+    border: 1px solid var(--azul); 
+    background-color: white;
+    border-radius: var(--borda-botao);
+    color: var(--azul);
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px 12px;
+}
+.btn-ativo i {
+    color: red;
+}
+
+/* LOCAL CAIXA DE INGRESSO */
+.local {
+    color: black;
+    font-size: 10pt;
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.local h2 {
+    margin: 0 0 6px 0;
+    font-size: 1rem;
+}
+.local p {
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* ABRIR MAPA NA CAIXA DE INGRESSO */
+.abrir-mapa {
+    background-color: var(--azul);
+    width: 340px;
+    margin: auto;
+    height: 159px;
+    border-radius: var(--borda-caixa);
+    background: linear-gradient(#2678BF80), url(/img/minimapa.png) no-repeat;
+    background-size: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.abrir-mapa a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+}
+.abrir-mapa a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+.abrir-mapa span {
+    color: white;
+}
+
+/* CAIXA PRINCIPAIS ATRAÇÕES */
+#atracoes {
+   width: 746px; 
+}
+#atracoes .titulo_icon {
+    padding: 28px;
+}
+.caixas-artistas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.artistas {
+    width: 195px;
+    height: 190px;
+    box-shadow: var(--sombra);
+    padding: 0px 20px 20px 20px;
+}

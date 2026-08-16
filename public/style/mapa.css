@@ -1,0 +1,355 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+:root{
+    --verde: #1A824D;
+    --azul: #2678BF;
+    --borda-caixa: 10px;
+    --sombra: 0px 1px 5px #8e8e8ead;
+    --borda-botao: 35px;
+}
+main{
+    display: flex;
+    height: 100%;
+}
+html, body{
+    height: 100vh;
+}
+/*MENU LATERAL*/
+
+.menu-lateral{
+    border-right: 1px solid #8e8e8e;
+    width: 322px;
+    padding: 20px 25px 25px 25px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: white;
+}
+.fechar-link{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fechar-link button{
+    display: none;
+}
+.btn-preferencia-resposivo{
+    display: none;
+}
+/*MENU LATERAL (BOTÕES) (TITULO)*/
+h2{
+    font-size: 16px;
+    font-weight: bolder;
+    padding: 0px 0px 5px 5px;
+}
+
+/*MENU LATERAL (LINK)*/
+
+.menu-lateral a{
+    color: var(--verde);
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    text-decoration: none;
+}
+/*MENU LATERAL (DATA)*/
+
+.filtrar-data{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6.5px;
+}
+
+
+/*MENU LATERAL (DISTÂNCIA)*/
+
+.filtrar-distancia{
+    display: flex;
+    flex-direction: column;
+}
+.filtrar-distancia div{
+    display: flex;
+    gap: 10px;
+}
+.filtrar-distancia label{
+    color: #8e8e8e;
+    font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+/*MENU LATERAL (ORÇAMRNTO)*/
+
+
+.orcamento{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    
+}
+.orcamento .barra_input{
+    width: 210px;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--verde);
+    border-radius: var(--borda-botao);
+    
+}
+.orcamento #preco{
+    padding: 10px 10px 10px 0px;
+}
+.orcamento label{
+    font-weight: bolder;
+    
+}
+.orcamento .material-symbols-outlined{
+    padding-left: 8px;
+    color: var(--verde);
+    font-size: 1.3rem;
+
+}
+.orcamento input{
+    border-radius: var(--borda-botao);
+    border: none;
+    width: 100%;
+    padding: 13px 15px;
+    
+}
+.orcamento input:focus{
+    outline: none;
+}
+
+/*MENU LATERAL (Gostos)*/
+iframe html .place-details-compact-container{
+    margin-top: 200px;
+}
+
+.filtrar-gostos{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6.5px;
+}
+
+.btn-filtrar .btn-preferencia-mapa{
+    display: flex;
+    margin: auto;
+    gap: 4px;
+}
+
+/*MAPA*/
+.mapa{
+    width: 100%;
+    display: flex;
+    position: relative;
+    height: 100vh;
+}  
+.mapa iframe{
+    width: 100%;
+    position: absolute;
+    height: 100%;
+}
+/*MAPA (PESQUISAR)*/
+
+.mapa .barra_pesquisa{
+    width: 693px;
+    position: relative;
+    
+    background-color: white;
+    height: 64px;
+    border-radius: var(--borda-botao);
+    display: flex;
+    box-shadow: var(--sombra);
+    margin: 20px auto 0px;
+    
+}
+.barra_pesquisa input{
+    width: 500px;
+    margin: auto;
+    height: 100%;
+    border-bottom-left-radius: 33px;
+    border-top-left-radius: 33px;
+    border: 0;
+    margin-left: 20px;
+}
+.barra_pesquisa input:focus{
+    outline: none;
+}
+/*BOTOES*/
+.btn_pesquisar{
+    display: flex;
+    border-radius: var(--borda-botao);
+    border: 0;
+    background-color: var(--verde);
+    margin: auto;
+    padding: 10px;
+    gap: 5px;
+    margin-right: 20px;
+    cursor: pointer;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+.btn_pesquisar .bi-search{
+    color: white;
+    
+}
+.preferencias{
+    display: flex;
+    flex-direction: column;
+}
+.label-preferencias{
+    flex-wrap: wrap;
+    display: flex;
+    gap: 6.5px;
+}
+.label-preferencias label{
+    background-color: var(--azul);
+    padding: 9px 10px;
+    border-radius: var(--borda-botao);
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    gap: 5px;
+    align-items: center;
+    display: flex;
+}
+/*BARRA DE PESQUISA*/
+@media screen and (max-width: 1010px){
+    .mapa .barra_pesquisa{
+        width: 550px;
+    }
+}
+@media screen and (max-width: 867px){
+    .mapa .barra_pesquisa{
+        width: 450px;
+        height: 54px;
+    }
+    .btn_pesquisar{
+        padding: 10px;
+        font-size: 0.75rem;
+    }
+}
+@media screen and (max-width: 757px){
+    .mapa .barra_pesquisa{
+        width: 350px;
+    }
+    .btn_pesquisar{
+        margin-right: 10px;
+    }
+    .barra_pesquisa input{
+        margin-left: 10px;
+    }
+}
+@media screen and (max-width: 660px){
+    
+    .mapa .barra_pesquisa{
+        width: 450px;
+    }
+}
+@media screen and (max-width: 500px){
+    .mapa .barra_pesquisa{
+        width: 400px;
+    }
+    .btn_pesquisar{
+        margin-right: 10px;
+    }
+    .barra_pesquisa input{
+        margin-left: 10px;
+    }    
+}
+@media screen and (max-width: 450px){
+    .mapa .barra_pesquisa{
+        width: 300px;
+    }
+    
+}
+/*MAIN*/
+@media screen and (max-width: 660px){
+    .mapa{
+        width: 90%;
+        margin: 0px auto;
+        height: 80vh;
+        gap: 20px;
+        padding: 20px 0px;
+        flex-direction: column-reverse;
+        
+    }
+    .mapa iframe{
+        margin: auto;
+        border-radius: var(--borda-caixa);
+        border: 1.5px solid var(--verde);  
+        position: initial;
+        box-shadow: var(--sombra);
+    }
+    .mapa .barra_pesquisa{
+        position: initial;
+    }
+    .fechar-link button{
+        display: block;
+    }
+}
+@media screen and (max-width: 455px){
+    .mapa{
+        height: 70vh;
+    }
+    main{
+        height: 80%;
+    }
+}
+@media screen and (max-width: 380px){
+    .mapa{
+        height: 65vh;
+    }
+}
+/*BARRA LATERAL RESPONSIVA*/
+@media screen and (max-width: 660px){
+    .menu-lateral{
+        display: none;
+        position: fixed;
+        z-index: 100;
+        width: 220px;
+        height: 100%;
+        animation: abrirmenu 0.8s forwards; 
+        box-shadow: 0px 0px 0px  1000px  rgba(31, 31, 31, 0.425);
+        top: 0;
+    }
+    .menu-lateral .fechar-menu{
+        display: block;
+    }
+    @keyframes abrirmenu{
+    
+        0%{
+            transform: translateX(-230px);
+        }
+        100%{
+            transform: translateX(0px);
+        }
+    
+    }
+    .btn-preferencia-resposivo{
+    background-color: var(--azul);
+    padding: 9px 10px;
+    border-radius: var(--borda-botao);
+    border: 1px solid var(--azul);
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    }
+}
+@media screen and (max-width: 537px){
+    .menu-lateral{
+        padding: 20px 13px;
+    }
+    .menu-lateral h2{
+        padding-left: 0;
+    }  
+}

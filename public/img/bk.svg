@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="440" viewBox="0 0 440 440">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#16213e"/>
+    </linearGradient>
+  </defs>
+  <rect width="440" height="440" fill="url(#bg)"/>
+  <text x="220" y="210" fill="#ffffff" font-family="Arial, sans-serif" font-size="72" font-weight="700" text-anchor="middle">BK'</text>
+  <text x="220" y="260" fill="#1A824D" font-family="Arial, sans-serif" font-size="22" text-anchor="middle">Castelos &amp; Ruínas</text>
+</svg>
