@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="440" viewBox="0 0 440 440">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3d0000"/>
+      <stop offset="100%" stop-color="#7f0000"/>
+    </linearGradient>
+  </defs>
+  <rect width="440" height="440" fill="url(#bg)"/>
+  <text x="220" y="220" fill="#ffffff" font-family="Arial, sans-serif" font-size="64" font-weight="700" text-anchor="middle">Djavan</text>
+  <text x="220" y="270" fill="#ffd6a5" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">Djavanear 50 Anos</text>
+</svg>

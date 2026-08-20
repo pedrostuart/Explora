@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="440" viewBox="0 0 440 440">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5c0034"/>
+      <stop offset="100%" stop-color="#9d0208"/>
+    </linearGradient>
+  </defs>
+  <rect width="440" height="440" fill="url(#bg)"/>
+  <text x="220" y="200" fill="#ffffff" font-family="Arial, sans-serif" font-size="40" font-weight="700" text-anchor="middle">Luedji</text>
+  <text x="220" y="250" fill="#ffffff" font-family="Arial, sans-serif" font-size="40" font-weight="700" text-anchor="middle">Luna</text>
+  <text x="220" y="300" fill="#ffccd5" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">Um Mar Pra Cada Um</text>
+</svg>
