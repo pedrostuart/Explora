@@ -208,6 +208,19 @@ h2{
     width: 100%;
     
 }
+
+/*titulo*/
+.titulo h1{
+    padding: 23px 10px 10px 10px;
+    text-align: center;
+}
+.titulo h1 .bi-suit-heart-fill{
+    color: red;
+}
+.titulo p{
+    text-align: center;
+    font-weight: bold;
+}
 /*DESCOBIR EVENTOS (PESQUISAR)*/
 
 .barra_pesquisa{

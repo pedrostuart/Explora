@@ -88,7 +88,7 @@ input:focus{
     background-color: white;
     max-height: 300px;
     overflow: auto;
-    width: min(550px, calc(100% - 40px));
+    width: 80%;
     box-shadow: var(--sombra);
     border-bottom-left-radius: var(--borda-caixa);
     border-bottom-right-radius: var(--borda-caixa);
