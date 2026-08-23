@@ -27,7 +27,7 @@ labelsDatas.forEach(radio => {
             ultimoRadioDataClicado = null;
         } else {
             valorData = radio.value;
-            ultimoRadioDataClicado = radio;
+            ultimaPreferenciaClicada = radio;
         }
     })
 })

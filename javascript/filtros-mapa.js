@@ -14,24 +14,28 @@ fecharMenuFiltros.addEventListener("click", ()=>{
 })
 
 
-let labelsGostos= document.querySelectorAll(".label-preferencias button")
 
-let valorPreferencia = []
-labelsGostos.forEach(btns =>{
-    btns.addEventListener("click", ()=>{
-        
-        if(btns.className == ""){
-            btns.classList.add("selecionado")
-            valorPreferencia.push(btns.value)
-        }else{
+let labelsGostos = document.querySelectorAll(".label-preferencias input.preferencias");
+let valorGosto;
+let ultimaPreferenciaClicada = null;
+
+labelsGostos.forEach(radio => {
+    radio.addEventListener("click", () => {
+        // Esta lógica permite desmarcar o botão de rádio clicando nele novamente
+        if (ultimaPreferenciaClicada === radio) {
+            radio.checked = false;
+            valorGosto = undefined;
+            ultimaPreferenciaClicada = null;
             
-            btns.classList.remove("selecionado")
-            let posicao = valorPreferencia.indexOf(btns.value)/*indexOf olha o que ta dentro do array e compara com valor do btns*/ 
-            valorPreferencia.splice(posicao, 1)
-            
+        } else {
+            valorGosto = radio.value;
+            ultimoRadioDataClicado = radio;
         }
+
+       
     })
 })
+
 
 /*valores radios*/
 
@@ -41,11 +45,4 @@ let valorRadio
     radios.addEventListener("click", ()=>{
         valorRadio = radios.value
     })
-})
-
-let btnFiltrar = document.querySelector(".btn-filtrar .btn-preferencia-mapa")
-
-btnFiltrar.addEventListener("click", ()=>{
-    console.log(valorRadio)
-    console.log(valorPreferencia)
 })

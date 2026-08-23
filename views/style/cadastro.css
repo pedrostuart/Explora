@@ -93,6 +93,9 @@ input{
 input:focus{
     outline: none;
 }
+.placeholder-erro::placeholder{
+    color: red;
+}
 a{
     color: #2678BF;
     text-decoration: underline;

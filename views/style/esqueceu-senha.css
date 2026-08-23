@@ -84,6 +84,9 @@ input{
 input:focus{
     outline: none;
 }
+.placeholder-erro::placeholder{
+    color: red;
+}
 /*botões*/
 .btn-preferencia{
     background-color: var(--azul);

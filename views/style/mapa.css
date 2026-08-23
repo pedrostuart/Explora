@@ -22,7 +22,7 @@ html, body{
     border-right: 1px solid #8e8e8e;
     width: 322px;
     padding: 20px 25px 25px 25px;
-    height: 180px;
+    
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -64,7 +64,26 @@ h2{
     gap: 6.5px;
 }
 
-
+.label-preferencias input{
+    display: none;
+}
+.label-preferencias label{
+    background-color: var(--azul);
+    padding: 9px 10px;
+    border-radius: var(--borda-botao);
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    gap: 5px;
+    border: 1px solid var(--azul);
+}
+.label-preferencias input:checked+label{
+    background-color: white;
+    border: 1px solid var(--azul);
+    color: var(--azul);
+}
 /*MENU LATERAL (DISTÂNCIA)*/
 
 .filtrar-distancia{
@@ -82,48 +101,22 @@ h2{
     letter-spacing: 0.5px;
 }
 
-/*MENU LATERAL (ORÇAMRNTO)*/
 
-
-.orcamento{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    
-}
-.orcamento .barra_input{
-    width: 210px;
-    display: flex;
-    align-items: center;
-    border: 1px solid var(--verde);
-    border-radius: var(--borda-botao);
-    
-}
-.orcamento #preco{
-    padding: 10px 10px 10px 0px;
-}
-.orcamento label{
-    font-weight: bolder;
-    
-}
-.orcamento .material-symbols-outlined{
-    padding-left: 8px;
-    color: var(--verde);
-    font-size: 1.3rem;
-
-}
-.orcamento input{
-    border-radius: var(--borda-botao);
-    border: none;
-    width: 100%;
-    padding: 13px 15px;
-    
-}
-.orcamento input:focus{
-    outline: none;
-}
 
 /*MENU LATERAL (Gostos)*/
+.filtrar-gostos{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6.5px;
+}
+
+.btn-filtrar .btn-preferencia{
+    display: flex;
+    margin: auto;
+    gap: 4px;
+}
+
+
 iframe html .place-details-compact-container{
     margin-top: 200px;
 }
@@ -205,19 +198,6 @@ iframe html .place-details-compact-container{
     flex-wrap: wrap;
     display: flex;
     gap: 6.5px;
-}
-.label-preferencias label{
-    background-color: var(--azul);
-    padding: 9px 10px;
-    border-radius: var(--borda-botao);
-    border: none;
-    color: white;
-    font-weight: bold;
-    font-size: 0.9rem;
-    cursor: pointer;
-    gap: 5px;
-    align-items: center;
-    display: flex;
 }
 /*BARRA DE PESQUISA*/
 @media screen and (max-width: 1010px){

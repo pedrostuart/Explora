@@ -51,20 +51,6 @@ h2{
     display: flex;
     gap: 6.5px;
 }
-.label-preferencias .selecionado{
-    background-color: white;
-    padding: 9px 10px;
-    border-radius: var(--borda-botao);
-    border: none;
-    color: var(--azul);
-    font-weight: bold;
-    font-size: 0.9rem;
-    cursor: pointer;
-    gap: 5px;
-    align-items: center;
-    border: 1px solid var(--azul);
-    display: flex;
-}
 .label-preferencias button{
     background-color: var(--azul);
     padding: 9px 10px;
