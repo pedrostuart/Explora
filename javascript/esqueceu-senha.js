@@ -15,6 +15,8 @@ enviarCodigo.addEventListener("click", (e)=>{
         }
         if(input.value !== ''){
             window.location.href = 'inserir-token.html'
+            
         }
     })
+    
 })
