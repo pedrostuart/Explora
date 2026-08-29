@@ -1,22 +1,19 @@
-let enviarCodigo = document.querySelector("#enviar_codigo")
+let email = document.getElementById('email') 
+email.addEventListener("invalid", ()=>{ 
+   
+    let barraInput = email.parentElement
 
-enviarCodigo.addEventListener("click", (e)=>{
-    e.preventDefault()
-    let inputs = document.querySelectorAll(".barra_input input")
-    
-    inputs.forEach(input =>{
-        let barraInput = input.parentElement
-        if(input.value.trim() === ""){
-            input.classList.add('placeholder-erro')
+        if(email.value.trim() === ""){
+            email.classList.add('placeholder-erro')
             barraInput.style.border = '1px solid red'
         }else{
-            input.classList.remove('placeholder-erro')
+            email.classList.remove('placeholder-erro')
             barraInput.style.border = '1px solid #1A824D'
+            window.location.href = `inserir-token.html`
+            const valorParaUrl = encodeURIComponent(email.value) 
+            window.location.href = `inserir-token.html?email=${valorParaUrl}`
         }
-        if(input.value !== ''){
-            window.location.href = 'inserir-token.html'
-            
-        }
-    })
     
+    
+     // passando o valor do email pra url  //armazenando esse valor dentro de 'email' 
 })

@@ -1,5 +1,3 @@
-
-
 let inputs = document.querySelectorAll(".barra_input input")
 
 inputs.forEach(input => {

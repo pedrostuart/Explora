@@ -87,6 +87,10 @@ input:focus{
     display: flex;
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+.placeholder-erro::placeholder{
+    color: red;
 }
 .btn-preferencia:hover{
     background-color: white;
