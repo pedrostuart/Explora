@@ -1,116 +1,235 @@
-Create database `explora`;
+CREATE DATABASE `explora`;
+USE `explora`;
 
-use `explora`;
-create table `usuarios`(
-    `id` int not null auto_increment PRIMARY KEY,
-    `nome` varchar(240) not null,
-    `sobrenome` varchar(240) not null,
-    `email` varchar(140) not null,
-    `telefone` varchar(12) not null,
-    `senha` VARCHAR(255) not null,
-    `estado` varchar(100) not null,
-    `data_nascimento`date not null,
-    `orcamento` decimal(10, 2),
-    `notificacoes_email` boolean not null,
-    `alertas_eventos` boolean not null,
-    `notificacoes_ofertas` boolean not null
-    
-)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+CREATE TABLE `usuarios` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `nome` VARCHAR(240) NOT NULL,
+    `sobrenome` VARCHAR(240) NOT NULL,
+    `email` VARCHAR(140) NOT NULL,
+    `telefone` VARCHAR(12) NOT NULL,
+    `senha` VARCHAR(255) NOT NULL,
+    `estado` VARCHAR(100) NOT NULL,
+    `data_nascimento` DATE NOT NULL,
+    `orcamento` DECIMAL(10, 2),
+    `notificacoes_email` BOOLEAN NOT NULL,
+    `alertas_eventos` BOOLEAN NOT NULL,
+    `notificacoes_ofertas` BOOLEAN NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-create table `categorias`(
-    `id` int not null PRIMARY KEY,
-    `nome` varchar(60) not null
+INSERT INTO `usuarios` (
+    `nome`,
+    `sobrenome`,
+    `email`,
+    `telefone`,
+    `senha`,
+    `estado`,
+    `data_nascimento`,
+    `orcamento`,
+    `notificacoes_email`,
+    `alertas_eventos`,
+    `notificacoes_ofertas`
+) VALUES
+    ('Pedro', 'Moura', 'pedro@email.com', '11987654321', '123456', 'São Paulo', '2008-05-15', 1500.00, TRUE, TRUE, FALSE),
+    ('João', 'Silva', 'joao@email.com', '11912345678', 'senha123', 'Rio de Janeiro', '2005-10-20', 2500.00, TRUE, FALSE, TRUE),
+    ('Maria', 'Santos', 'maria@email.com', '11998765432', 'maria123', 'Minas Gerais', '2007-03-10', 1000.00, FALSE, TRUE, TRUE);
+
+
+CREATE TABLE `categorias` (
+    `id` INT NOT NULL PRIMARY KEY,
+    `nome` VARCHAR(60) NOT NULL
 );
 
-create table `usuario_categoria`(
-    `usuario_id` int not null,
-    `categoria_id` int not null,
+INSERT INTO `categorias` (`id`, `nome`) VALUES
+    (1, 'Cinema'),
+    (2, 'Arte'),
+    (3, 'Festivais'),
+    (4, 'Esportes'),
+    (5, 'Gastronomia'),
+    (6, 'Teatro'),
+    (7, 'Música');
 
-    PRIMARY KEY (usuario_id, categoria_id),
 
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
-    FOREIGN KEY (categoria_id) REFERENCES categorias(id)
-);
-create table `eventos`(
-    `id` int not null auto_increment PRIMARY KEY,
-    `nome_evento` varchar(240) not null,
-    `descricao` text not null,
-    `data` date not null,
-    `hora_inicio` time not null,
-    `hora_fim` time not null,
-    `logradouro` varchar(240) not null,
-    `numero_local` int not null,
-    `cidade` varchar(240) not null,
-    `estado` varchar(240) not null,
-    `capacidade` float not null,
-    `classificacao_etaria` int not null,
-    `destaque_evento` varchar(200) not null,
-    `imagem` varchar(500) not null,
-    `link_compra` VARCHAR(500) not null
-)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-create table `evento_categoria`(
-    `evento_id` int not null,
-    `categoria_id` int not null,
-
-    PRIMARY KEY (evento_id, categoria_id),
-
-    FOREIGN KEY (categoria_id) REFERENCES categorias(id),
-    FOREIGN KEY (evento_id) REFERENCES eventos(id)
-);
-create table `ingressos`(
-    `id` int auto_increment not null PRIMARY KEY,
-    `evento_id` int not null,
-    `nome_ingresso` varchar(200) not null,
-    `preco` decimal(10,2) not null,
-    `status` VARCHAR(70) not null,
-    FOREIGN KEY (evento_id) REFERENCES eventos(id)
+CREATE TABLE `usuario_categoria` (
+    `usuario_id` INT NOT NULL,
+    `categoria_id` INT NOT NULL,
+    PRIMARY KEY (`usuario_id`, `categoria_id`),
+    FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`),
+    FOREIGN KEY (`categoria_id`) REFERENCES `categorias`(`id`)
 );
 
-create table `artistas`(
-    `id` int auto_increment not null PRIMARY KEY,
-    `nome` varchar(250) not null,
-    `imagem` varchar(500) not null
+INSERT INTO `usuario_categoria` (`usuario_id`, `categoria_id`) VALUES
+    (1, 1),
+    (1, 6),
+    (2, 2),
+    (2, 1);
+
+
+CREATE TABLE `eventos` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `nome_evento` VARCHAR(240) NOT NULL,
+    `descricao` TEXT NOT NULL,
+    `data` DATE NOT NULL,
+    `hora_inicio` TIME NOT NULL,
+    `hora_fim` TIME NOT NULL,
+    `logradouro` VARCHAR(240) NOT NULL,
+    `numero_local` INT NOT NULL,
+    `cidade` VARCHAR(240) NOT NULL,
+    `estado` VARCHAR(240) NOT NULL,
+    `capacidade` FLOAT NOT NULL,
+    `classificacao_etaria` INT NOT NULL,
+    `destaque_evento` VARCHAR(200) NOT NULL,
+    `imagem` VARCHAR(500) NOT NULL,
+    `link_compra` VARCHAR(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `eventos` (
+    `nome_evento`,
+    `descricao`,
+    `data`,
+    `hora_inicio`,
+    `hora_fim`,
+    `logradouro`,
+    `numero_local`,
+    `cidade`,
+    `estado`,
+    `capacidade`,
+    `classificacao_etaria`,
+    `destaque_evento`,
+    `imagem`,
+    `link_compra`
+) VALUES
+    (
+        'Tech Conference 2026',
+        'Evento sobre tecnologia, programação e inovação.',
+        '2026-10-15',
+        '09:00:00',
+        '18:00:00',
+        'Avenida Paulista',
+        1000,
+        'São Paulo',
+        'SP',
+        500,
+        16,
+        'Palestras com profissionais da área de tecnologia',
+        'https://exemplo.com/imagens/tech-conference.jpg',
+        'https://exemplo.com/ingressos/tech-conference'
+    ),
+    (
+        'Festival de Música',
+        'Festival com apresentações de diversos artistas.',
+        '2026-11-20',
+        '14:00:00',
+        '23:00:00',
+        'Rua das Flores',
+        500,
+        'São Paulo',
+        'SP',
+        2000,
+        18,
+        'Shows de artistas nacionais',
+        'https://exemplo.com/imagens/festival.jpg',
+        'https://exemplo.com/ingressos/festival'
+    ),
+    (
+        'Workshop de Programação',
+        'Workshop prático sobre desenvolvimento web.',
+        '2026-12-05',
+        '10:00:00',
+        '16:00:00',
+        'Rua Vergueiro',
+        1200,
+        'São Paulo',
+        'SP',
+        100,
+        14,
+        'Aprenda HTML, CSS e JavaScript na prática',
+        'https://exemplo.com/imagens/workshop.jpg',
+        'https://exemplo.com/ingressos/workshop'
+    );
+
+
+CREATE TABLE `evento_categoria` (
+    `evento_id` INT NOT NULL,
+    `categoria_id` INT NOT NULL,
+    PRIMARY KEY (`evento_id`, `categoria_id`),
+    FOREIGN KEY (`categoria_id`) REFERENCES `categorias`(`id`),
+    FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`)
 );
-create table `evento_artista`(
-    `evento_id` int not null,
-    `artista_id` int not null,
 
-    PRIMARY key(evento_id, artista_id),
+INSERT INTO `evento_categoria` (`evento_id`, `categoria_id`) VALUES
+    (1, 1),
+    (2, 3),
+    (3, 1),
+    (3, 4);
 
-    FOREIGN KEY (evento_id) REFERENCES eventos(id),
-    FOREIGN KEY (artista_id) REFERENCES artistas(id)
-);
-create table `favoritos`(
-    `id` int auto_increment not null PRIMARY KEY,
-    `usuario_id` int not null,
-    `evento_id` int not null,
-
-    FOREIGN KEY (evento_id) REFERENCES eventos(id),
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+CREATE TABLE `ingressos` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `evento_id` INT NOT NULL,
+    `nome_ingresso` VARCHAR(200) NOT NULL,
+    `preco` DECIMAL(10, 2) NOT NULL,
+    `status` VARCHAR(70) NOT NULL,
+    FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`)
 );
 
-create table `eventos_visitados`(
-    `id` int auto_increment not null PRIMARY KEY,
-    `usuario_id` int not null,
-    `evento_id` int not null,
-    `data_visita` date not null,
-    FOREIGN KEY (evento_id) REFERENCES eventos(id),
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+INSERT INTO `ingressos` (
+    `evento_id`,
+    `nome_ingresso`,
+    `preco`,
+    `status`
+) VALUES
+    (1, 'Ingresso Inteiro', 80.00, 'Disponível'),
+    (1, 'Meia-entrada', 40.00, 'Disponível'),
+    (2, 'Pista', 120.00, 'Disponível'),
+    (2, 'VIP', 250.00, 'Disponível'),
+    (3, 'Ingresso Workshop', 50.00, 'Disponível');
+
+
+CREATE TABLE `artistas` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `nome` VARCHAR(250) NOT NULL,
+    `imagem` VARCHAR(500) NOT NULL
 );
 
-create table `conquistas`(
-    `id` int auto_increment not null PRIMARY KEY,
-    `nome` varchar(200) not null,
-    `descricao` varchar(200) not null
+
+CREATE TABLE `evento_artista` (
+    `evento_id` INT NOT NULL,
+    `artista_id` INT NOT NULL,
+    PRIMARY KEY (`evento_id`, `artista_id`),
+    FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`),
+    FOREIGN KEY (`artista_id`) REFERENCES `artistas`(`id`)
 );
 
-create table `usuario_conquista`(
-    `usuario_id` int not null,
-    `conquista_id` int not null,
 
-    PRIMARY KEY(usuario_id, conquista_id),
+CREATE TABLE `favoritos` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `usuario_id` INT NOT NULL,
+    `evento_id` INT NOT NULL,
+    FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`),
+    FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`)
+);
 
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
-    FOREIGN KEY (conquista_id) REFERENCES conquistas(id)
-)
+
+CREATE TABLE `eventos_visitados` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `usuario_id` INT NOT NULL,
+    `evento_id` INT NOT NULL,
+    `visitado` BOOLEAN NOT NULL,
+    FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`),
+    FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`)
+);
+
+
+CREATE TABLE `conquistas` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `nome` VARCHAR(200) NOT NULL,
+    `descricao` VARCHAR(200) NOT NULL
+);
+
+
+CREATE TABLE `usuario_conquista` (
+    `usuario_id` INT NOT NULL,
+    `conquista_id` INT NOT NULL,
+    PRIMARY KEY (`usuario_id`, `conquista_id`),
+    FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`),
+    FOREIGN KEY (`conquista_id`) REFERENCES `conquistas`(`id`)
+);
