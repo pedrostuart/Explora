@@ -1,4 +1,5 @@
 CREATE DATABASE `explora`;
+
 USE `explora`;
 
 CREATE TABLE `usuarios` (
@@ -13,7 +14,8 @@ CREATE TABLE `usuarios` (
     `orcamento` DECIMAL(10, 2),
     `notificacoes_email` BOOLEAN NOT NULL,
     `alertas_eventos` BOOLEAN NOT NULL,
-    `notificacoes_ofertas` BOOLEAN NOT NULL
+    `notificacoes_ofertas` BOOLEAN NOT NULL,
+    CONSTRAINT `uk_usuarios_email` UNIQUE (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `usuarios` (
@@ -36,7 +38,8 @@ INSERT INTO `usuarios` (
 
 CREATE TABLE `categorias` (
     `id` INT NOT NULL PRIMARY KEY,
-    `nome` VARCHAR(60) NOT NULL
+    `nome` VARCHAR(60) NOT NULL,
+    CONSTRAINT `uk_categorias_nome` UNIQUE (`nome`)
 );
 
 INSERT INTO `categorias` (`id`, `nome`) VALUES
@@ -79,7 +82,13 @@ CREATE TABLE `eventos` (
     `classificacao_etaria` INT NOT NULL,
     `destaque_evento` VARCHAR(200) NOT NULL,
     `imagem` VARCHAR(500) NOT NULL,
-    `link_compra` VARCHAR(500) NOT NULL
+    `link_compra` VARCHAR(500) NOT NULL,
+    CONSTRAINT `chk_evento_horario`
+        CHECK (`hora_fim` > `hora_inicio`),
+    CONSTRAINT `chk_evento_capacidade`
+        CHECK (`capacidade` > 0),
+    CONSTRAINT `chk_evento_classificacao`
+        CHECK (`classificacao_etaria` >= 0)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `eventos` (
@@ -98,62 +107,62 @@ INSERT INTO `eventos` (
     `imagem`,
     `link_compra`
 ) VALUES
-    (
-        'Tech Conference 2026',
-        'Evento sobre tecnologia, programação e inovação.',
-        '2026-10-15',
-        '09:00:00',
-        '18:00:00',
-        'Avenida Paulista',
-        1000,
-        'São Paulo',
-        'SP',
-        500,
-        16,
-        'Palestras com profissionais da área de tecnologia',
-        'https://exemplo.com/imagens/tech-conference.jpg',
-        'https://exemplo.com/ingressos/tech-conference'
-    ),
-    (
-        'Festival de Música',
-        'Festival com apresentações de diversos artistas.',
-        '2026-11-20',
-        '14:00:00',
-        '23:00:00',
-        'Rua das Flores',
-        500,
-        'São Paulo',
-        'SP',
-        2000,
-        18,
-        'Shows de artistas nacionais',
-        'https://exemplo.com/imagens/festival.jpg',
-        'https://exemplo.com/ingressos/festival'
-    ),
-    (
-        'Workshop de Programação',
-        'Workshop prático sobre desenvolvimento web.',
-        '2026-12-05',
-        '10:00:00',
-        '16:00:00',
-        'Rua Vergueiro',
-        1200,
-        'São Paulo',
-        'SP',
-        100,
-        14,
-        'Aprenda HTML, CSS e JavaScript na prática',
-        'https://exemplo.com/imagens/workshop.jpg',
-        'https://exemplo.com/ingressos/workshop'
-    );
+(
+    'Tech Conference 2026',
+    'Evento sobre tecnologia, programação e inovação.',
+    '2026-10-15',
+    '09:00:00',
+    '18:00:00',
+    'Avenida Paulista',
+    1000,
+    'São Paulo',
+    'SP',
+    500,
+    16,
+    'Palestras com profissionais da área de tecnologia',
+    'https://exemplo.com/imagens/tech-conference.jpg',
+    'https://exemplo.com/ingressos/tech-conference'
+),
+(
+    'Festival de Música',
+    'Festival com apresentações de diversos artistas.',
+    '2026-11-20',
+    '14:00:00',
+    '23:00:00',
+    'Rua das Flores',
+    500,
+    'São Paulo',
+    'SP',
+    2000,
+    18,
+    'Shows de artistas nacionais',
+    'https://exemplo.com/imagens/festival.jpg',
+    'https://exemplo.com/ingressos/festival'
+),
+(
+    'Workshop de Programação',
+    'Workshop prático sobre desenvolvimento web.',
+    '2026-12-05',
+    '10:00:00',
+    '16:00:00',
+    'Rua Vergueiro',
+    1200,
+    'São Paulo',
+    'SP',
+    100,
+    14,
+    'Aprenda HTML, CSS e JavaScript na prática',
+    'https://exemplo.com/imagens/workshop.jpg',
+    'https://exemplo.com/ingressos/workshop'
+);
 
 
 CREATE TABLE `evento_categoria` (
     `evento_id` INT NOT NULL,
     `categoria_id` INT NOT NULL,
     PRIMARY KEY (`evento_id`, `categoria_id`),
-    FOREIGN KEY (`categoria_id`) REFERENCES `categorias`(`id`),
-    FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`)
+    FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`),
+    FOREIGN KEY (`categoria_id`) REFERENCES `categorias`(`id`)
 );
 
 INSERT INTO `evento_categoria` (`evento_id`, `categoria_id`) VALUES
@@ -162,13 +171,16 @@ INSERT INTO `evento_categoria` (`evento_id`, `categoria_id`) VALUES
     (3, 1),
     (3, 4);
 
+
 CREATE TABLE `ingressos` (
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `evento_id` INT NOT NULL,
     `nome_ingresso` VARCHAR(200) NOT NULL,
     `preco` DECIMAL(10, 2) NOT NULL,
     `status` VARCHAR(70) NOT NULL,
-    FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`)
+    FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`),
+    CONSTRAINT `chk_ingresso_preco`
+        CHECK (`preco` >= 0)
 );
 
 INSERT INTO `ingressos` (
@@ -187,7 +199,8 @@ INSERT INTO `ingressos` (
 CREATE TABLE `artistas` (
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `nome` VARCHAR(250) NOT NULL,
-    `imagem` VARCHAR(500) NOT NULL
+    `imagem` VARCHAR(500) NOT NULL,
+    CONSTRAINT `uk_artistas_nome` UNIQUE (`nome`)
 );
 
 
@@ -204,8 +217,10 @@ CREATE TABLE `favoritos` (
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `usuario_id` INT NOT NULL,
     `evento_id` INT NOT NULL,
+    FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`),
     FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`),
-    FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`)
+    CONSTRAINT `uk_favoritos_usuario_evento`
+        UNIQUE (`usuario_id`, `evento_id`)
 );
 
 
@@ -214,15 +229,18 @@ CREATE TABLE `eventos_visitados` (
     `usuario_id` INT NOT NULL,
     `evento_id` INT NOT NULL,
     `visitado` BOOLEAN NOT NULL,
+    FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`),
     FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`),
-    FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`)
+    CONSTRAINT `uk_eventos_visitados_usuario_evento`
+        UNIQUE (`usuario_id`, `evento_id`)
 );
 
 
 CREATE TABLE `conquistas` (
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `nome` VARCHAR(200) NOT NULL,
-    `descricao` VARCHAR(200) NOT NULL
+    `descricao` VARCHAR(200) NOT NULL,
+    CONSTRAINT `uk_conquistas_nome` UNIQUE (`nome`)
 );
 
 
@@ -232,4 +250,254 @@ CREATE TABLE `usuario_conquista` (
     PRIMARY KEY (`usuario_id`, `conquista_id`),
     FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`),
     FOREIGN KEY (`conquista_id`) REFERENCES `conquistas`(`id`)
+);
+
+
+CREATE TABLE `perfis` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `nome` VARCHAR(100) NOT NULL,
+    `descricao` VARCHAR(240),
+    CONSTRAINT `uk_perfis_nome` UNIQUE (`nome`)
+);
+
+INSERT INTO `perfis` (`nome`, `descricao`) VALUES
+    ('Turista/Visitante', 'Usuário que utiliza a plataforma para descobrir eventos e locais.'),
+    ('Prestador de Serviço', 'Usuário responsável por cadastrar e administrar locais e eventos.'),
+    ('Administrador', 'Usuário responsável pela administração da plataforma.');
+
+
+CREATE TABLE `usuario_perfil` (
+    `usuario_id` INT NOT NULL,
+    `perfil_id` INT NOT NULL,
+    PRIMARY KEY (`usuario_id`, `perfil_id`),
+    FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`),
+    FOREIGN KEY (`perfil_id`) REFERENCES `perfis`(`id`)
+);
+
+
+CREATE TABLE `locais` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `usuario_id` INT NOT NULL,
+    `nome` VARCHAR(240) NOT NULL,
+    `descricao` TEXT,
+    `logradouro` VARCHAR(240) NOT NULL,
+    `numero` INT NOT NULL,
+    `complemento` VARCHAR(150),
+    `bairro` VARCHAR(150) NOT NULL,
+    `cidade` VARCHAR(240) NOT NULL,
+    `estado` VARCHAR(240) NOT NULL,
+    `cep` VARCHAR(10),
+    `latitude` DECIMAL(10, 7),
+    `longitude` DECIMAL(10, 7),
+    `preco_minimo` DECIMAL(10, 2),
+    `preco_maximo` DECIMAL(10, 2),
+    `ativo` BOOLEAN NOT NULL DEFAULT TRUE,
+    FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`),
+    CONSTRAINT `chk_local_latitude`
+        CHECK (`latitude` IS NULL OR `latitude` BETWEEN -90 AND 90),
+    CONSTRAINT `chk_local_longitude`
+        CHECK (`longitude` IS NULL OR `longitude` BETWEEN -180 AND 180),
+    CONSTRAINT `chk_local_precos`
+        CHECK (
+            `preco_minimo` IS NULL
+            OR `preco_maximo` IS NULL
+            OR `preco_maximo` >= `preco_minimo`
+        )
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+CREATE TABLE `local_categoria` (
+    `local_id` INT NOT NULL,
+    `categoria_id` INT NOT NULL,
+    PRIMARY KEY (`local_id`, `categoria_id`),
+    FOREIGN KEY (`local_id`) REFERENCES `locais`(`id`),
+    FOREIGN KEY (`categoria_id`) REFERENCES `categorias`(`id`)
+);
+
+
+CREATE TABLE `local_horarios` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `local_id` INT NOT NULL,
+    `dia_semana` INT NOT NULL,
+    `hora_abertura` TIME NOT NULL,
+    `hora_fechamento` TIME NOT NULL,
+    FOREIGN KEY (`local_id`) REFERENCES `locais`(`id`),
+    CONSTRAINT `chk_local_dia_semana`
+        CHECK (`dia_semana` BETWEEN 0 AND 6),
+    CONSTRAINT `chk_local_horario`
+        CHECK (`hora_fechamento` > `hora_abertura`)
+);
+
+
+CREATE TABLE `local_imagens` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `local_id` INT NOT NULL,
+    `imagem` VARCHAR(500) NOT NULL,
+    `principal` BOOLEAN NOT NULL DEFAULT FALSE,
+    `ordem` INT NOT NULL DEFAULT 0,
+    FOREIGN KEY (`local_id`) REFERENCES `locais`(`id`),
+    CONSTRAINT `chk_local_imagem_ordem`
+        CHECK (`ordem` >= 0)
+);
+
+
+CREATE TABLE `local_acessibilidade` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `local_id` INT NOT NULL,
+    `acesso_cadeirante` BOOLEAN NOT NULL DEFAULT FALSE,
+    `banheiro_adaptado` BOOLEAN NOT NULL DEFAULT FALSE,
+    `elevador` BOOLEAN NOT NULL DEFAULT FALSE,
+    `piso_tatil` BOOLEAN NOT NULL DEFAULT FALSE,
+    `braile` BOOLEAN NOT NULL DEFAULT FALSE,
+    `libras` BOOLEAN NOT NULL DEFAULT FALSE,
+    `descricao` TEXT,
+    FOREIGN KEY (`local_id`) REFERENCES `locais`(`id`),
+    CONSTRAINT `uk_local_acessibilidade`
+        UNIQUE (`local_id`)
+);
+
+
+CREATE TABLE `local_edicoes` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `local_id` INT NOT NULL,
+    `usuario_id` INT NOT NULL,
+    `descricao` TEXT NOT NULL,
+    `data_edicao` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (`local_id`) REFERENCES `locais`(`id`),
+    FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`)
+);
+
+
+CREATE TABLE `evento_recorrencia` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `evento_id` INT NOT NULL,
+    `tipo_recorrencia` VARCHAR(50) NOT NULL,
+    `data_inicio` DATE NOT NULL,
+    `data_fim` DATE,
+    `intervalo` INT NOT NULL DEFAULT 1,
+    FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`),
+    CONSTRAINT `uk_recorrencia_evento`
+        UNIQUE (`evento_id`),
+    CONSTRAINT `chk_recorrencia_intervalo`
+        CHECK (`intervalo` > 0),
+    CONSTRAINT `chk_recorrencia_datas`
+        CHECK (
+            `data_fim` IS NULL
+            OR `data_fim` >= `data_inicio`
+        )
+);
+
+
+CREATE TABLE `inscricoes` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `usuario_id` INT NOT NULL,
+    `evento_id` INT NOT NULL,
+    `data_inscricao` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `status` VARCHAR(70) NOT NULL,
+    FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`),
+    FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`),
+    CONSTRAINT `uk_inscricao_usuario_evento`
+        UNIQUE (`usuario_id`, `evento_id`)
+);
+
+
+CREATE TABLE `notificacoes` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `usuario_id` INT NOT NULL,
+    `evento_id` INT NULL,
+    `titulo` VARCHAR(200) NOT NULL,
+    `mensagem` TEXT NOT NULL,
+    `tipo` VARCHAR(100) NOT NULL,
+    `lida` BOOLEAN NOT NULL DEFAULT FALSE,
+    `data_criacao` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`),
+    FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`)
+);
+
+
+CREATE TABLE `avaliacoes` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `usuario_id` INT NOT NULL,
+    `evento_id` INT NOT NULL,
+    `nota` INT NOT NULL,
+    `comentario` TEXT,
+    `data_avaliacao` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`),
+    FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`),
+    CONSTRAINT `chk_avaliacao_nota`
+        CHECK (`nota` BETWEEN 1 AND 5),
+    CONSTRAINT `uk_avaliacao_usuario_evento`
+        UNIQUE (`usuario_id`, `evento_id`)
+);
+
+
+CREATE TABLE `comentarios` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `usuario_id` INT NOT NULL,
+    `evento_id` INT NOT NULL,
+    `comentario` TEXT NOT NULL,
+    `data_comentario` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `atualizado_em` DATETIME NULL,
+    FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`),
+    FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`)
+);
+
+
+CREATE TABLE `tokens_confirmacao` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `usuario_id` INT NOT NULL,
+    `token` VARCHAR(255) NOT NULL,
+    `data_expiracao` DATETIME NOT NULL,
+    `utilizado` BOOLEAN NOT NULL DEFAULT FALSE,
+    FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`),
+    CONSTRAINT `uk_token_confirmacao`
+        UNIQUE (`token`)
+);
+
+
+CREATE TABLE `tokens_recuperacao` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `usuario_id` INT NOT NULL,
+    `codigo` VARCHAR(4) NOT NULL,
+    `data_expiracao` DATETIME NOT NULL,
+    `utilizado` BOOLEAN NOT NULL DEFAULT FALSE,
+    FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`)
+);
+
+
+CREATE TABLE `sessoes` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `usuario_id` INT NOT NULL,
+    `token` VARCHAR(500) NOT NULL,
+    `data_criacao` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `ultima_atividade` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `data_expiracao` DATETIME NOT NULL,
+    `ativa` BOOLEAN NOT NULL DEFAULT TRUE,
+    FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`),
+    CONSTRAINT `uk_sessao_token`
+        UNIQUE (`token`)
+);
+
+
+CREATE TABLE `logs_auditoria` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `usuario_id` INT NULL,
+    `acao` VARCHAR(200) NOT NULL,
+    `tabela` VARCHAR(100),
+    `registro_id` INT,
+    `descricao` TEXT,
+    `data_log` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`)
+);
+
+
+CREATE TABLE `consentimentos` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `usuario_id` INT NOT NULL,
+    `tipo` VARCHAR(100) NOT NULL,
+    `aceito` BOOLEAN NOT NULL DEFAULT FALSE,
+    `data_consentimento` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`),
+    CONSTRAINT `uk_consentimento_usuario_tipo`
+        UNIQUE (`usuario_id`, `tipo`)
 );
