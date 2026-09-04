@@ -190,6 +190,14 @@ CREATE TABLE `artistas` (
     `imagem` VARCHAR(500) NOT NULL
 );
 
+INSERT INTO artistas (nome, imagem)
+VALUES
+('Emicida', 'https://exemplo.com/imagens/emicida.jpg'),
+('Alok', 'https://exemplo.com/imagens/alok.jpg'),
+('Pabllo Vittar', 'https://exemplo.com/imagens/pabllo.jpg'),
+('Gustavo Lima', 'https://exemplo.com/imagens/gustavo-lima.jpg'),
+('Mano Brown', 'https://exemplo.com/imagens/mano-brown.jpg');
+
 
 CREATE TABLE `evento_artista` (
     `evento_id` INT NOT NULL,
@@ -199,6 +207,14 @@ CREATE TABLE `evento_artista` (
     FOREIGN KEY (`artista_id`) REFERENCES `artistas`(`id`)
 );
 
+INSERT INTO evento_artista (evento_id, artista_id)
+VALUES
+(1, 1),
+(1, 2),
+(2, 3),
+(2, 4),
+(3, 1),
+(3, 5);
 
 CREATE TABLE `favoritos` (
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -207,6 +223,14 @@ CREATE TABLE `favoritos` (
     FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`),
     FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`)
 );
+
+INSERT INTO favoritos (usuario_id, evento_id)
+VALUES
+(1, 1),
+(1, 2),
+(2, 2),
+(2, 3),
+(3, 1);
 
 
 CREATE TABLE `eventos_visitados` (
@@ -218,6 +242,13 @@ CREATE TABLE `eventos_visitados` (
     FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`)
 );
 
+INSERT INTO eventos_visitados (usuario_id, evento_id, visitado)
+VALUES
+(1, 1, TRUE),
+(1, 2, TRUE),
+(2, 2, TRUE),
+(2, 3, FALSE),
+(3, 1, TRUE);
 
 CREATE TABLE `conquistas` (
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -225,6 +256,13 @@ CREATE TABLE `conquistas` (
     `descricao` VARCHAR(200) NOT NULL
 );
 
+INSERT INTO conquistas (nome, descricao)
+VALUES
+('Primeiro Evento', 'Visitou seu primeiro evento'),
+('Explorador', 'Visitou 5 eventos'),
+('Fã de Música', 'Visitou 3 eventos de música'),
+('Tecnológico', 'Participou de um evento de tecnologia'),
+('Veterano', 'Visitou 10 eventos');
 
 CREATE TABLE `usuario_conquista` (
     `usuario_id` INT NOT NULL,
@@ -233,3 +271,11 @@ CREATE TABLE `usuario_conquista` (
     FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`),
     FOREIGN KEY (`conquista_id`) REFERENCES `conquistas`(`id`)
 );
+
+INSERT INTO usuario_conquista (usuario_id, conquista_id)
+VALUES
+(1, 1),
+(1, 4),
+(2, 1),
+(2, 3),
+(3, 1);
