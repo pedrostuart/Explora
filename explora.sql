@@ -7,7 +7,7 @@ CREATE TABLE `usuarios` (
     `nome` VARCHAR(240) NOT NULL,
     `sobrenome` VARCHAR(240) NOT NULL,
     `email` VARCHAR(140) NOT NULL,
-    `telefone` VARCHAR(12) NOT NULL,
+    `telefone` VARCHAR(15) NOT NULL,
     `senha` VARCHAR(255) NOT NULL,
     `estado` VARCHAR(100) NOT NULL,
     `data_nascimento` DATE NOT NULL,
@@ -78,17 +78,11 @@ CREATE TABLE `eventos` (
     `numero_local` INT NOT NULL,
     `cidade` VARCHAR(240) NOT NULL,
     `estado` VARCHAR(240) NOT NULL,
-    `capacidade` FLOAT NOT NULL,
+    `capacidade` INT NOT NULL,
     `classificacao_etaria` INT NOT NULL,
     `destaque_evento` VARCHAR(200) NOT NULL,
     `imagem` VARCHAR(500) NOT NULL,
-    `link_compra` VARCHAR(500) NOT NULL,
-    CONSTRAINT `chk_evento_horario`
-        CHECK (`hora_fim` > `hora_inicio`),
-    CONSTRAINT `chk_evento_capacidade`
-        CHECK (`capacidade` > 0),
-    CONSTRAINT `chk_evento_classificacao`
-        CHECK (`classificacao_etaria` >= 0)
+    `link_compra` VARCHAR(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `eventos` (
@@ -178,9 +172,7 @@ CREATE TABLE `ingressos` (
     `nome_ingresso` VARCHAR(200) NOT NULL,
     `preco` DECIMAL(10, 2) NOT NULL,
     `status` VARCHAR(70) NOT NULL,
-    FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`),
-    CONSTRAINT `chk_ingresso_preco`
-        CHECK (`preco` >= 0)
+    FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`)
 );
 
 INSERT INTO `ingressos` (
@@ -236,7 +228,7 @@ CREATE TABLE `favoritos` (
     FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`),
     FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`),
     CONSTRAINT `uk_favoritos_usuario_evento`
-        UNIQUE (`usuario_id`, `evento_id`)
+    UNIQUE (`usuario_id`, `evento_id`)
 );
 
 INSERT INTO favoritos (usuario_id, evento_id)
@@ -256,7 +248,7 @@ CREATE TABLE `eventos_visitados` (
     FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`),
     FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`),
     CONSTRAINT `uk_eventos_visitados_usuario_evento`
-        UNIQUE (`usuario_id`, `evento_id`)
+    UNIQUE (`usuario_id`, `evento_id`)
 );
 
 INSERT INTO eventos_visitados (usuario_id, evento_id, visitado)
