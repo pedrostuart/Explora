@@ -1,4 +1,5 @@
 CREATE DATABASE `explora`;
+
 USE `explora`;
 
 CREATE TABLE `usuarios` (
@@ -13,7 +14,8 @@ CREATE TABLE `usuarios` (
     `orcamento` DECIMAL(10, 2),
     `notificacoes_email` BOOLEAN NOT NULL,
     `alertas_eventos` BOOLEAN NOT NULL,
-    `notificacoes_ofertas` BOOLEAN NOT NULL
+    `notificacoes_ofertas` BOOLEAN NOT NULL,
+    CONSTRAINT `uk_usuarios_email` UNIQUE (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `usuarios` (
@@ -36,7 +38,8 @@ INSERT INTO `usuarios` (
 
 CREATE TABLE `categorias` (
     `id` INT NOT NULL PRIMARY KEY,
-    `nome` VARCHAR(60) NOT NULL
+    `nome` VARCHAR(60) NOT NULL,
+    CONSTRAINT `uk_categorias_nome` UNIQUE (`nome`)
 );
 
 INSERT INTO `categorias` (`id`, `nome`) VALUES
@@ -79,7 +82,13 @@ CREATE TABLE `eventos` (
     `classificacao_etaria` INT NOT NULL,
     `destaque_evento` VARCHAR(200) NOT NULL,
     `imagem` VARCHAR(500) NOT NULL,
-    `link_compra` VARCHAR(500) NOT NULL
+    `link_compra` VARCHAR(500) NOT NULL,
+    CONSTRAINT `chk_evento_horario`
+        CHECK (`hora_fim` > `hora_inicio`),
+    CONSTRAINT `chk_evento_capacidade`
+        CHECK (`capacidade` > 0),
+    CONSTRAINT `chk_evento_classificacao`
+        CHECK (`classificacao_etaria` >= 0)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `eventos` (
@@ -98,62 +107,62 @@ INSERT INTO `eventos` (
     `imagem`,
     `link_compra`
 ) VALUES
-    (
-        'Tech Conference 2026',
-        'Evento sobre tecnologia, programação e inovação.',
-        '2026-10-15',
-        '09:00:00',
-        '18:00:00',
-        'Avenida Paulista',
-        1000,
-        'São Paulo',
-        'SP',
-        500,
-        16,
-        'Palestras com profissionais da área de tecnologia',
-        'https://exemplo.com/imagens/tech-conference.jpg',
-        'https://exemplo.com/ingressos/tech-conference'
-    ),
-    (
-        'Festival de Música',
-        'Festival com apresentações de diversos artistas.',
-        '2026-11-20',
-        '14:00:00',
-        '23:00:00',
-        'Rua das Flores',
-        500,
-        'São Paulo',
-        'SP',
-        2000,
-        18,
-        'Shows de artistas nacionais',
-        'https://exemplo.com/imagens/festival.jpg',
-        'https://exemplo.com/ingressos/festival'
-    ),
-    (
-        'Workshop de Programação',
-        'Workshop prático sobre desenvolvimento web.',
-        '2026-12-05',
-        '10:00:00',
-        '16:00:00',
-        'Rua Vergueiro',
-        1200,
-        'São Paulo',
-        'SP',
-        100,
-        14,
-        'Aprenda HTML, CSS e JavaScript na prática',
-        'https://exemplo.com/imagens/workshop.jpg',
-        'https://exemplo.com/ingressos/workshop'
-    );
+(
+    'Tech Conference 2026',
+    'Evento sobre tecnologia, programação e inovação.',
+    '2026-10-15',
+    '09:00:00',
+    '18:00:00',
+    'Avenida Paulista',
+    1000,
+    'São Paulo',
+    'SP',
+    500,
+    16,
+    'Palestras com profissionais da área de tecnologia',
+    'https://exemplo.com/imagens/tech-conference.jpg',
+    'https://exemplo.com/ingressos/tech-conference'
+),
+(
+    'Festival de Música',
+    'Festival com apresentações de diversos artistas.',
+    '2026-11-20',
+    '14:00:00',
+    '23:00:00',
+    'Rua das Flores',
+    500,
+    'São Paulo',
+    'SP',
+    2000,
+    18,
+    'Shows de artistas nacionais',
+    'https://exemplo.com/imagens/festival.jpg',
+    'https://exemplo.com/ingressos/festival'
+),
+(
+    'Workshop de Programação',
+    'Workshop prático sobre desenvolvimento web.',
+    '2026-12-05',
+    '10:00:00',
+    '16:00:00',
+    'Rua Vergueiro',
+    1200,
+    'São Paulo',
+    'SP',
+    100,
+    14,
+    'Aprenda HTML, CSS e JavaScript na prática',
+    'https://exemplo.com/imagens/workshop.jpg',
+    'https://exemplo.com/ingressos/workshop'
+);
 
 
 CREATE TABLE `evento_categoria` (
     `evento_id` INT NOT NULL,
     `categoria_id` INT NOT NULL,
     PRIMARY KEY (`evento_id`, `categoria_id`),
-    FOREIGN KEY (`categoria_id`) REFERENCES `categorias`(`id`),
-    FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`)
+    FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`),
+    FOREIGN KEY (`categoria_id`) REFERENCES `categorias`(`id`)
 );
 
 INSERT INTO `evento_categoria` (`evento_id`, `categoria_id`) VALUES
@@ -162,13 +171,16 @@ INSERT INTO `evento_categoria` (`evento_id`, `categoria_id`) VALUES
     (3, 1),
     (3, 4);
 
+
 CREATE TABLE `ingressos` (
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `evento_id` INT NOT NULL,
     `nome_ingresso` VARCHAR(200) NOT NULL,
     `preco` DECIMAL(10, 2) NOT NULL,
     `status` VARCHAR(70) NOT NULL,
-    FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`)
+    FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`),
+    CONSTRAINT `chk_ingresso_preco`
+        CHECK (`preco` >= 0)
 );
 
 INSERT INTO `ingressos` (
@@ -187,7 +199,8 @@ INSERT INTO `ingressos` (
 CREATE TABLE `artistas` (
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `nome` VARCHAR(250) NOT NULL,
-    `imagem` VARCHAR(500) NOT NULL
+    `imagem` VARCHAR(500) NOT NULL,
+    CONSTRAINT `uk_artistas_nome` UNIQUE (`nome`)
 );
 
 INSERT INTO artistas (nome, imagem)
@@ -220,8 +233,10 @@ CREATE TABLE `favoritos` (
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `usuario_id` INT NOT NULL,
     `evento_id` INT NOT NULL,
+    FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`),
     FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`),
-    FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`)
+    CONSTRAINT `uk_favoritos_usuario_evento`
+        UNIQUE (`usuario_id`, `evento_id`)
 );
 
 INSERT INTO favoritos (usuario_id, evento_id)
@@ -238,8 +253,10 @@ CREATE TABLE `eventos_visitados` (
     `usuario_id` INT NOT NULL,
     `evento_id` INT NOT NULL,
     `visitado` BOOLEAN NOT NULL,
+    FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`),
     FOREIGN KEY (`evento_id`) REFERENCES `eventos`(`id`),
-    FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`)
+    CONSTRAINT `uk_eventos_visitados_usuario_evento`
+        UNIQUE (`usuario_id`, `evento_id`)
 );
 
 INSERT INTO eventos_visitados (usuario_id, evento_id, visitado)
@@ -253,7 +270,8 @@ VALUES
 CREATE TABLE `conquistas` (
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `nome` VARCHAR(200) NOT NULL,
-    `descricao` VARCHAR(200) NOT NULL
+    `descricao` VARCHAR(200) NOT NULL,
+    CONSTRAINT `uk_conquistas_nome` UNIQUE (`nome`)
 );
 
 INSERT INTO conquistas (nome, descricao)
