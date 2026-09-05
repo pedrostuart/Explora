@@ -1,16 +1,13 @@
 import { Module } from '@nestjs/common';
-import { createObserveModule } from '@nestjs/observe';
+import { ConfigModule } from '@nestjs/config';
 
-export const { ObserveModule, ObserveInstrument } = createObserveModule();
 
 @Module({
   imports: [
-    
-    ObserveModule.forRoot({
-      appKey: 'YOUR_APP_KEY',
-      appSecret: 'YOUR_APP_SECRET',
-      serviceId: 'backend',
-    }),
+    ConfigModule.forRoot({
+      //para que as variaveis presententes no .env consiga ser visto por toda aplicação
+      isGlobal: true
+    })
   ],
   controllers: [],
   providers: []
