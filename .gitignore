@@ -1,9 +1,0 @@
-.env
-.env.*
-!.env.example
-node_modules/
-dist/
-src/database/database.sqlite
-uploads/
-!uploads/.gitkeep
-cookies*.txt
