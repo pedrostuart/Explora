@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" href="style/perfil.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" /> 
+    <link rel="stylesheet" href="style/footer.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="shortcut icon" href="img/icone-logo.png" type="image/x-icon">
+</head>
+<body>
+    <section class="barra-lateral-header">
+        
+        <nav>
+            <div class="fechar-logo">
+                <img src="img/logo.png" alt="Logo Site">
+                <button class="fechar-menu"><i class="bi bi-x"></i></button>
+            </div>
+            
+            <ul>
+                <li> <a href="index.html"><i class="bi bi-house-fill"></i> Início</a></li>
+                <li> <a href="eventos.html"><i class="bi bi-calendar-event-fill"></i> Eventos</a></li>
+                <li> <a href="mapa.html"><i class="bi bi-map-fill"></i> Mapa</a></li>
+                <li> <a href="favoritos_eventos.html"><i class="bi bi-heart-fill"></i> Favoritos</a></li>
+            </ul>
+            <div class="botoes_cadastro">
+                <a href="login.html" id="entrar">Entrar</a>
+                <a href="cadastro.html" id="cadastrar">Cadastre-se</a>
+            </div>  
+        </nav>
+        
+    </section>
+    <header>
+        <nav>
+        <div class="menu-logo">
+            <button class="hamburguer"><i class="bi bi-list"></i></button>
+            <a href="index.html"><img src="img/logo.png" alt="Logo Site"></a>
+        </div>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="eventos.html">Eventos</a></li>
+            <li><a href="mapa.html">Mapa</a></li>
+            <li><a href="favoritos_eventos.html">Favoritos</a></li>
+        </ul>
+        <div class="botoes_cadastro">
+            <a href="login.html" id="entrar">Entrar</a>
+            <a href="cadastro.html" id="cadastrar">Cadastre-se</a>
+            <button type="button" id="btn-logout" class="btn-preferencia">Sair</button>
+        </div>
+        </nav>
+    </header>
+    <main>
+        <section class="cabecalho">
+            <img src="img/foto-de-mery.jpg" alt="imagem-perfil" >
+            <div class="info-usuario">
+                <h1>Maria Fernanda</h1>
+                <p>Exploradora de eventos - São Paulo, SP</p>
+            </div>
+        </section>
+        <section class="navegacao">
+            <nav class="menu">
+                <button class="btn-atividade" style="color: #1A824D;">
+                    <i class="bi bi-clock-history"></i>Atividade
+                </button>
+                <button class="btn-favoritos">
+                    <i class="bi bi-heart-fill" style="color: red;"></i></span>Favoritos
+                </button>
+                <button class="btn-config">
+                    <i class="bi bi-gear-fill"></i>Configurações
+                </button>
+            </nav>
+        </section>
+        <section class="configuracao">
+            <div class="barra-lateral">
+                
+                <div class="box-notificacao">
+                    <div class="titulo-notficacao">
+                        <i class="bi bi-bell-fill"></i>
+                        <h2>Notificações</h2>
+                    </div>
+                    <div class="box-inputs-check">
+                        <div class="input-check">
+                            <label for="not-email">Notificações por e-mail</label>
+                            <input type="checkbox" name="not-email" id="" class="toggle-switch">
+                        </div>
+                        <div class="input-check">
+                            <label for="not-email">Alertas de eventos próximos</label>
+                            <input type="checkbox" name="not-eventos" id="" class="toggle-switch">
+                        </div>
+                        <div class="input-check">
+                            <label for="not-email">Promoções e ofertas</label>
+                            <input type="checkbox" name="not-ofertas" id="" class="toggle-switch">
+                        </div>
+                    </div>
+                </div>
+                <div class="box-conquistas">
+                    <div class="titulo-notficacao">
+                        <i class="bi bi-trophy-fill"></i>
+                        <h2>Conquistas</h2>
+                
+                    </div>
+                    <div class="box-icons-conquistas">
+                        <div class="conquistas">
+                            
+                            <div class="txt">
+                                <h3>Amante da musíca</h3>
+                                <p><span>5 shows assistidos</span></p>
+                            </div>
+                            <i class="bi bi-music-note"></i>
+                        </div>
+                        <div class="conquistas">
+                            
+                            <div class="txt">
+                                <h3>Explorador</h3>
+                                <p><span>7 Eventos visitados</span></p>
+                            </div>
+                            <i class="bi bi-person-walking"></i>
+                        </div>
+                        <div class="conquistas">
+                            
+                            <div class="txt">
+                                <h3>Food Lover</h3>
+                                <p><span>3 eventos gastronômicos</span></p>
+                            </div>
+                            <i class="bi bi-fork-knife"></i>
+                        </div>
+                        <div class="conquistas">
+                            
+                            <div class="txt">
+                                <h3>Food Lover</h3>
+                                <p><span>3 eventos gastronômicos</span></p>
+                            </div>
+                            <i class="bi bi-fork-knife"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-seguranca">
+                    <div class="titulo-notficacao">
+                        <i class="bi bi-shield-lock-fill"></i>
+                        <h2>Segurança</h2>
+                    </div>
+
+                    <p id="status-2fa" class="status-2fa">Verificando status...</p>
+
+                    <button type="button" id="btn-ativar-2fa" class="btn-preferencia" style="display:none;">
+                        Ativar autenticação em duas etapas
+                    </button>
+
+                    <div id="painel-ativar-2fa" class="painel-2fa" style="display:none;">
+                        <p>1. Escaneie o QR code abaixo com o Google Authenticator, Authy ou outro app compatível.</p>
+                        <img id="qrcode-2fa" src="" alt="QR code para ativar 2FA">
+                        <p class="segredo-manual">Ou digite manualmente: <code id="segredo-2fa"></code></p>
+                        <p>2. Digite o código gerado pelo app para confirmar:</p>
+                        <input type="text" id="codigo-confirmar-2fa" maxlength="6" inputmode="numeric" placeholder="000000">
+                        <button type="button" id="btn-confirmar-ativacao-2fa" class="btn-preferencia">Confirmar e ativar</button>
+                    </div>
+
+                    <div id="painel-desativar-2fa" class="painel-2fa" style="display:none;">
+                        <p>Para desativar, confirme sua senha atual:</p>
+                        <input type="password" id="senha-desativar-2fa" placeholder="Sua senha atual">
+                        <button type="button" id="btn-desativar-2fa" class="btn-preferencia btn-preferencia--perigo">Desativar 2FA</button>
+                    </div>
+                </div>
+            </div>
+            
+
+
+            <div class="box-historico">
+                <div class="titulo-atividade">
+                    <span class="material-symbols-outlined">history</span>
+                    <h2>Atividades Recentes</h2>
+                    
+                </div>
+                <div class="info-recentes">
+                    <i class="bi bi-heart-fill"></i>
+                    <div>
+                        <h3>Evento Favorito</h3>
+                        <p>The weekend</p>
+                    </div>
+                </div>
+                <div class="info-recentes">
+                    <i class="bi bi-star-fill"></i>
+                    <div>
+                        <h3>Lugar visitado</h3>
+                        <p>Você curitu um show nessa semana</p>
+                    </div>
+                </div>
+                <div class="info-recentes">
+                    <i class="bi bi-star-fill"></i>
+                    <div>
+                        <h3>Lugar visitado</h3>
+                        <p>Você curitu um show nessa semana</p>
+                    </div>
+                </div>
+                <div class="info-recentes">
+                    <i class="bi bi-star-fill"></i>
+                    <div>
+                        <h3>Lugar visitado</h3>
+                        <p>Você curitu um show nessa semana</p>
+                    </div>
+                </div>
+            </div> 
+            
+
+
+
+
+            <div class="box-favoritos">
+                        <div class="titulo-favoritos">
+                            <i class="bi bi-heart-fill" style="color: red;"></i>
+                            <h2>Favoritos</h2>
+                        </div>
+                        <div class="eventos-salvos">   
+                            <div class="info-favoritos">
+                                <i class="bi bi-heart-fill"></i>
+                                <div>
+                                    <h3>Evento Favorito</h3>
+                                    <p>The weekend</p>
+                                </div>
+                            </div>
+                            <div class="info-favoritos">
+                                <i class="bi bi-heart-fill"></i>
+                                <div>
+                                    <h3>Evento Favorito</h3>
+                                    <p>Liniker</p>
+                                </div>
+                            </div>
+                            <div class="info-favoritos">
+                                <i class="bi bi-heart-fill"></i>
+                                <div>
+                                    <h3>Evento Favorito</h3>
+                                    <p>Ivete Sangalo</p>
+                                </div>
+                            </div>
+                            <div class="info-favoritos">
+                                <i class="bi bi-heart-fill"></i>
+                                <div>
+                                    <h3>Evento Favorito</h3>
+                                    <p>Ludmilla</p>
+                                </div>
+                            </div>
+                            <div class="info-favoritos">
+                                <i class="bi bi-heart-fill"></i>
+                                <div>
+                                    <h3>Evento Favorito</h3>
+                                    <p>Ana Vitória</p>
+                                </div>
+                            </div>
+                            <div class="info-favoritos">
+                                <i class="bi bi-heart-fill"></i>
+                                <div>
+                                    <h3>Evento Favorito</h3>
+                                    <p>Nando Reis</p>
+                                </div>
+                            </div>
+                            <div class="info-favoritos">
+                                <i class="bi bi-heart-fill"></i>
+                                <div>
+                                    <h3>Evento Favorito</h3>
+                                    <p>Djavan</p>
+                                </div>
+                            </div>
+                            <div class="info-favoritos">
+                                <i class="bi bi-heart-fill"></i>
+                                <div>
+                                    <h3>Evento Favorito</h3>
+                                    <p>Caetano Veloso</p>
+                                </div>
+                            </div>
+                            <div class="info-favoritos">
+                                <i class="bi bi-heart-fill"></i>
+                                <div>
+                                    <h3>Evento Favorito</h3>
+                                    <p>Orquestra Sinfônica</p>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+
+
+
+
+            <div class="box-dados">
+                <div class="titulo-dados">
+                    <i class="bi bi-gear-fill"></i>
+                    <h2>Configurações da Conta</h2>
+                </div>
+
+                <div class="box-config-inputs">
+                    <div class="config-inputs">
+                        <label for="nome-usuario">Nome</label>
+                        <input type="text" name="nome-usuario" id="nome-usuario" class="config-dados" placeholder="Maria Fernanda">
+                    </div>
+                    <div class="config-inputs">
+                        <label for="email-usuario">E-mail</label>
+                        <input type="text" name="email-usuario" id="nome-usuario" class="config-dados" placeholder="mariafer@email.com">
+                    </div>
+                    <div class="config-inputs">
+                        <label for="tel-usuario">Telefone</label>
+                        <input type="text" name="tel-usuario" id="nome-usuario" class="config-dados" placeholder="(11) 99999-9999">
+                    </div>
+                    <div class="config-inputs">
+                        <label for="cid-usuario">Cidade</label>
+                        <select name="cid-usuario" id="local" class="config-dados-select">
+                            <option value="" selected disabled>Selecione seu local</option>
+                            <option value="acre">Acre</option>
+                            <option value="alagoas">Alagoas</option>
+                            <option value="amapa">Amapá</option>
+                            <option value="amazonas">Amazonas</option>
+                            <option value="bahia">Bahia</option>
+                            <option value="ceara">Ceará</option>
+                            <option value="distrito-federal">Distrito Federal</option>
+                            <option value="espirito-santo">Espírito Santo</option>
+                            <option value="goias">Goiás</option>
+                            <option value="maranhao">Maranhão</option>
+                            <option value="mato-grosso">Mato Grosso</option>
+                            <option value="mato-grosso-do-sul">Mato Grosso do Sul</option>
+                            <option value="minas-gerais">Minas Gerais</option>
+                            <option value="para">Pará</option>
+                            <option value="paraiba">Paraíba</option>
+                            <option value="parana">Paraná</option>
+                            <option value="pernambuco">Pernambuco</option>
+                            <option value="piaui">Piauí</option>
+                            <option value="rio-de-janeiro">Rio de Janeiro</option>
+                            <option value="rio-grande-do-norte">Rio Grande do Norte</option>
+                            <option value="rio-grande-do-sul">Rio Grande do Sul</option>
+                            <option value="rondonia">Rondônia</option>
+                            <option value="roraima">Roraima</option>
+                            <option value="santa-catarina">Santa Catarina</option>
+                            <option value="sao-paulo">São Paulo</option>
+                            <option value="sergipe">Sergipe</option>
+                            <option value="tocantins">Tocantins</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="preferencias">
+                    <h3>Interesses</h3>
+                    <button class="aplicar-preferencias">Adicionar <i class="bi bi-sliders"></i></button>
+                    <button class="salvar"><i class="bi bi-floppy-fill"></i>Salvar</button>
+                    <dialog class="modal-salvar">
+                        <p>Alteração Salva!</p>
+                    </dialog>
+                </div>
+            </div> 
+
+        </section>
+        <dialog class="modal">
+            <h1>Selecione suas prefêrencias</h1>
+        <form class="preferencias">
+            
+            <div class="label-preferencias">
+                <label>
+                    <input type="checkbox" name="preferencias[]" value="cinema" class="btn-preferencia">
+                    Cinema
+                </label>
+                <label>
+                    <input type="checkbox" name="preferencias[]" value="arte" class="btn-preferencia">
+                    Arte
+                </label>
+                <label>
+                    <input type="checkbox" name="preferencias[]" value="festivais" class="btn-preferencia">
+                    Festivais
+                </label>
+                <label>
+                    <input type="checkbox" name="preferencias[]" value="esportes" class="btn-preferencia">
+                    Esportes
+                </label>
+                <label>
+                    <input type="checkbox" name="preferencias[]" value="gastronomia" class="btn-preferencia">
+                    Gastronomia
+                </label>
+                <label>
+                    <input type="checkbox" name="preferencias[]" value="teatro" class="btn-preferencia">
+                    Teatro
+                </label>
+                <label>
+                    <input type="checkbox" name="preferencias[]" value="musica" class="btn-preferencia">
+                    Música
+                </label>
+            </div>
+            <hr>
+            <button class="aplicar">Aplicar</button>
+        </form>
+            
+        </dialog>
+    </main>
+    <footer>
+        <div class="coluna-footer">
+            <div class="coluna-explora">
+                <h1>Explora+</h1>
+                <p>Descubra os melhores eventos da sua cidade
+                    e planeje viagens inesquecíveis.</p>
+            </div>
+        </div>
+        <div class="coluna-footer">
+            <h1>Redes Sociais</h1>
+            <div class="links-redes">
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href="mailto:exploramais.eventos@gmail.com"><i class="bi bi-envelope-fill"></i></a>
+            </div>
+            <a href="privacidade.html" class="link-privacidade-footer">Política de Privacidade e Cookies</a>
+        </div>
+    </footer>
+    <script src="/javascript/menu.js"></script>
+    <script src="/javascript/perfil.js"></script>
+    <script src="/javascript/seguranca-2fa.js"></script>
+    <script src="/javascript/cookie-consent.js"></script>
+</body>
+</html>

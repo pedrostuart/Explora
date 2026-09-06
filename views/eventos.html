@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descobrir Eventos</title>
+    <link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" href="style/footer.css">
+    <link rel="stylesheet" href="style/eventos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="shortcut icon" href="img/icone-logo.png" type="image/x-icon">
+</head>
+
+<body>
+    <section class="barra-lateral-header">
+        <nav>
+            <div class="fechar-logo">
+                <a href="index.html"><img src="img/logo.png" alt="Logo Site"></a>
+                <button class="fechar-menu"><i class="bi bi-x"></i></button>
+            </div>
+
+            <ul>
+                <li> <a href="index.html"><i class="bi bi-house-fill"></i> Início</a></li>
+                <li> <a href="eventos.html"><i class="bi bi-calendar-event-fill"></i> Eventos</a></li>
+                <li> <a href="mapa.html"><i class="bi bi-map-fill"></i> Mapa</a></li>
+                <li> <a href="favoritos_eventos.html"><i class="bi bi-heart-fill"></i> Favoritos</a></li>
+            </ul>
+            <div class="botoes_cadastro">
+                <a href="login.html" id="entrar">Entrar</a>
+                <a href="cadastro.html" id="cadastrar">Cadastre-se</a>
+            </div>
+        </nav>
+    </section>
+
+    <header>
+        <nav>
+            <div class="menu-logo">
+                <button class="hamburguer"><i class="bi bi-list"></i></button>
+                <!-- Logo redirecionando para a home -->
+                <a href="index.html"><img src="img/logo.png" alt="Logo Site"></a>
+            </div>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="mapa.html">Mapa</a></li>
+                <li><a href="favoritos_eventos.html">Favoritos</a></li>
+            </ul>
+            <div class="botoes_cadastro">
+                <a href="login.html" id="entrar">Entrar</a>
+                <a href="cadastro.html" id="cadastrar">Cadastre-se</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="menu-lateral">
+            <div class="fechar-link">
+                <a href="mapa.html"><span class="material-symbols-outlined">map_search</span>Visualizar Mapa</a>
+                <button class="fechar-menu"><i class="bi bi-x"></i></button>
+            </div>
+
+            <div class="preferencias">
+                <h2>Data</h2>
+                <div class="label-preferencias">
+                    <input type="radio" name="preferencias[]" value="Hoje" id="hoje" class="datas">
+                    <label for="hoje">Hoje</label>
+
+                    <input type="radio" name="preferencias[]" value="Amanhã" id="amanha" class="datas">
+                    <label for="amanha">Amanhã</label>
+
+                    <input type="radio" name="preferencias[]" value="Esta semana" id="esta-semana" class="datas">
+                    <label for="esta-semana">Esta Semana</label>
+
+                    <input type="radio" name="preferencias[]" value="Este mês" id="este-mes" class="datas">
+                    <label for="este-mes">Este Mês</label>
+
+                    <input type="radio" name="preferencias[]" value="Este ano" id="este-ano" class="datas">
+                    <label for="este-ano">Este Ano</label>
+                </div>
+            </div>
+
+            <div class="filtrar-distancia">
+                <h2>Distância do mapa</h2>
+                <div>
+                    <input type="radio" id="5km" name="distancia" class="radio" value="5">
+                    <label for="5km"> Até 5km de distância</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="10km" name="distancia" class="radio" value="10">
+                    <label for="10km"> Até 10km de distância</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="20km" name="distancia" class="radio" value="20">
+                    <label for="20km"> Até 20km de distância</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="30km" name="distancia" class="radio" value="30">
+                    <label for="30km"> Até 30km de distância</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="+50km" name="distancia" class="radio" value="50">
+                    <label for="+50km"> Mais de 30km de distância</label>
+                </div>
+
+                <!-- Botão específico para limpar a distância se necessário -->
+                <div style="margin-top: 10px;">
+                    <button type="button" id="limpar-distancia" class="btn-limpar-filtro">Limpar distância</button>
+                </div>
+            </div>
+
+            <div class="orcamento">
+                <h2>Orçamento Disponível</h2>
+                <div class="barra_input">
+                    <span class="material-symbols-outlined">attach_money</span>
+                    <input type="number" name="preco" id="preco" placeholder="Preço Máximo" min="0">
+                </div>
+            </div>
+
+            <div class="preferencias">
+                <h2>Preferencias</h2>
+                <div class="label-preferencias">
+                    <button type="button" name="preferencias[]" value="cinema" id="cinema">Cinema</button>
+                    <button type="button" name="preferencias[]" value="arte" id="arte">Arte</button>
+                    <button type="button" name="preferencias[]" value="festivais" id="festivais">Festivais</button>
+                    <button type="button" name="preferencias[]" value="esportes" id="esportes">Esportes</button>
+                    <button type="button" name="preferencias[]" value="gastronomia"
+                        id="gastronomia">Gastronomia</button>
+                    <button type="button" name="preferencias[]" value="teatro" id="teatro">Teatro</button>
+                    <button type="button" name="preferencias[]" value="musica" id="musica">Música</button>
+                </div>
+            </div>
+
+            <hr>
+
+            <!-- Botões de Filtrar e Limpar Geral -->
+            <div class="btn-filtrar" style="display: flex; gap: 10px;">
+                <button type="button" class="btn-preferencia btn-filtrar-acao">Filtrar<i
+                        class="bi bi-funnel-fill"></i></button>
+                <button type="button" id="btn-limpar-filtros" class="btn-preferencia"
+                    style="background-color: #ccc; color: #333;">Limpar</button>
+            </div>
+        </section>
+
+        <section class="descobrir-eventos">
+            <div class="barra_pesquisa" id="wrapper-barra-pesquisa">
+                <input type="text" placeholder="Buscar eventos, locais ou CEP..." class="input-pesquisa">
+                <span class="btn_pesquisar">
+                    <i class="bi bi-search"></i>
+                </span>
+                <ul id="sugestoes-busca" class="sugestoes-busca"></ul>
+            </div>
+            <p id="status-busca" class="status-busca"></p>
+            <p id="txt-pesquisas">Nenhuma pesquisa encontrada</p>
+            <button class="btn-preferencia-resposivo">Filtrar<i class="bi bi-funnel-fill"></i></button>
+
+            <div class="itens-pesquisa" data-pesquisa-eventos="true">
+                <a href="informacoes_evento.html" class="caixa_eventos" data-preferencias="musica,teatro"
+                    data-preco="150">
+                    <span class="data_evento">HOJE</span>
+                    <img src="img/img-caetano-veloso.jpg" alt="Imagem do Evento">
+                    <div class="texto-evento">
+                        <p class="nome_show">Caetano Veloso</p>
+                        <p class="distancia_show">Teatro Municipal - 2km de distância</p>
+                    </div>
+                </a>
+
+                <a href="informacoes_evento.html" class="caixa_eventos" data-preferencias="musica,arte" data-preco="80">
+                    <span class="data_evento">15/10</span>
+                    <img src="img/img-orquestra-sinfonica.jpg" alt="Imagem do Evento">
+                    <div class="texto-evento">
+                        <p class="nome_show">Orquestra Sinfônica</p>
+                        <p class="distancia_show">Sala São Paulo - 1km de distância</p>
+                    </div>
+                </a>
+
+                <a href="informacoes_evento.html" class="caixa_eventos" data-preferencias="musica" data-preco="200">
+                    <span class="data_evento">24/09</span>
+                    <img src="img/img-djavan.jpg" alt="Imagem do Evento">
+                    <div class="texto-evento">
+                        <p class="nome_show">Djavan</p>
+                        <p class="distancia_show">Ribalta Espaço de Eventos - 18km de distância</p>
+                    </div>
+                </a>
+
+                <a href="informacoes_evento.html" class="caixa_eventos" data-preferencias="musica" data-preco="250">
+                    <span class="data_evento">12/11</span>
+                    <img src="img/img-marisa-monte.jpg" alt="Imagem do Evento">
+                    <div class="texto-evento">
+                        <p class="nome_show">Marisa Monte</p>
+                        <p class="distancia_show">Teatro Positivo - 9km de distância</p>
+                    </div>
+                </a>
+
+                <a href="informacoes_evento.html" class="caixa_eventos" data-preferencias="musica" data-preco="120">
+                    <span class="data_evento">14/06</span>
+                    <img src="img/img-nando-reis.jpg" alt="Imagem do Evento">
+                    <div class="texto-evento">
+                        <p class="nome_show">Nando Reis</p>
+                        <p class="distancia_show">Vibra São Paulo - 14km de distância</p>
+                    </div>
+                </a>
+
+                <a href="informacoes_evento.html" class="caixa_eventos" data-preferencias="musica" data-preco="90">
+                    <span class="data_evento">07/11</span>
+                    <img src="img/img-tiago-iorc.jpg" alt="Imagem do Evento">
+                    <div class="texto-evento">
+                        <p class="nome_show">Tiago Iorc</p>
+                        <p class="distancia_show">Teatro Bradesco - 5km de distância</p>
+                    </div>
+                </a>
+
+                <a href="informacoes_evento.html" class="caixa_eventos" data-preferencias="musica" data-preco="110">
+                    <span class="data_evento">24/07</span>
+                    <img src="img/imagem_evento.jpg" alt="Imagem do Evento">
+                    <div class="texto-evento">
+                        <p class="nome_show">Ana Vitória</p>
+                        <p class="distancia_show">Concha Acústica - 3km de distância</p>
+                    </div>
+                </a>
+
+                <a href="informacoes_evento.html" class="caixa_eventos" data-preferencias="musica,festivais"
+                    data-preco="85">
+                    <span class="data_evento">16/01</span>
+                    <img src="img/imagem_carrossel.png" alt="Imagem do Evento">
+                    <div class="texto-evento">
+                        <p class="nome_show">Liniker</p>
+                        <p class="distancia_show">Audio Club - 6km de distância</p>
+                    </div>
+                </a>
+
+                <a href="informacoes_evento.html" class="caixa_eventos" data-preferencias="musica,festivais"
+                    data-preco="500">
+                    <span class="data_evento">21/02</span>
+                    <img src="img/imagem_carrossel2.png" alt="Imagem do Evento">
+                    <div class="texto-evento">
+                        <p class="nome_show">Taylor Swift</p>
+                        <p class="distancia_show">Allianz Parque - 5km de distância</p>
+                    </div>
+                </a>
+
+                <a href="informacoes_evento.html" class="caixa_eventos" data-preferencias="musica,festivais"
+                    data-preco="450">
+                    <span class="data_evento">01/10</span>
+                    <img src="img/imagem_carrossel2.png" alt="Imagem do Evento">
+                    <div class="texto-evento">
+                        <p class="nome_show">The Weekend</p>
+                        <p class="distancia_show">Morumbis - 12km de distância</p>
+                    </div>
+                </a>
+                <a href="informacoes_evento.html" class="caixa_eventos" data-preferencias="musica,festivais"
+                    data-preco="450">
+                    <span class="data_evento">01/10</span>
+                    <img src="img/imagem_carrossel2.png" alt="Imagem do Evento">
+                    <div class="texto-evento">
+                        <p class="nome_show">Alcione</p>
+                        <p class="distancia_show">Morumbis - 12km de distância</p>
+                    </div>
+                </a>
+                <a href="informacoes_evento.html?id=12" class="caixa_eventos" data-preferencias="teatro"
+                    data-preco="100">
+                    <span class="data_evento">02/02</span>
+                    <img src="img/the-weeknd.jpg" alt="Imagem do Evento">
+                    <div class="texto-evento">
+                        <p class="nome_show">O Auto da Compadecida</p>
+                        <p class="distancia_show">Teatro Renaissance - 8km de distância</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="coluna-footer">
+            <div class="coluna-explora">
+                <h1>Explora+</h1>
+                <p>Descubra os melhores eventos da sua cidade e planeje viagens inesquecíveis.</p>
+            </div>
+        </div>
+        <div class="coluna-footer">
+            <h1>Redes Sociais</h1>
+            <div class="links-redes">
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href="mailto:exploramais.eventos@gmail.com"><i class="bi bi-envelope-fill"></i></a>
+            </div>
+            <a href="privacidade.html" class="link-privacidade-footer">Política de Privacidade e Cookies</a>
+        </div>
+    </footer>
+
+    <script src="/javascript/menu.js"></script>
+    <script src="/javascript/api-cliente.js"></script>
+    <script src="/javascript/eventos-render.js"></script>
+    <script src="/javascript/filtros-eventos.js"></script>
+    <script src="/javascript/barra-pesquisa.js"></script>
+    <script src="/javascript/cookie-consent.js"></script>
+</body>
+
+</html>

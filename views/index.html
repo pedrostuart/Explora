@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explora +</title>
+    <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" href="style/footer.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="shortcut icon" href="img/icone-logo.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+</head>
+<body class="pagina-index pagina-index--visitante">
+    <!-- Barra Lateral Header -->
+    <section class="barra-lateral-header">
+        <nav>
+            <div class="fechar-logo">
+                <img src="img/logo.png" alt="Logo Site">
+                <button class="fechar-menu"><i class="bi bi-x"></i></button>
+            </div>
+            <ul>
+                <li> <a href="index.html"><i class="bi bi-house-fill"></i> Início</a></li>
+                <li> <a href="eventos.html"><i class="bi bi-calendar-event-fill"></i> Eventos</a></li>
+                <li> <a href="mapa.html"><i class="bi bi-map-fill"></i> Mapa</a></li>
+                <li> <a href="favoritos_eventos.html"><i class="bi bi-heart-fill"></i> Favoritos</a></li>
+            </ul>
+            <div class="botoes_cadastro">
+                <a href="login.html" id="entrar">Entrar</a>
+                <a href="cadastro.html" id="cadastrar">Cadastre-se</a>
+            </div>
+        </nav>
+    </section>
+    <header>
+        <nav>
+            <div class="menu-logo">
+                <button class="hamburguer"><i class="bi bi-list"></i></button>
+                <a href="index.html"><img src="img/logo.png" alt="Logo Site"></a>
+            </div>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="mapa.html">Mapa</a></li>
+                <li><a href="favoritos_eventos.html">Favoritos</a></li>
+            </ul>
+            <div class="botoes_cadastro">
+                <a href="login.html" id="entrar">Entrar</a>
+                <a href="cadastro.html" id="cadastrar">Cadastre-se</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="carrosel">
+            <p>Encontre os melhores shows, festivais, experiências gastronômicas e muito mais. <br>
+                Tudo em um só lugar.</p>
+            <form class="barra_pesquisa">
+                <input type="text" placeholder="Buscar eventos, locais..." class="input-pesquisa">
+                <a class="btn_pesquisar" href="eventos.html">
+                    <i class="bi bi-search"></i>
+                    Pesquisar
+                </a>
+                <div class="itens-pesquisa">
+
+                <a href="informacoes_evento.html">
+
+                    <img src="img/avenged-sevenfold.png" alt="Imagem do Evento">
+
+                    <div class="texto-evento">
+                        <span class="data_evento">25/03</span>
+                        <p class="nome_show">Avenged Sevenfold</p>
+                        <p class="distancia_show">Allianz parque - 5km de distância</p>
+                    </div>
+                </a>
+
+                <a href="informacoes_evento.html">
+                    <img src="img/kali-uchis.webp" alt="Imagem do Evento">
+                    <div class="texto-evento">
+                        <span class="data_evento">01/03</span>
+                        <p class="nome_show">Kali Uchis</p>
+                        <p class="distancia_show">Vibra Brasil - 12km de distância</p>
+                    </div>
+                </a>
+
+                <a href="informacoes_evento.html">
+
+                    <img src="img/guns n roses.webp" alt="Imagem do Evento">
+
+                    <div class="texto-evento">
+                        <span class="data_evento">22/04</span>
+                        <p class="nome_show">Guns N' Roses</p>
+                        <p class="distancia_show">Allianz parque - 9km de distância</p>
+                    </div>
+                </a>
+                <a href="eventos.html" id="txt-vermais-eventos">Ver mais</a>
+                <p id="txt-pesquisas">Nenhuma pesquisa encontrada</p>
+            </div>
+            </form>
+            
+        </section>
+
+        <section class="eventos_destaque">
+            <h1>Eventos em Destaque</h1>
+            <div class="linha_eventos">
+
+                <div class="caixa_eventos">
+                    <a href="informacoes_evento.html">
+                        <span class="data_evento">25/03</span>
+                        <img src="img/avenged-sevenfold.png" alt="Imagem do Evento">
+                    </a>
+                    <div class="texto-evento">
+                        <p class="nome_show">Avenged Sevenfold</p>
+                        <p class="distancia_show">Allianz parque - 5km de distância</p>
+                    </div>
+                </div>
+
+                <div class="caixa_eventos">
+                    <a href="informacoes_evento.html">
+                        <span class="data_evento">04/05</span>
+                        <img src="img/kali-uchis.webp" alt="Imagem do Evento">
+                    </a>
+                    <div class="texto-evento">
+                        <p class="nome_show">Kali Uchis</p>
+                        <p class="distancia_show">Vibra Brasil - 12km de distância</p>
+                    </div>
+                </div>
+
+                <div class="caixa_eventos">
+                    <a href="informacoes_evento.html">
+                        <span class="data_evento">22/04</span>
+                        <img src="img/guns n roses.webp" alt="Imagem do Evento">
+                    </a>
+                    <div class="texto-evento">
+                        <p class="nome_show">Guns N' Roses</p>
+                        <p class="distancia_show">Allianz parque - 9km de distância</p>
+                    </div> 
+                </div>
+            <div class="caixa_eventos">
+                <a href="informacoes_evento.html">
+                    <span class="data_evento">09/02</span>
+                    <img src="img/sabrina-carpenter.webp" alt="Imagem do Evento">
+                </a>
+                <div class="texto-evento">
+                    <p class="nome_show">Sabrina Carpenter</p>
+                    <p class="distancia_show">Autódromo de Interlagos -22m de distância</p>
+                </div>
+            </div>
+            <div class="caixa_eventos">
+                <a href="informacoes_evento.html">
+                    <span class="data_evento">31/01</span>
+                    <img src="img/Tyler the creator.jfif" alt="Imagem do Evento">
+                </a>
+                <div class="texto-evento">
+                    <p class="nome_show">Tyler The Creator</p>
+                    <p class="distancia_show">Autódromo de Interlagos - 80km de distância</p>
+                </div>
+            </div>
+            </div>
+
+
+            <!-- Carrosel tela celular -->
+            <div class="single-item">
+
+                <div class="carrosel-eventos">
+                    <a href="informacoes_evento.html">
+                        <span class="data_evento">HOJE</span>
+                        <img src="img/Lynyrd_Skynyrd.svg" alt="Imagem do Evento">
+                    </a>
+                    <div class="texto-evento">
+                        <p class="nome_show">Lynyrd Skynyrd</p>
+                        <p class="distancia_show">Allianz - 12km de distância</p>
+                    </div>
+                </div>
+                <div class="carrosel-eventos">
+                    <a href="informacoes_evento.html">
+                        <span class="data_evento">15/10</span>
+                        <img src="img/Doja cat.jfif" alt="Imagem do Evento">
+                    </a>
+                    <div class="texto-evento">
+                        <p class="nome_show">Doja cat</p>
+                        <p class="distancia_show">Allianz - 12km de distância</p>
+                    </div>
+                </div>
+                <div class="carrosel-eventos">
+                    <a href="informacoes_evento.html">
+                        <span class="data_evento">30/07</span>
+                        <img src="img/Tyler the creator.jfif" alt="Imagem do Evento">
+                    </a>
+                    <div class="texto-evento">
+                        <p class="nome_show">Tyler the creator</p>
+                        <p class="distancia_show">Allianz - 12km de distância</p>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Carrosel tela celular -->
+
+        </section>
+
+        <section class="eventos_proximos">
+            <h1>Eventos Próximos</h1>
+            <div class="linha_eventos">
+                <div class="caixa_eventos">
+                    <a href="informacoes_evento.html">
+                        <span class="data_evento">02/01</span>
+                        <img src="img/Doja cat.jfif" alt="Imagem do Evento">
+                    </a>
+                    <div class="texto-evento">
+                        <p class="nome_show">Doja Cat</p>
+                        <p class="distancia_show">Vila belmiro - 30km de distância</p>
+                    </div>
+                </div>
+                <div class="caixa_eventos">
+                    <a href="informacoes_evento.html">
+                        <span class="data_evento">14/02</span>
+                        <img src="img/badbunny.jpg" alt="Imagem do Evento">
+                    </a>
+                    <div class="texto-evento">
+                        <p class="nome_show">Bad Bunny</p>
+                        <p class="distancia_show">Vila Country - 13km de distância</p>
+                    </div>
+                </div>
+                <div class="caixa_eventos">
+                    <a href="informacoes_evento.html">
+                        <span class="data_evento">19/09</span>
+                        <img src="img/My Chemical Romance.jfif" alt="Imagem do Evento">
+                    </a>
+                    <div class="texto-evento">
+                        <p class="nome_show">My Chemical Romance</p>
+                        <p class="distancia_show">Memorial - 1km de distância</p>
+                    </div>
+                </div>
+                <div class="caixa_eventos">
+                    <a href="informacoes_evento.html">
+                        <span class="data_evento">13/10</span>
+                        <img src="img/jason mraz.jpg" alt="Imagem do Evento">
+                    </a>
+                    <div class="texto-evento">
+                        <p class="nome_show">Jason Mraz</p>
+                        <p class="distancia_show">Espaço Unimed - 10km de distância</p>
+                    </div>
+                </div>
+                <div class="caixa_eventos">
+                    <a href="informacoes_evento.html">
+                        <span class="data_evento">22/10</span>
+                        <img src="img/the-weeknd.jpg" alt="Imagem do Evento">
+                    </a>
+                    <div class="texto-evento">
+                        <p class="nome_show">The Weekend</p>
+                        <p class="distancia_show">Morumbis - 12km de distância</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carrosel tela celular Padrão -->
+            <div class="single-item">
+
+                <div class="carrosel-eventos">
+                    <a href="informacoes_evento.html">
+                        <span class="data_evento">HOJE</span>
+                        <img src="img/Lynyrd_Skynyrd.svg" alt="Imagem do Evento">
+                    </a>
+                    <div class="texto-evento">
+                        <p class="nome_show">Lynyrd Skynyrd</p>
+                        <p class="distancia_show">Allianz - 12km de distância</p>
+                    </div>
+                </div>
+                <div class="carrosel-eventos">
+                    <a href="informacoes_evento.html">
+                        <span class="data_evento">15/10</span>
+                        <img src="img/Doja cat.jfif" alt="Imagem do Evento">
+                    </a>
+                    <div class="texto-evento">
+                        <p class="nome_show">Doja cat</p>
+                        <p class="distancia_show">Allianz - 12km de distância</p>
+                    </div>
+                </div>
+                <div class="carrosel-eventos">
+                    <a href="informacoes_evento.html">
+                        <span class="data_evento">30/07</span>
+                        <img src="img/Tyler the creator.jfif" alt="Imagem do Evento">
+                    </a>
+                    <div class="texto-evento">
+                        <p class="nome_show">Tyler the creator</p>
+                        <p class="distancia_show">Allianz - 12km de distância</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+    <footer>
+        <div class="coluna-footer">
+            <div class="coluna-explora">
+                <h1>Explora+</h1>
+                <p>Descubra os melhores eventos da sua cidade
+                    e planeje viagens inesquecíveis.</p>
+            </div>
+        </div>
+        <div class="coluna-footer">
+            <h1>Redes Sociais</h1>
+            <div class="links-redes">
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href="mailto:exploramais.eventos@gmail.com"><i class="bi bi-envelope-fill"></i></a>
+            </div>
+            <a href="privacidade.html" class="link-privacidade-footer">Política de Privacidade e Cookies</a>
+        </div>
+    </footer>
+
+    <script src="/javascript/menu.js"></script>
+    <script src="/javascript/api-cliente.js"></script>
+    <script src="/javascript/barra-pesquisa.js"></script>
+    <script src="/javascript/index.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+
+    <script type="text/javascript">
+        $('.single-item').slick({
+            dots: true,
+            autoplay: true,
+        });
+    </script>
+    <script src="/javascript/cookie-consent.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+# ==========================================
+# Dependências do Node.js
+# ==========================================
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# ==========================================
+# Variáveis de Ambiente e Chaves (CRÍTICO)
+# ==========================================
+.env
+.env.test
+.env.production
+.env.local
+
+# ==========================================
+# Banco de Dados (SQLite)
+# ==========================================
+# Evita subir o banco de dados populado com dados locais de teste
+*.sqlite
+*.sqlite3
+database/database.sqlite
+database/*.sqlite
+
+# ==========================================
+# Arquivos de Build / Compilação (Se usar TypeScript)
+# ==========================================
+dist/
+build/
+out/
+
+# ==========================================
+# Logs e Arquivos de Sistema/Editor
+# ==========================================
+logs/
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

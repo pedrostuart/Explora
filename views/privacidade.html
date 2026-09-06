@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidade — Explora+</title>
+    <link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" href="style/footer.css">
+    <link rel="stylesheet" href="style/privacidade.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="shortcut icon" href="img/icone-logo.png" type="image/x-icon">
+</head>
+<body>
+    <section class="barra-lateral-header">
+        <nav>
+            <div class="fechar-logo">
+                <a href="index.html"><img src="img/logo.png" alt="Logo Site"></a>
+                <button class="fechar-menu"><i class="bi bi-x"></i></button>
+            </div>
+            <ul>
+                <li> <a href="index.html"><i class="bi bi-house-fill"></i> Início</a></li>
+                <li> <a href="eventos.html"><i class="bi bi-calendar-event-fill"></i> Eventos</a></li>
+                <li> <a href="mapa.html"><i class="bi bi-map-fill"></i> Mapa</a></li>
+                <li> <a href="favoritos_eventos.html"><i class="bi bi-heart-fill"></i> Favoritos</a></li>
+            </ul>
+            <div class="botoes_cadastro">
+                <a href="login.html" id="entrar">Entrar</a>
+                <a href="cadastro.html" id="cadastrar">Cadastre-se</a>
+            </div>
+        </nav>
+    </section>
+    <header>
+        <nav>
+        <div class="menu-logo">
+            <button class="hamburguer"><i class="bi bi-list"></i></button>
+            <a href="index.html"><img src="img/logo.png" alt="Logo Site"></a>
+        </div>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="eventos.html">Eventos</a></li>
+            <li><a href="mapa.html">Mapa</a></li>
+            <li><a href="favoritos_eventos.html">Favoritos</a></li>
+        </ul>
+        <div class="botoes_cadastro">
+            <a href="login.html" id="entrar">Entrar</a>
+            <a href="cadastro.html" id="cadastrar">Cadastre-se</a>
+        </div>
+        </nav>
+    </header>
+
+    <main class="conteudo-privacidade">
+        <h1>Política de Privacidade e Cookies</h1>
+        <p class="atualizado-em">Última atualização: setembro de 2026</p>
+
+        <section>
+            <h2>1. Quais dados coletamos</h2>
+            <p>Para o funcionamento da conta, coletamos nome, e-mail, data de nascimento e, opcionalmente, telefone, cidade, biografia e foto de perfil. Ao usar a busca por localização, também podemos processar a sua posição aproximada (latitude/longitude) apenas durante a sessão, para calcular distâncias — essa informação não fica salva vinculada ao seu perfil.</p>
+        </section>
+
+        <section>
+            <h2>2. Cookies utilizados</h2>
+            <p>Usamos um cookie essencial (<code>token</code>) para manter você autenticado durante a sessão. Ele é estritamente necessário para o funcionamento do login e não pode ser desativado sem impedir o acesso à sua conta. Não utilizamos cookies de rastreamento publicitário.</p>
+        </section>
+
+        <section>
+            <h2>3. Seus direitos (LGPD)</h2>
+            <p>Você pode, a qualquer momento, solicitar a exclusão da sua conta e dos seus dados pessoais diretamente pelas configurações de perfil. Ao excluir a conta, seus dados de identificação são removidos permanentemente; registros já vinculados a avaliações ou comentários feitos por você são anonimizados, não excluídos por completo, para preservar a integridade do histórico de outros usuários.</p>
+        </section>
+
+        <section>
+            <h2>4. Compartilhamento de dados</h2>
+            <p>Não vendemos nem compartilhamos seus dados pessoais com terceiros para fins de marketing. Dados de localização informados numa busca são usados só para calcular distância no momento da consulta e não são armazenados.</p>
+        </section>
+
+        <section>
+            <h2>5. Contato</h2>
+            <p>Dúvidas sobre esta política podem ser enviadas para <a href="mailto:exploramais.eventos@gmail.com">exploramais.eventos@gmail.com</a>.</p>
+        </section>
+
+        <button type="button" class="btn-gerenciar-cookies" onclick="window.abrirPreferenciasCookies()">
+            Gerenciar preferências de cookies
+        </button>
+    </main>
+
+    <footer>
+        <div class="coluna-footer">
+            <div class="coluna-explora">
+                <h1>Explora+</h1>
+                <p>Descubra os melhores eventos da sua cidade
+                    e planeje viagens inesquecíveis.</p>
+            </div>
+        </div>
+        <div class="coluna-footer">
+            <h1>Redes Sociais</h1>
+            <div class="links-redes">
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href="mailto:exploramais.eventos@gmail.com"><i class="bi bi-envelope-fill"></i></a>
+            </div>
+            <a href="privacidade.html" class="link-privacidade-footer">Política de Privacidade e Cookies</a>
+        </div>
+    </footer>
+    <script src="/javascript/menu.js"></script>
+    <script src="/javascript/cookie-consent.js"></script>
+</body>
+</html>

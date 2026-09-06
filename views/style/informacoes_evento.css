@@ -1,0 +1,691 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --verde: #1A824D;
+    --azul: #2678BF;
+    --borda-caixa: 10px;
+    --sombra: 0px 1px 5px #8e8e8ead;
+    --borda-botao: 35px;
+}
+/*Carrossel*/
+
+.carrosel{
+    background: url(../img/imagem-eveto-web.png) no-repeat center;
+    background-size: cover;
+    height: 50vh;
+    align-items: center;
+    display: flex;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.bloco_informacoes{
+    margin-left: 5%;
+    margin-right: 5%;
+    max-width: 800px;
+}
+.carrosel h1{
+    color: white;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1.2;
+}
+.carrosel .icons-info{
+    padding-top: 15px;
+}
+.carrosel p{
+    color: white;
+    gap: 5px;
+    display: flex;
+    padding-top: 5px;
+}
+.icons-info p{
+    font-size: 0.8rem;
+    letter-spacing: 0.85px;
+    align-items: center;
+}
+/*INFORMAÇÕES SOBRE O EVENTO*/
+
+.informacoes_eventos{
+    width: min(100%, 1220px);
+    padding: 40px 20px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+    justify-content: center;
+    align-items: start;
+    margin: auto;
+    gap: 40px 50px;
+}
+.caixas{
+    box-shadow: var(--sombra);
+    padding: 0px 20px 20px 20px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    
+}
+
+/* CAIXA SOBRE O EVENTO*/
+
+#sobre_evento{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    grid-column: 1;
+    
+}
+#sobre_evento p{
+    line-height: 25px;
+    font-weight: 500;
+    padding-top: 10px;
+}   
+.titulo_icon{
+    display: flex;
+    align-items: center;
+    padding: 10px 10px 10px 0px;
+}
+
+.titulo_icon h1{
+    padding-left: 10px;
+}
+.titulo_icon h2{
+    font-size: 1.2rem;
+    padding-left: 10px;
+}
+.titulo_icon i{
+    color: var(--verde);
+}
+.ler-mais{
+    display: none;
+}
+/*Parte de CIMA*/
+ 
+.info_sobre_evento{
+    padding: 28px;
+}
+/*Parte de BAiXO*/
+#extras{
+    display: flex;
+    flex-direction: column;
+    padding: 28px;
+    margin: auto;
+    width: 100%;
+    gap: 20px;
+}
+.info_extras{
+    flex: 1;
+    min-width: 0;
+}
+#extras .linha{
+    gap: 20px;
+    display: flex;
+    width: 100%;
+}
+/*CAIXA INGRESSOS*/
+#ingressos{
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    grid-column: 2;
+}
+#ingressos h1{
+    text-align: center;
+    padding: 0;
+    font-size: 1.6rem;
+    line-height: 1.4;
+}
+#ingressos .titulo-fechar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    padding: 20px 40px;
+    box-sizing: border-box;
+}
+#ingressos .fechar-menu{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+/*Ingressos*/
+.info-precos-ingressos{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.precos-ingressos{
+    border-radius: var(--borda-caixa);
+    height: 70px;
+    width: calc(50% - 10px);
+    border: 1px solid var(--azul);
+    box-shadow: var(--sombra);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.precos-ingressos:hover{
+    transition: 0.3s;
+    transform: translateY(-2px);
+}
+.precos-ingressos h2{
+    padding: 0;
+    margin: 0 0 4px 0;
+    font-size: 1.1rem;
+    text-align: left;
+}
+.precos-ingressos p{
+    color: var(--azul);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+.precos-ingressos span{
+    font-size: 1.6rem;
+    line-height: 1;
+}
+/*BOTÕES DA CAIXA DE INGRESSO*/
+.btns-ingressos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}
+#ingressos .btn-comprar:hover{
+    border: 1px solid var(--azul);
+    background-color: white;
+    color: var(--azul);
+}
+#ingressos .btn-comprar{
+    border: 1px solid var(--azul); 
+    background-color: var(--azul);
+    border-radius: var(--borda-botao);
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+#ingressos .fechar-menu{
+    display: none;
+}
+.btn-ativo{
+    border: 1px solid var(--azul); 
+    background-color: white;
+    border-radius: var(--borda-botao);
+    color: var(--azul);
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px 12px;
+}
+.btn-ativo i{
+    color: red;
+}
+/*LOCAL CAIXA DE INGRESSO*/
+.local {
+    color: black;
+    font-size: 10pt;
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.local h2{
+    margin: 0 0 6px 0;
+    font-size: 1rem;
+}
+.local p{
+    margin: 0;
+    line-height: 1.4;
+}
+/*ABRIR MAPA NA CAIXA DE INGRESSO*/
+.abrir-mapa{
+    background-color: var(--azul);
+    width: 100%;
+    max-width: 340px;
+    margin: auto;
+    height: 159px;
+    border-radius: var(--borda-caixa);
+    background: linear-gradient(#2678BF80), url(../img/minimapa.png) no-repeat center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.abrir-mapa a{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+}
+.abrir-mapa a:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.abrir-mapa span{
+    color: white;
+}
+/*CAIXA PRINCIPAIS ATRAÇÕES*/
+#atracoes{
+   width: 100%; 
+   margin-top: 20px;
+}
+#atracoes .titulo_icon{
+    padding: 28px;
+}
+.caixas-artistas{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.artistas{
+    width: 195px;
+    height: 190px;
+    box-shadow: var(--sombra);
+    padding: 00px 20px 20px 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
+}
+.artistas:hover{
+    transition: 0.3s;
+    transform: translateY(-5px);
+}
+.artistas img{
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin: auto;
+    display: flex;
+    padding: 10px;
+    border-radius: 50%;
+}
+.artistas a {
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    font-size: 0.83rem;
+}
+/*EVENTOS RECOMENDOS QUE O USUARIO PODE GOSTAR*/
+#recomendados{
+    width: 100%;
+    height: 420px;
+    min-width: 0;
+    flex: none;
+    gap: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: initial;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: stretch;
+}
+#recomendados > h1{
+    flex: 0 0 auto;
+    padding: 0 5px 10px 5px;
+    font-size: 1.4rem;
+}
+.eventos-recomendados{
+    width: 92%;
+    height: 185px;
+    min-height: 185px;
+    flex: 0 0 185px;
+    overflow: hidden;
+    border: 2px solid var(--verde);
+    border-radius: 14px;
+    font-weight: bold;
+    box-shadow: 2px 3px 8px #8e8e8e75;
+    margin: 0 auto;
+    position: relative;
+}
+a.eventos-recomendados{
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+#recomendados .sem-recomendados{
+    text-align: center;
+    color: #8e8e8e;
+    font-weight: normal;
+    margin: auto;
+}
+.eventos-recomendados > img,
+.eventos-recomendados a img{
+    display: block;
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+.eventos-recomendados .texto-evento{
+    padding: 8px 12px;
+}
+.eventos-recomendados .data_evento{
+    position: absolute;
+    padding: 5px;
+    background-color: var(--azul);
+    margin: 10px 0px 0px 10px;
+    border-radius: 10px;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+.nome_show, .distancia_show{
+    font-weight: bold;
+}
+.distancia_show{
+    color: #8e8e8e;
+    font-size: 0.7rem;
+}
+
+/*CARROSEL RESPONSIVO*/
+@media screen and (max-width: 1024px){
+    .bloco_informacoes{
+        margin-left: 40px;
+        margin-right: 20px;
+    }
+}
+@media screen and (max-width: 768px){
+    .bloco_informacoes{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .carrosel{
+        height: 40vh;
+    }
+}
+@media screen and (max-width: 390px){
+    .carrosel .bloco_informacoes h1{
+        font-size: 22px;
+    }
+}
+/*MAIN*/
+@media screen and (max-width: 1380px){
+    .informacoes_eventos{
+        grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+    }
+    #ingressos{
+        display: none;
+        position: fixed;
+        background-color: white;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: 650px;
+        justify-content: center;
+        box-shadow: 1px 1px 1px 1000px rgba(31, 31, 31, 0.425);
+        z-index: 1000;
+    }
+    #ingressos .abrir-mapa{
+        margin: 0 auto;
+        
+    }
+    #recomendados{
+        width: 100%;
+        height: 420px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    .eventos-recomendados{
+        width: 92%;
+    }
+    #ingressos .fechar-menu{
+        display: block;
+    }
+    #ingressos .fechar-menu i{
+        font-size: 2.5rem;
+    }
+    #ingressos .titulo-fechar{
+        padding: 10px 40px 0;
+    }
+}
+@media screen and (max-width: 879px){
+    #atracoes{
+        padding: 10px;
+    }
+}
+@media screen and (max-width: 1050px){
+    .informacoes_eventos{
+        width: min(100%, 760px);
+        grid-template-columns: minmax(0, 1fr);
+        padding: 30px 20px;
+    }
+    #sobre_evento{
+        width: 100%;
+        grid-column: 1;
+        grid-row: 1;
+    }
+    #extras{
+        display: flex;
+        flex-direction: column;
+        padding: 28px;
+        margin: auto;
+        gap: 20px;
+    }
+    .info_extras{
+        flex: 1;
+        min-width: 0;
+    }
+    .linha{
+        flex-direction: row;
+        gap: 20px;
+        display: flex;
+        width: 100%;
+    }
+    .ler-mais{
+        display: flex;
+        margin: 0 auto 0px 30px;
+        background: none;
+        border: 0;
+        text-decoration: underline;
+        cursor: pointer;
+        font-size: 1.05rem;
+    }
+    .info_sobre_evento{
+        padding-bottom: 15px;
+    }
+    .ler-mais:hover{
+        color: var(--verde);
+    }
+    #atracoes .titulo_icon{
+        padding: 10px;
+    }
+    #ingressos{
+        display: flex;
+        position: static;
+        width: 100%;
+        height: auto;
+        transform: none;
+        box-shadow: var(--sombra);
+        grid-column: 1;
+        grid-row: 2;
+    }
+    #ingressos .fechar-menu{ display: none; }
+    #recomendados{
+        width: 100%;
+        grid-column: 1;
+        grid-row: 3;
+    }
+    .eventos-recomendados{
+        width: 92%;
+    }
+    #extras .titulo_icon{
+        padding-bottom: 0px;
+        padding-top: 0px;
+    }
+    #extras .linha .info_extras p{
+        padding-top: 5px;
+    }
+    #extras .linha{
+        gap: 7px;
+    }
+}
+@media screen and (max-width: 630px){
+    #recomendados{
+        width: 100%;
+        flex-basis: 100%;
+        height: 400px;
+    }
+    .eventos-recomendados{
+        width: 92%;
+    }
+}
+@media screen and (max-width: 604px){
+    #atracoes{
+        width: 100%;
+    }
+    .caixas-artistas{
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: initial;
+        padding: 10px;
+    }
+    .linha {
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 575px){
+    #sobre_evento{
+        padding: 0;
+        padding-bottom: 10px;
+    }
+    .info_sobre_evento{
+        padding: 15px;
+    }
+    .informacoes_eventos{ padding: 20px 12px; }
+    .info_sobre_evento p{
+        font-size: 0.8rem;
+        line-height: normal;
+    }
+     #extras .linha .info_extras p{
+        font-size: 0.8rem;
+    }
+    .ler-mais{
+        margin: 0 auto 0px 15px;
+    }
+    #extras{
+        padding: 15px;
+    }
+}
+@media screen and (max-width: 510px){
+    .eventos-recomendados{
+        width: 92%;
+    }
+    #ingressos{
+        width: 80%; 
+    }
+}
+@media screen and (max-width:490px){
+    .btns-ingressos .btn-comprar{
+        font-size:  13px;
+    }
+}
+@media screen and (max-width: 470px){
+    .carrosel{
+        height: 30vh;
+    }
+    #ingressos h1{
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 450px){
+    #ingressos .abrir-mapa{
+        width: 100%;
+        max-width: 300px;
+    }
+    .carrosel{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+@media screen and (max-width: 420px){
+    .eventos-recomendados{
+        width: 92%;
+    }
+    #recomendados{
+        padding: 20px;
+    }
+    .caixas h1{
+        font-size: 1.5rem;
+    }
+    .bloco_informacoes h1{
+        font-size: 28px;
+    }
+    .bloco_informacoes p{
+        font-size: 13px;
+    }
+    #ingressos .abrir-mapa{
+        width: 100%;
+        max-width: 250px;
+    }
+    #ingressos{
+        width: 280px;
+        justify-content: initial;
+        gap: 20px;
+        height: 500px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    #ingressos h1{
+        padding-bottom: 0px;
+        font-size: 1rem;
+    }
+    .titulo-fechar{
+        padding-top: 10px;
+    }
+    #ingressos .btns-ingressos button, #ingressos .btns-ingressos .btn-comprar{
+        padding: 6px 7px;
+        font-size: 0.8rem;
+    }
+    #extras .info_extras{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 360px){
+    #atracoes{
+        width: 260px;
+    }
+    #atracoes h1{
+        font-size: 1.4rem;
+    }
+}
