@@ -1,0 +1,214 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+:root{
+    --verde: #1A824D;
+    --azul: #2678BF;
+    --borda-caixa: 10px;
+    --sombra: 0px 1px 5px #8e8e8ead;
+    --borda-botao: 35px;
+}
+body, html{
+    height: 100%;
+}
+header{
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+header .bi-arrow-left-circle-fill{
+    font-size: 1.8rem;
+    color: var(--verde);
+}
+header img {
+    margin: auto;
+}
+/*MAIN*/
+main{
+    margin-bottom: 30px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 80%;
+}
+.caixa-geral{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*CAIXA LOGIN*/
+
+.box-login{
+    box-shadow: var(--sombra);
+    border-top-left-radius: var(--borda-caixa);
+    border-bottom-left-radius: var(--borda-caixa);
+    padding: 40px;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-around;
+    height: 400px;
+    
+}
+h1{
+    font-size: 1.2rem;
+    text-align: center;
+}
+p{
+    color: #686868;
+    text-align: center;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.barra_input{
+    width: 270px;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--verde);
+    border-radius: var(--borda-botao);background-color: #f0f0f0;
+}
+.material-symbols-outlined{
+    padding-left: 8px;
+    color: var(--verde);
+    font-size: 1.2rem;
+}
+input{
+    border-radius: var(--borda-botao);
+    border: none;
+    width: 100%;
+    padding: 13px 15px;
+    background-color: #f0f0f0;
+}
+input:focus{
+    outline: none;
+}
+.placeholder-erro::placeholder{
+    color: red;
+}
+a{
+    color: #2678BF;
+    text-decoration: underline;
+    padding-left: 4px;
+
+}
+.cadastro-responsivo :nth-child(2){
+    display: none;
+}
+.btn-preferencia{
+    background-color: var(--azul);
+    padding: 9px 10px;
+    border-radius: var(--borda-botao);
+    border: 1px solid var(--azul);
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 0 auto;
+    
+}
+.btn-preferencia:hover{
+    background-color: white;
+    transition: 0.25s;    color: var(--azul);
+}
+/*2FA — CÓDIGO DE VERIFICAÇÃO NO LOGIN*/
+.caixa-2fa{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+.caixa-2fa p{
+    font-size: 0.85rem;
+    color: #4a4a4a;
+    text-align: center;
+}
+.caixa-2fa input{
+    text-align: center;
+    letter-spacing: 6px;
+    font-size: 1.2rem;
+    padding: 10px;
+    border: 1px solid #8e8e8e;
+    border-radius: var(--borda-botao);
+}
+/*LOGIN COM PLATAFORMAS*/
+.logar-plataformas{
+    margin: 0 auto;
+    display: flex;
+    gap: 30px;
+}
+.logar-plataformas i{
+    padding: 5px;
+    height: 29px;
+    color: var(--verde);
+    font-size: 1.8rem;
+}
+/*CAIXA VERDE*/
+@keyframes transicao{
+    from{
+        border-radius: var(--borda-caixa);
+        width: 355px;
+    }
+    to{
+        transform: translateX(352px);
+        border-top-right-radius: var(--borda-caixa);
+        border-bottom-right-radius: var(--borda-caixa);
+        width: 272px;
+    }
+
+}
+.box-verde{
+    box-shadow: 1px 1px 5px #8e8e8ead;
+    padding: 40px;
+    height: 400px;
+    width: 272px;
+    
+    background-color: var(--verde);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    right: 352px;
+
+    animation: transicao 1s forwards; 
+    
+}
+.box-verde h1{
+    color: white;
+    font-size: 1.6rem;
+}
+.box-verde p{
+    color: white;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+.cadastro-responsivo{
+    display: flex;
+    justify-content: space-between;
+}
+@media screen and (max-width: 920px) {
+    .box-verde{
+        display: none;
+    }
+    .cadastro-responsivo{
+        padding: 5px 0px;
+    }
+    .cadastro-responsivo :nth-child(2){
+        display: block;
+        
+    }
+}
+@media screen and (max-width: 400px){
+    .box-login{
+        padding: 20px;
+    }
+    .barra_input{
+        width: 250px;
+    }
+}

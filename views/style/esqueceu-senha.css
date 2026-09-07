@@ -1,0 +1,121 @@
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+html, body {
+    height: 100vh  ;
+}
+:root{
+    --verde: #1A824D;
+    --azul: #2678BF;
+    --borda-caixa: 10px;
+    --sombra: 0px 1px 5px #8e8e8ead;
+    --borda-botao: 35px;
+}
+body{
+    background-color: #d9d9d9;
+    
+}
+header{
+    padding: 17px;
+}
+.bi-arrow-left-circle-fill{
+    color: var(--verde);
+    font-size: 2.3rem;
+}
+/*MAIN*/
+main{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 0px 20px;
+    height: 100vh;
+
+}
+.box{
+    background-color: white;
+    width: 400px;
+    height: 500px;
+    border-radius: var(--borda-caixa);
+    box-shadow: var(--sombra);
+    flex-direction: column;
+    padding: 20px;
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+    
+
+}
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+    text-align: center;
+}
+p{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #696969;
+    text-align: center;
+}
+/*INPUTS*/
+form {
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.barra_input{
+    width: 210px;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--verde);
+    border-radius: var(--borda-botao);
+}
+.material-symbols-outlined{
+    padding-left: 8px;
+    color: var(--verde);
+    font-size: 1.2rem;
+}
+input{
+    border-radius: var(--borda-botao);
+    border: none;
+    width: 100%;
+    padding: 13px 15px;
+}
+input:focus{
+    outline: none;
+}
+.placeholder-erro::placeholder{
+    color: red;
+}
+/*botões*/
+.btn-preferencia{
+    background-color: var(--azul);
+    padding: 9px 10px;
+    border-radius: var(--borda-botao);
+    border: 1px solid var(--azul);
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin: auto;
+    display: flex;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.btn-preferencia:hover{
+    background-color: white;
+    color: var(--azul);
+}
+@media screen and (max-width: 390px) {
+    main{
+        padding: 0px 10px;
+    }
+    .box{
+        justify-content: center;
+        gap: 20px;
+        height: 400px;
+        padding: 20px 10px;
+    }
+    .box p{
+        font-size: 0.85rem;
+    }
+}

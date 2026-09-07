@@ -1,0 +1,94 @@
+:root{
+    --verde: #1A824D;
+    --azul: #2678BF;
+    --borda-caixa: 10px;
+    --sombra: 0px 1px 5px #8e8e8ead;
+    --borda-botao: 35px;
+}
+footer{
+    background-color: var(--verde);
+    display: flex;
+    padding: 20px;
+    justify-content: space-around;
+}
+.coluna-footer{
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.coluna-footer h1{
+    color: white;
+    font-size: 1.3rem;
+    text-align: center;
+}
+.coluna-footer a{
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: normal;
+}
+.coluna-footer p{
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: normal;
+}
+.links-redes{
+    display: flex;
+    gap: 20px;
+        justify-content: center;
+}
+.links-redes i{
+    
+    font-size: 2rem;
+}
+
+.coluna-explora{
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight:  normal;
+    display:  flex; 
+    flex-direction: column;
+    gap: 20px;
+}
+
+.coluna-explora p, .coluna-explora h1{
+    text-align: center;
+}
+.links-footer{
+    display: flex;
+    flex-direction: column;
+}
+.link-privacidade-footer{
+    text-align: center;
+    margin-top: 4px;
+    text-decoration: underline !important;
+}
+
+@media screen and (max-width: 720px){
+    footer{
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .coluna-footer a{
+        font-size: 0.7rem;
+    } 
+    .coluna-footer h1{
+        font-size: 1.0rem;
+
+    }
+    .coluna-explora p{
+        font-size: 0.7rem;
+    }
+        
+    
+}
+
+   
+
+    
+    
