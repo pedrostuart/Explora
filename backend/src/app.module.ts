@@ -7,6 +7,7 @@ import { ArtistasModule } from './artistas/artistas.module';
 import { CategoriasModule } from './categorias/categorias.module';
 import { AuthModule } from './auth/auth.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
+import { FavoritosModule } from './favoritos/favoritos.module';
 
 
 @Module({
@@ -21,7 +22,8 @@ import { UsuariosModule } from './usuarios/usuarios.module';
     ArtistasModule,
     CategoriasModule,
     AuthModule,
-    UsuariosModule
+    UsuariosModule,
+    FavoritosModule
   ]
 })
 export class AppModule {}
