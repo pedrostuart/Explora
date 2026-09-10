@@ -53,7 +53,6 @@ export class AuthGuard implements CanActivate {
             const payload =
                 await this.jwtService.verifyAsync(token);
 
-
             request.usuario = payload;
 
             return true;
@@ -63,9 +62,6 @@ export class AuthGuard implements CanActivate {
             throw new UnauthorizedException(
                 'Token inválido ou expirado'
             );
-
         }
-
     }
-
 }
