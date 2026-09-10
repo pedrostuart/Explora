@@ -113,27 +113,8 @@ a{
 }
 .btn-preferencia:hover{
     background-color: white;
-    transition: 0.25s;    color: var(--azul);
-}
-/*2FA — CÓDIGO DE VERIFICAÇÃO NO LOGIN*/
-.caixa-2fa{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-}
-.caixa-2fa p{
-    font-size: 0.85rem;
-    color: #4a4a4a;
-    text-align: center;
-}
-.caixa-2fa input{
-    text-align: center;
-    letter-spacing: 6px;
-    font-size: 1.2rem;
-    padding: 10px;
-    border: 1px solid #8e8e8e;
-    border-radius: var(--borda-botao);
+    transition: 0.25s;
+    color: var(--azul);
 }
 /*LOGIN COM PLATAFORMAS*/
 .logar-plataformas{

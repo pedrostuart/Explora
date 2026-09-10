@@ -102,32 +102,6 @@ a{
     padding-left: 4px;
 
 }
-.aceite-termos{
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    margin: 4px auto;
-    max-width: 320px;
-}
-.aceite-termos input[type="checkbox"]{
-    margin-top: 3px;
-    width: 16px;
-    height: 16px;
-    flex-shrink: 0;
-    accent-color: var(--verde);
-}
-.aceite-termos label{
-    font-size: 0.8rem;
-    color: #4a4a4a;
-    line-height: 1.4;
-}
-.aceite-termos label a{
-    color: #2678BF;
-    text-decoration: underline;
-}
-.aceite-termos.placeholder-erro label{
-    color: #c0392b;
-}
 /*BOTÃO*/
 .btn-preferencia{
     background-color: var(--azul);

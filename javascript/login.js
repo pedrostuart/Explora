@@ -1,48 +1,122 @@
-const formLogin = document.querySelector("form") || document.getElementById("btn-login")?.closest("form")
+const btnLogin = document.getElementById("btn-login");
+const formLogin = document.querySelector("form");
 
-if (formLogin) {
-    formLogin.addEventListener("submit", async (e) => {
-        e.preventDefault()
+formLogin.addEventListener("submit", async function(event) {
 
-        const emailInput = document.getElementById("email")
-        const senhaInput = document.getElementById("senha")
+    event.preventDefault();
 
-        const email = emailInput ? emailInput.value.trim() : ""
-        const senha = senhaInput ? senhaInput.value : ""
+    const email = document.getElementById("email");
+    const senha = document.getElementById("senha");
 
-        const btnLogin = document.getElementById("btn-login")
-        if (btnLogin) {
-            btnLogin.textContent = "Entrando..."
-            btnLogin.disabled = true
+    const inputs = [email, senha];
+
+    let tudoPreenchido = true;
+
+    inputs.forEach(input => {
+
+        const barraInput = input.parentElement;
+
+        if (input.value.trim() === "") {
+
+            input.classList.add("placeholder-erro");
+            barraInput.style.border = "1px solid red";
+
+            tudoPreenchido = false;
+
+        } else {
+
+            input.classList.remove("placeholder-erro");
+            barraInput.style.border = "1px solid #1A824D";
+
         }
 
-        try {
-            const resposta = await fetch("/api/auth/login", {
+    });
+
+    if (!tudoPreenchido) {
+        return;
+    }
+
+
+    const dadosLogin = {
+
+        email: email.value,
+        senha: senha.value
+
+    };
+
+
+    try {
+
+        const resposta = await fetch(
+            "http://localhost:3000/auth/login",
+            {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email, senha })
-            })
 
-            // Se o status for 403 (Forbidden) ou qualquer erro, redireciona imediatamente
-            if (resposta.status === 403 || !resposta.ok) {
-                window.location.href = `verificar-conta.html?email=${encodeURIComponent(email)}`
-                return
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify(dadosLogin)
             }
+        );
 
-            const dados = await resposta.json()
 
-            if (dados.requer2fa) {
-                const caixa2fa = document.getElementById("caixa-2fa")
-                if (caixa2fa) {
-                    caixa2fa.style.display = "block"
-                    formLogin.style.display = "none"
-                    return
-                }
-            }
+        const resultado = await resposta.json();
 
-            window.location.href = "index.html"
-        } catch (erro) {
-            window.location.href = `verificar-conta.html?email=${encodeURIComponent(email)}`
+
+        if (!resposta.ok) {
+
+            alert(
+                resultado.message ||
+                "E-mail ou senha inválidos."
+            );
+
+            return;
+
         }
-    })
-}
+
+
+        console.log("Login realizado:", resultado);
+
+
+        /*
+         * Guarda o token para utilizar
+         * nas próximas requisições protegidas.
+         */
+
+        localStorage.setItem(
+            "token",
+            resultado.token
+        );
+
+
+        /*
+         * Guarda os dados básicos do usuário.
+         */
+
+        localStorage.setItem(
+            "usuario",
+            JSON.stringify(resultado.usuario)
+        );
+
+
+        
+
+
+        window.location.href = "perfil.html";
+
+
+    } catch (erro) {
+
+        console.error(
+            "Erro ao realizar login:",
+            erro
+        );
+
+        alert(
+            "Não foi possível conectar com o servidor."
+        );
+
+    }
+
+});

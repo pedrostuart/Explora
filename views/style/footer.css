@@ -61,11 +61,6 @@ footer{
     display: flex;
     flex-direction: column;
 }
-.link-privacidade-footer{
-    text-align: center;
-    margin-top: 4px;
-    text-decoration: underline !important;
-}
 
 @media screen and (max-width: 720px){
     footer{

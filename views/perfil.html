@@ -54,7 +54,7 @@
     </header>
     <main>
         <section class="cabecalho">
-            <img src="img/foto-de-mery.jpg" alt="imagem-perfil" >
+            <img src="https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png" alt="imagem-perfil" >
             <div class="info-usuario">
                 <h1>Maria Fernanda</h1>
                 <p>Exploradora de eventos - São Paulo, SP</p>
@@ -137,33 +137,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="box-seguranca">
-                    <div class="titulo-notficacao">
-                        <i class="bi bi-shield-lock-fill"></i>
-                        <h2>Segurança</h2>
-                    </div>
-
-                    <p id="status-2fa" class="status-2fa">Verificando status...</p>
-
-                    <button type="button" id="btn-ativar-2fa" class="btn-preferencia" style="display:none;">
-                        Ativar autenticação em duas etapas
-                    </button>
-
-                    <div id="painel-ativar-2fa" class="painel-2fa" style="display:none;">
-                        <p>1. Escaneie o QR code abaixo com o Google Authenticator, Authy ou outro app compatível.</p>
-                        <img id="qrcode-2fa" src="" alt="QR code para ativar 2FA">
-                        <p class="segredo-manual">Ou digite manualmente: <code id="segredo-2fa"></code></p>
-                        <p>2. Digite o código gerado pelo app para confirmar:</p>
-                        <input type="text" id="codigo-confirmar-2fa" maxlength="6" inputmode="numeric" placeholder="000000">
-                        <button type="button" id="btn-confirmar-ativacao-2fa" class="btn-preferencia">Confirmar e ativar</button>
-                    </div>
-
-                    <div id="painel-desativar-2fa" class="painel-2fa" style="display:none;">
-                        <p>Para desativar, confirme sua senha atual:</p>
-                        <input type="password" id="senha-desativar-2fa" placeholder="Sua senha atual">
-                        <button type="button" id="btn-desativar-2fa" class="btn-preferencia btn-preferencia--perigo">Desativar 2FA</button>
-                    </div>
-                </div>
+                
             </div>
             
 
@@ -280,9 +254,6 @@
                         </div>
             </div>
 
-
-
-
             <div class="box-dados">
                 <div class="titulo-dados">
                     <i class="bi bi-gear-fill"></i>
@@ -296,11 +267,11 @@
                     </div>
                     <div class="config-inputs">
                         <label for="email-usuario">E-mail</label>
-                        <input type="text" name="email-usuario" id="nome-usuario" class="config-dados" placeholder="mariafer@email.com">
+                        <input type="text" name="email-usuario" id="email-usuario" class="config-dados" placeholder="mariafer@email.com">
                     </div>
                     <div class="config-inputs">
                         <label for="tel-usuario">Telefone</label>
-                        <input type="text" name="tel-usuario" id="nome-usuario" class="config-dados" placeholder="(11) 99999-9999">
+                        <input type="text" name="tel-usuario" id="telefone-usuario" class="config-dados" placeholder="(11) 99999-9999">
                     </div>
                     <div class="config-inputs">
                         <label for="cid-usuario">Cidade</label>
@@ -407,8 +378,5 @@
     </footer>
     <script src="/javascript/menu.js"></script>
     <script src="/javascript/perfil.js"></script>
-    <script src="/javascript/seguranca-2fa.js"></script>
-    <script src="/javascript/acessibilidade.js"></script>
-    <script src="/javascript/cookie-consent.js"></script>
 </body>
 </html>

@@ -6,77 +6,69 @@ btnFiltrarResponsivo.addEventListener("click", (e) =>{
     e.preventDefault()
     menuFiltrar.style.display = 'flex'
 })
-
 /*FECHAR MENU FILTROS*/
 let fecharMenuFiltros = document.querySelector(".fechar-link .fechar-menu")
 fecharMenuFiltros.addEventListener("click", ()=>{
+    
     menuFiltrar.style.display = ''
 })
 
-/*Datas / Preferências de Data*/
+/*Datas*/
 let labelsDatas = document.querySelectorAll(".label-preferencias input.datas");
 let valorData;
 let ultimoRadioDataClicado = null;
 
 labelsDatas.forEach(radio => {
     radio.addEventListener("click", () => {
+        // Esta lógica permite desmarcar o botão de rádio clicando nele novamente
         if (ultimoRadioDataClicado === radio) {
             radio.checked = false;
             valorData = undefined;
             ultimoRadioDataClicado = null;
         } else {
             valorData = radio.value;
-            ultimoRadioDataClicado = radio;
+            ultimaPreferenciaClicada = radio;
         }
-        aplicarFiltros()
     })
 })
 
-/*Preferências (Botões de categoria: Cinema, Arte, etc.)*/
-let labelsGostos = document.querySelectorAll(".preferencias .label-preferencias button");
-let valorPreferencia = [];
 
-labelsGostos.forEach(btns => {
-    btns.addEventListener("click", () => {
-        const estavaSelecionado = btns.classList.contains("selecionado");
+/*Preferencias*/
 
-        labelsGostos.forEach(outroBotao => outroBotao.classList.remove("selecionado"));
-        valorPreferencia = [];
+let labelsGostos= document.querySelectorAll(".label-preferencias button")
 
-        if (!estavaSelecionado) {
-            btns.classList.add("selecionado");
-            valorPreferencia = [btns.value];
+let valorPreferencia = []
+labelsGostos.forEach(btns =>{
+    btns.addEventListener("click", ()=>{
+        
+        if(btns.className == ""){
+            btns.classList.add("selecionado")
+            valorPreferencia.push(btns.value)
+        }else{
+            
+            btns.classList.remove("selecionado")
+            let posicao = valorPreferencia.indexOf(btns.value)/*indexOf olha o que ta dentro do array e compara com valor do btns*/ 
+            valorPreferencia.splice(posicao, 1)
+            
         }
-        aplicarFiltros()
-    });
+    })
 })
 
-/*valores radios (raio de busca, em km)*/
+/*valores radios*/
+
 let radiosKm = document.querySelectorAll(".radio")
-let valorRadio
-
-radiosKm.forEach(radios => {
-    radios.addEventListener("click", async () => {
-        valorRadio = radios.value;
-        if (typeof atualizarEventosPorDistancia === "function") {
-            await atualizarEventosPorDistancia();
-        } else {
-            aplicarFiltros();
-        }
+let valorRadio     
+    radiosKm.forEach(radios =>{
+    radios.addEventListener("click", ()=>{
+        valorRadio = radios.value
     })
 })
 
-/*orçamento (filtra também enquanto o usuário digita)*/
-let inputOrcamento = document.getElementById("preco")
-if (inputOrcamento) {
-    inputOrcamento.addEventListener("input", () => {
-        aplicarFiltros()
-    })
-}
+/*valor input*/
 
-/* Botão Filtrar Principal */
 let btnFiltrar = document.querySelector(".btn-filtrar .btn-preferencia")
 
+// Função auxiliar para interpretar as datas do HTML (ex: "HOJE", "15/10")
 function parseEventDate(dateString) {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
@@ -90,35 +82,41 @@ function parseEventDate(dateString) {
     const parts = dateString.split('/');
     if (parts.length === 2) {
         const day = parseInt(parts[0], 10);
-        const month = parseInt(parts[1], 10) - 1;
+        const month = parseInt(parts[1], 10) - 1; // Mês no JS é baseado em 0 (0-11)
         let year = today.getFullYear();
 
         const eventDate = new Date(year, month, day);
         eventDate.setHours(0, 0, 0, 0);
 
+        // Se a data do evento já passou este ano (ex: hoje é Maio, evento é de Janeiro),
+        // assume que o evento é para o próximo ano.
         if (eventDate < today) {
             eventDate.setFullYear(year + 1);
         }
-
+        
         return eventDate;
     }
 
-    return null;
+    return null; // Retorna nulo para formatos de data inválidos
 }
 
-// Aplica todos os filtros selecionados (data, preferências, orçamento e distância)
-// sobre os itens já carregados na tela. É chamada automaticamente sempre que
-// qualquer filtro é clicado/alterado (data, categoria, distância, orçamento),
-// e também ao clicar em "Filtrar".
-function aplicarFiltros() {
-    let orcamento = document.getElementById("preco") ? Number(document.getElementById("preco").value) : 0;
-    let todosItensDeEvento = document.querySelectorAll(".itens-pesquisa a.caixa_eventos");
-    let algumVisivel = false;
+btnFiltrar.addEventListener("click", ()=>{
+    // Fecha o menu lateral (principalmente para a visão responsiva)
+    menuFiltrar.style.display = '';
+    
+    // Coleta os valores dos filtros
+    // valorData é coletado no loop labelsDatas.forEach
+    // valorPreferencia é coletado no loop labelsGostos.forEach
+    // valorRadio é coletado no loop radiosKm.forEach
+    let orcamento = Number(document.getElementById("preco").value)
+
+    // Seleciona todos os itens de evento
+    let todosItensDeEvento = document.querySelectorAll(".itens-pesquisa a")
 
     todosItensDeEvento.forEach(item => {
         let exibirItem = true;
 
-        // Filtro por Data
+        // Lógica de filtragem por data (se valorData estiver definido)
         if (valorData) {
             let matchesDate = false;
             const dataDoEventoElement = item.querySelector(".data_evento");
@@ -142,13 +140,13 @@ function aplicarFiltros() {
                             break;
                         case 'Esta semana':
                             const startOfWeek = new Date(today);
-                            const dayOfWeek = today.getDay();
-                            const diff = today.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1);
+                            const dayOfWeek = today.getDay(); // 0=Dom, 1=Seg, ...
+                            const diff = today.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1); // Ajusta para Segunda como início da semana
                             startOfWeek.setDate(diff);
 
                             const endOfWeek = new Date(startOfWeek);
                             endOfWeek.setDate(startOfWeek.getDate() + 6);
-
+                            
                             matchesDate = (eventDate >= startOfWeek && eventDate <= endOfWeek);
                             break;
                         case 'Este mês':
@@ -160,186 +158,60 @@ function aplicarFiltros() {
                     }
                 }
             }
+            // Se a data do item não corresponde ao filtro, ele não deve ser exibido
             if (!matchesDate) {
                 exibirItem = false;
             }
         }
 
-        // Filtro por Preferências (botões)
+        // Lógica de filtragem por preferências (se valorPreferencia não estiver vazio)
         if (valorPreferencia.length > 0) {
+            // Só esconde o evento se ele tiver a configuração no HTML
             if (item.hasAttribute('data-preferencias')) {
-                const preferenciasDoItem = item.dataset.preferencias.split(',').map(normalizarTextoBusca);
-                const temPreferenciaComum = valorPreferencia.some(pref =>
-                    preferenciasDoItem.includes(normalizarTextoBusca(pref))
-                );
+                const preferenciasDoItem = item.dataset.preferencias.split(',');
+                const temPreferenciaComum = valorPreferencia.some(pref => preferenciasDoItem.includes(pref));
                 if (!temPreferenciaComum) {
                     exibirItem = false;
                 }
             } else {
-                exibirItem = false;
+                console.warn("O evento não possui o atributo 'data-preferencias' no HTML e não será escondido.");
             }
         }
 
-        // Filtro por Preço/Orçamento
+        // Lógica de filtragem por orçamento e rádio (km)
         if (orcamento > 0) {
             if (item.hasAttribute('data-preco')) {
                 const precoItem = Number(item.dataset.preco);
                 if (precoItem > orcamento) {
-                    exibirItem = false;
+                    exibirItem = false; // Esconde se o preço for maior que o orçamento
                 }
             }
         }
 
-        // Filtro por Distância (km)
+        // Lógica de filtragem por distância (km)
         if (valorRadio) {
-            const distanciaItem = Number(item.dataset.distanciaKm);
-            if (Number.isFinite(distanciaItem)) {
-                const limiteDistancia = Number(valorRadio);
+            const distanciaElement = item.querySelector(".distancia_show");
+            if (distanciaElement) {
+                // Pega o texto e extrai apenas o número antes do "km"
+                const match = distanciaElement.textContent.match(/(\d+)km/);
+                if (match) {
+                    const distanciaItem = Number(match[1]);
+                    const limiteDistancia = Number(valorRadio);
 
-                if (limiteDistancia === 50) {
-                    if (distanciaItem <= 30) {
-                        exibirItem = false;
+                    // O value "50" é o botão de "Mais de 30km"
+                    if (limiteDistancia === 50) { 
+                        if (distanciaItem <= 30) {
+                            exibirItem = false; // Esconde os que forem menores ou iguais a 30
+                        }
+                    } else { 
+                        // Regra normal para "Até 5km", "Até 10km", etc.
+                        if (distanciaItem > limiteDistancia) {
+                            exibirItem = false; // Esconde se for maior que o limite selecionado
+                        }
                     }
-                } else if (distanciaItem > limiteDistancia) {
-                    exibirItem = false;
                 }
-            } else {
-                exibirItem = false;
             }
         }
-
         item.style.display = exibirItem ? 'flex' : 'none';
-        if (exibirItem) algumVisivel = true;
     });
-
-    // Mostra/esconde a mensagem de "nenhum resultado" quando os filtros escondem tudo
-    const txtSemResultados = document.getElementById("txt-pesquisas");
-    if (txtSemResultados && todosItensDeEvento.length > 0) {
-        txtSemResultados.style.display = algumVisivel ? 'none' : 'block';
-    }
-
-    // RN-063 — grava o estado atual dos filtros na URL, para que ela
-    // sobreviva a um "voltar" do navegador (ex: ao sair da página de
-    // detalhe de um evento) e também possa ser compartilhada por link.
-    atualizarUrlComFiltros();
-}
-
-// Constrói a query string a partir do estado atual dos filtros e substitui a
-// URL sem recarregar a página (history.replaceState não gera nova entrada
-// no histórico, então o botão "voltar" continua funcionando normalmente).
-function atualizarUrlComFiltros() {
-    const params = new URLSearchParams(window.location.search);
-
-    if (valorData) params.set('data', valorData); else params.delete('data');
-    if (valorPreferencia.length > 0) params.set('categoria', valorPreferencia.join(',')); else params.delete('categoria');
-    if (valorRadio) params.set('distancia', valorRadio); else params.delete('distancia');
-
-    const orcamentoValor = inputOrcamento ? inputOrcamento.value.trim() : '';
-    if (orcamentoValor) params.set('orcamento', orcamentoValor); else params.delete('orcamento');
-
-    const query = params.toString();
-    const novaUrl = query ? `${window.location.pathname}?${query}` : window.location.pathname;
-    window.history.replaceState(null, '', novaUrl);
-}
-
-// RN-063 — lê os filtros salvos na URL (se houver) e re-seleciona os
-// controles correspondentes na tela, sem disparar aplicarFiltros() ainda
-// (isso é feito à parte, depois que os cards já estiverem carregados —
-// veja carregarEventosIniciais() em barra-pesquisa.js).
-function restaurarFiltrosDaUrl() {
-    const params = new URLSearchParams(window.location.search);
-
-    const dataUrl = params.get('data');
-    if (dataUrl) {
-        const radio = [...labelsDatas].find(r => r.value === dataUrl);
-        if (radio) {
-            radio.checked = true;
-            valorData = dataUrl;
-            ultimoRadioDataClicado = radio;
-        }
-    }
-
-    const categoriasUrl = params.get('categoria');
-    if (categoriasUrl) {
-        const valorCategoria = categoriasUrl.split(',')[0];
-        labelsGostos.forEach(btn => {
-            if (btn.value === valorCategoria) {
-                btn.classList.add('selecionado');
-                valorPreferencia = [btn.value];
-            }
-        });
-    }
-
-    const distanciaUrl = params.get('distancia');
-    if (distanciaUrl) {
-        const radio = [...radiosKm].find(r => r.value === distanciaUrl);
-        if (radio) {
-            radio.checked = true;
-            valorRadio = distanciaUrl;
-        }
-    }
-
-    const orcamentoUrl = params.get('orcamento');
-    if (orcamentoUrl && inputOrcamento) {
-        inputOrcamento.value = orcamentoUrl;
-    }
-
-    return !!(dataUrl || categoriasUrl || distanciaUrl || orcamentoUrl);
-}
-
-if (btnFiltrar) {
-    btnFiltrar.addEventListener("click", () => {
-        menuFiltrar.style.display = '';
-        aplicarFiltros();
-    });
-}
-
-/* ==========================================
-   FUNÇÃO DE LIMPAR DISTÂNCIA
-   ========================================== */
-let btnLimparDistancia = document.querySelector("#limpar-distancia");
-
-if (btnLimparDistancia) {
-    btnLimparDistancia.addEventListener("click", () => {
-        valorRadio = undefined;
-        radiosKm.forEach(radios => {
-            radios.checked = false;
-        });
-        aplicarFiltros();
-    });
-}
-
-/* ==========================================
-   FUNÇÃO DE LIMPAR FILTROS GERAL
-   ========================================== */
-let btnLimparFiltros = document.querySelector("#btn-limpar-filtros");
-
-if (btnLimparFiltros) {
-    btnLimparFiltros.addEventListener("click", () => {
-        valorData = undefined;
-        ultimoRadioDataClicado = null;
-        valorPreferencia = [];
-        valorRadio = undefined;
-
-        labelsDatas.forEach(radio => {
-            radio.checked = false;
-        });
-
-        labelsGostos.forEach(btns => {
-            btns.classList.remove("selecionado");
-        });
-
-        radiosKm.forEach(radios => {
-            radios.checked = false;
-        });
-
-        let inputPreco = document.getElementById("preco");
-        if (inputPreco) {
-            inputPreco.value = "";
-        }
-
-        aplicarFiltros();
-
-        menuFiltrar.style.display = '';
-    });
-}
+})

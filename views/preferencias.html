@@ -83,22 +83,44 @@
             <dialog class="modal">
                 <h1>Selecione suas prefêrencias</h1>
                 <form class="preferencias">
-
-                    <div class="label-preferencias">
-                        <div class="label-preferencias">
-                        <button name="preferencias" value="cinema" id="cinema">Cinema</button>
-                        <button name="preferencias" value="arte" id="arte">Arte</button>
-                        <button name="preferencias" value="festivais" id="festivais">Festivais</button>
-                        <button name="preferencias" value="esportes" id="esportes">Esportes</button>
-                        <button name="preferencias" value="gastronomia" id="gastronomia">Gastronomia</button>
-                        <button name="preferencias" value="teatro" id="teatro">Teatro</button>
-                        <button name="preferencias" value="musica" id="musica">Música</button>
-                        </div>
-                    </div>
-                    <hr>
-                    <button class="aplicar">Aplicar</button>
-
-                </form>
+            
+            <div class="label-preferencias">
+                <label>
+                    <input type="checkbox" name="preferencias[]" value="cinema" class="btn-preferencia">
+                    Cinema
+                </label>
+                <label>
+                    <input type="checkbox" name="preferencias[]" value="arte" class="btn-preferencia">
+                    Arte
+                </label>
+                <label>
+                    <input type="checkbox" name="preferencias[]" value="festivais" class="btn-preferencia">
+                    Festivais
+                </label>
+                <label>
+                    <input type="checkbox" name="preferencias[]" value="esportes" class="btn-preferencia">
+                    Esportes
+                </label>
+                <label>
+                    <input type="checkbox" name="preferencias[]" value="gastronomia" class="btn-preferencia">
+                    Gastronomia
+                </label>
+                <label>
+                    <input type="checkbox" name="preferencias[]" value="teatro" class="btn-preferencia">
+                    Teatro
+                </label>
+                <label>
+                    <input type="checkbox" name="preferencias[]" value="musica" class="btn-preferencia">
+                    Música
+                </label>
+                <label>
+                    <input type="checkbox" name="preferencias[]" value="musica" class="btn-preferencia">
+                    Outros
+                </label>
+            </div>
+            <hr>
+            <button class="aplicar">Aplicar</button>
+        </form>
             </dialog>
     </main>
     <footer>
@@ -116,12 +138,9 @@
                 <a href=""><i class="bi bi-facebook"></i></a>
                 <a href="mailto:exploramais.eventos@gmail.com"><i class="bi bi-envelope-fill"></i></a>
             </div>
-            <a href="privacidade.html" class="link-privacidade-footer">Política de Privacidade e Cookies</a>
         </div>
     </footer>
     <script src="/javascript/preferencias.js"></script>
-    <script src="/javascript/acessibilidade.js"></script>
-    <script src="/javascript/cookie-consent.js"></script>
 </body>
 
 </html>

@@ -1,86 +1,92 @@
-let form = document.querySelector(".inserir-dados form")
-let inputs = document.querySelectorAll(".barra_input input")
-let checkboxTermos = document.getElementById("aceitou_termos")
-let btnCadastrar = document.getElementById("cadastrar")
-let inputDataNascimento = document.getElementById("data_nascimento")
+const btnCadastrar = document.getElementById("cadastrar");
+const formCadastro = document.querySelector("form");
 
-if (inputDataNascimento) {
-    const hoje = new Date().toISOString().split("T")[0]
-    inputDataNascimento.setAttribute("max", hoje)
-}
+formCadastro.addEventListener("submit", function(event) {
 
-inputs.forEach(input => {
-    input.addEventListener("invalid", () => {
-        let barraInput = input.parentElement
-        input.classList.add('placeholder-erro')
-        barraInput.style.border = '1px solid red'
-    })
-    input.addEventListener("input", () => {
-        let barraInput = input.parentElement
-        input.classList.remove('placeholder-erro')
-        barraInput.style.border = '1px solid #1A824D'
-    })
-})
+    event.preventDefault();
 
-form.addEventListener("submit", async (evento) => {
-    evento.preventDefault()
+    const inputs = document.querySelectorAll(".barra_input input");
 
-    if (!form.checkValidity()) {
-        form.reportValidity()
-        return
-    }
+    let tudoPreenchido = true;
 
-    if (!checkboxTermos.checked) {
-        document.querySelector(".aceite-termos").classList.add("placeholder-erro")
-        alert("É necessário aceitar os Termos de Uso e a Política de Privacidade para continuar.")
-        return
-    }
-    document.querySelector(".aceite-termos").classList.remove("placeholder-erro")
+    inputs.forEach(input => {
 
-    const nome = document.getElementById("nome").value.trim()
-    const sobrenome = document.getElementById("sobrenome").value.trim()
-    const email = document.getElementById("email").value.trim()
-    const telefone = document.getElementById("telefone").value.trim()
-    const dataNascimento = document.getElementById("data_nascimento").value
-    const senha = document.getElementById("senha").value
-    const confirmarSenha = document.getElementById("confirmar_senha").value
+        const barraInput = input.parentElement;
 
-    if (senha !== confirmarSenha) {
-        let barraConfirmar = document.getElementById("confirmar_senha").parentElement
-        document.getElementById("confirmar_senha").classList.add('placeholder-erro')
-        barraConfirmar.style.border = '1px solid red'
-        alert("As senhas não coincidem.")
-        return
-    }
+        if (input.value.trim() === "") {
 
-    const textoOriginal = btnCadastrar.textContent
-    btnCadastrar.textContent = "Cadastrando..."
-    btnCadastrar.disabled = true
+            input.classList.add("placeholder-erro");
+            barraInput.style.border = "1px solid red";
 
-    try {
-        const resposta = await fetch("/api/auth/cadastro", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                nome: `${nome} ${sobrenome}`.trim(),
-                email,
-                telefone,
-                data_nascimento: dataNascimento,
-                senha,
-                aceitou_termos: checkboxTermos.checked,
-            }),
-        })
-        const dados = await resposta.json()
+            tudoPreenchido = false;
 
-        if (!resposta.ok) {
-            const mensagem = dados.erro || (dados.erros && dados.erros.map(e => e.msg).join(', ')) || "Não foi possível concluir o cadastro."
-            throw new Error(mensagem)
+        } else {
+
+            input.classList.remove("placeholder-erro");
+            barraInput.style.border = "1px solid #1A824D";
+
         }
 
-        window.location.href = `verificar-conta.html?email=${encodeURIComponent(email)}`
-    } catch (erro) {
-        btnCadastrar.textContent = textoOriginal
-        btnCadastrar.disabled = false
-        alert(erro.message || "Não foi possível concluir o cadastro. Tente novamente.")
+    });
+
+
+    if (!tudoPreenchido) {
+
+        document.getElementById("alerta-erro").style.display = "block";
+
+        return;
+
     }
-})
+
+
+    const senha = document.getElementById("senha").value;
+    const confirmarSenha =
+        document.getElementById("confirmar_senha").value;
+
+
+    if (senha !== confirmarSenha) {
+
+        document.getElementById("alerta-erro").textContent =
+            "As senhas não são iguais";
+
+        document.getElementById("alerta-erro").style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    document.getElementById("alerta-erro").style.display =
+        "none";
+
+
+    const dadosCadastro = {
+
+        nome:
+            document.getElementById("nome").value,
+
+        sobrenome:
+            document.getElementById("sobrenome").value,
+
+        email:
+            document.getElementById("email").value,
+
+        telefone:
+            document.getElementById("telefone").value,
+
+        senha:
+            senha
+
+    };
+
+
+    sessionStorage.setItem(
+        "dadosCadastro",
+        JSON.stringify(dadosCadastro)
+    );
+
+
+    window.location.href = "preferencias.html";
+
+});

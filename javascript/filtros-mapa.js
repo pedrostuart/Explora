@@ -13,7 +13,7 @@ fecharMenuFiltros.addEventListener("click", ()=>{
     menuFiltrar.style.display = ''
 })
 
-/*Preferências (radio de categoria: Cinema, Arte, etc.)*/
+
 
 let labelsGostos = document.querySelectorAll(".label-preferencias input.preferencias");
 let valorGosto;
@@ -26,48 +26,23 @@ labelsGostos.forEach(radio => {
             radio.checked = false;
             valorGosto = undefined;
             ultimaPreferenciaClicada = null;
+            
         } else {
             valorGosto = radio.value;
-            ultimaPreferenciaClicada = radio;
+            ultimoRadioDataClicado = radio;
         }
 
-        // Se já existe uma localização buscada no mapa, refaz a busca de
-        // eventos próximos já considerando a categoria selecionada.
-        if (typeof atualizarRaioDeBuscaNoMapa === "function") {
-            atualizarRaioDeBuscaNoMapa()
-        }
+       
     })
 })
 
 
-/*valores radios (raio de busca, em km)*/
+/*valores radios*/
 
 let radiosKm = document.querySelectorAll(".radio")
 let valorRadio     
     radiosKm.forEach(radios =>{
     radios.addEventListener("click", ()=>{
         valorRadio = radios.value
-        // Se já existe uma localização buscada no mapa, refaz a busca de
-        // eventos próximos usando o novo raio selecionado.
-        if (typeof atualizarRaioDeBuscaNoMapa === "function") {
-            atualizarRaioDeBuscaNoMapa()
-        }
     })
 })
-
-/* ==========================================
-   FUNÇÃO DE LIMPAR DISTÂNCIA
-   ========================================== */
-let btnLimparDistancia = document.querySelector("#limpar-distancia");
-
-if (btnLimparDistancia) {
-    btnLimparDistancia.addEventListener("click", () => {
-        valorRadio = undefined;
-        radiosKm.forEach(radios => {
-            radios.checked = false;
-        });
-        if (typeof atualizarRaioDeBuscaNoMapa === "function") {
-            atualizarRaioDeBuscaNoMapa();
-        }
-    });
-}

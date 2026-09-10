@@ -13,6 +13,14 @@
     --borda-botao: 35px;
 }
 /*MAIN*/
+#btn-logout{
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    padding: 3px;
+    cursor: pointer;
+    background: var(--verde);
+}
 .cabecalho{
     background-color: #1A824D;
     max-width: 94%;
@@ -95,69 +103,6 @@ main i{
     padding: 10px;  
     height: 200px;
     background-color: white;
-}
-.box-seguranca{
-    width: 311px;
-    box-shadow: var(--sombra);
-    border-radius: var(--borda-caixa);
-    padding: 10px;
-    background-color: white;
-}
-.status-2fa{
-    padding: 0 10px;
-    font-size: 0.85rem;
-    color: #4a4a4a;
-}
-.painel-2fa{
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding: 10px;
-}
-.painel-2fa p{
-    font-size: 0.8rem;
-    color: #4a4a4a;
-}
-.painel-2fa img{
-    width: 160px;
-    height: 160px;
-    margin: 0 auto;
-    border: 1px solid #e5e5e5;
-    border-radius: 8px;
-}
-.painel-2fa .segredo-manual{
-    text-align: center;
-    word-break: break-all;
-}
-.painel-2fa input{
-    padding: 8px;
-    border: 1px solid #8e8e8e;
-    border-radius: var(--borda-botao);
-    text-align: center;
-}
-#codigo-confirmar-2fa{
-    letter-spacing: 4px;
-}
-.box-seguranca .btn-preferencia{
-    background-color: var(--azul);
-    border: 1px solid var(--azul);
-    color: white;
-    font-weight: bold;
-    font-size: 0.85rem;
-    padding: 9px 14px;
-    border-radius: var(--borda-botao);
-    cursor: pointer;
-}
-.box-seguranca .btn-preferencia:hover{
-    background-color: white;
-    color: var(--azul);
-}
-.btn-preferencia--perigo{
-    background-color: #c0392b;
-    border-color: #c0392b;
-}
-.btn-preferencia--perigo:hover{
-    color: #c0392b;
 }
 
 .titulo-notficacao{

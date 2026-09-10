@@ -84,12 +84,6 @@ h2{
     border: 1px solid var(--azul);
     color: var(--azul);
 }
-
-.label-preferencias button.selecionado {
-    background-color: white;
-    border: 1px solid var(--azul);
-    color: var(--azul);
-}
 /*MENU LATERAL (DISTÂNCIA)*/
 
 .filtrar-distancia{
@@ -195,67 +189,6 @@ iframe html .place-details-compact-container{
 .btn_pesquisar .bi-search{
     color: white;
     
-}
-/*MAPA (STATUS DA PESQUISA)*/
-.status-busca-mapa{
-    display: none;
-    position: relative;
-    z-index: 1;
-    width: fit-content;
-    max-width: 693px;
-    background-color: white;
-    color: #8e8e8e;
-    font-size: 0.85rem;
-    font-weight: bold;
-    text-align: center;
-    margin: 10px auto 0px;
-    padding: 6px 16px;
-    border-radius: var(--borda-botao);
-    box-shadow: var(--sombra);
-}
-.status-busca-mapa--erro{
-    color: #c0392b;
-}
-/*MAPA (PAINEL DE EVENTOS PRÓXIMOS)*/
-.painel-resultados-mapa{
-    display: none;
-    position: relative;
-    z-index: 1;
-    flex-direction: column;
-    gap: 8px;
-    width: 350px;
-    max-height: 60vh;
-    overflow-y: auto;
-    background-color: white;
-    border-radius: var(--borda-caixa);
-    box-shadow: var(--sombra);
-    margin: 10px auto 0px;
-    padding: 12px;
-}
-.resultado-evento-mapa{
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 8px;
-}
-.resultado-evento-mapa:last-child{
-    border-bottom: 0;
-    padding-bottom: 0;
-}
-.resultado-evento-mapa__nome{
-    color: black;
-    font-weight: bold;
-    font-size: 0.95rem;
-}
-.resultado-evento-mapa__detalhe{
-    color: #8e8e8e;
-    font-size: 0.8rem;
-}
-@media screen and (max-width: 757px){
-    .painel-resultados-mapa{
-        width: 90%;
-    }
 }
 .preferencias{
     display: flex;

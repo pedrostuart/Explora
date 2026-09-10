@@ -204,15 +204,15 @@ select:focus{
     font-size: 1.2rem;
     margin-bottom: 15px;
 }
-.preferencias{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
 .label-preferencias{
     flex-wrap: wrap;
     display: flex;
     gap: 10px;
+}
+.preferencias{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 .label-preferencias label{
     background-color: var(--azul);
@@ -226,6 +226,7 @@ select:focus{
     gap: 5px;
     align-items: center;
     display: flex;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .aplicar-preferencias{
     background-color: var(--verde);
