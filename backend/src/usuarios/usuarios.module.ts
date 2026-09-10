@@ -8,22 +8,12 @@ import { AuthModule } from '../auth/auth.module';
 
 @Module({
 
-    imports: [
-        DatabaseModule,
-        AuthModule
-    ],
+    imports: [DatabaseModule, AuthModule],
 
-    controllers: [
-        UsuariosController
-    ],
+    controllers: [UsuariosController],
 
-    providers: [
-        UsuariosService
-    ],
-
-    exports: [
-        UsuariosService
-    ]
+    providers: [UsuariosService],
+    exports: [UsuariosService]
 
 })
 export class UsuariosModule {}

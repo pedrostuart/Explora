@@ -1,6 +1,4 @@
-// ==============================
 // BARRA DE PESQUISA
-// ==============================
 
 let boxPesquisa = document.querySelector(".itens-pesquisa");
 let inputCarrosel = document.querySelector(".input-pesquisa");
@@ -48,9 +46,7 @@ document.addEventListener("click", (event) => {
     }
 });
 
-// ==============================
 // CARREGAR EVENTOS DA API
-// ==============================
 
 const API_URL = "http://localhost:3000/eventos";
 
@@ -105,29 +101,24 @@ function criarItemPesquisa(evento) {
 
 async function carregarEventos() {
     try {
-        console.log("🔵 Iniciando fetch...");
         const resposta = await fetch(API_URL);
-        console.log("🔵 Status:", resposta.status);
-
         const eventos = await resposta.json();
-        console.log("🔵 Eventos recebidos:", eventos.length);
 
         if (!Array.isArray(eventos) || eventos.length === 0) {
-            console.warn("⚠️ Nenhum evento");
+            console.warn("Nenhum evento");
             return;
         }
 
         const containerDestaques = document.querySelector(".eventos_destaque .linha_eventos");
         if (containerDestaques) {
             containerDestaques.innerHTML = eventos.slice(0, 5).map(criarCardEvento).join("");
-            console.log("🟢 Destaques:", containerDestaques.children.length);
         }
 
         const containerProximos = document.querySelector(".eventos_proximos .linha_eventos");
         if (containerProximos) {
             const proximos = [...eventos].sort((a, b) => new Date(a.data) - new Date(b.data)).slice(0, 5);
             containerProximos.innerHTML = proximos.map(criarCardEvento).join("");
-            console.log("🟢 Próximos:", containerProximos.children.length);
+            
         }
 
         const carrosseis = document.querySelectorAll(".single-item");
@@ -148,14 +139,13 @@ async function carregarEventos() {
 
         if (window.jQuery) {
             jQuery(".single-item").slick({
-    dots: true,
-    autoplay: true,
-    arrows: true,
-});
+            dots: true,
+            autoplay: true,
+            arrows: true,
+        });
         }
 
-        console.log("PRONTO");
-
+    console.log("PRONTO");
     } catch (erro) {
         console.error("Erro:", erro);
     }
