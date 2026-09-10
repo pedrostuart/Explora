@@ -15,20 +15,14 @@ const btnAdicionarIngresso = document.getElementById("btnAdicionarIngresso");
 
 const tituloModal = document.getElementById("tituloModal");
 
-
-// ==============================
 // LISTAR EVENTOS
-// ==============================
 
 async function listarEventos() {
 
     try {
-
         const resposta = await fetch(API_URL);
         const eventos = await resposta.json();
-
         listaEventos.innerHTML = "";
-
         eventos.forEach(evento => {
 
             const div = document.createElement("div");
@@ -79,21 +73,12 @@ async function listarEventos() {
             `;
 
             listaEventos.appendChild(div);
-
         });
-
     } catch (erro) {
-
         console.error("Erro ao listar eventos:", erro);
-
     }
-
 }
-
-
-// ==============================
 // LISTAR CATEGORIAS
-// ==============================
 
 async function listarCategorias() {
 
@@ -131,27 +116,17 @@ async function listarCategorias() {
     }
 
 }
-
-
-// ==============================
 // ADICIONAR ARTISTA
-// ==============================
 
 function adicionarArtista(
     nome = "",
     imagem = ""
 ) {
-
     const div = document.createElement("div");
-
     div.classList.add("artista");
-
     div.innerHTML = `
-
         <div class="campo">
-
             <label>Nome do artista</label>
-
             <input
                 type="text"
                 class="nome-artista"
@@ -159,9 +134,7 @@ function adicionarArtista(
                 value="${nome}"
                 required
             >
-
         </div>
-
 
         <div class="campo imagem-artista">
 
@@ -174,9 +147,7 @@ function adicionarArtista(
                 value="${imagem}"
                 required
             >
-
         </div>
-
 
         <button
             type="button"
@@ -184,72 +155,39 @@ function adicionarArtista(
         >
             Remover
         </button>
-
     `;
-
-
     const botaoRemover =
         div.querySelector(".btn-remover-artista");
-
-
-    botaoRemover.addEventListener("click", () => {
-
+        botaoRemover.addEventListener("click", () => {
         div.remove();
-
         verificarArtistas();
-
     });
 
 
     listaArtistas.appendChild(div);
-
     verificarArtistas();
-
 }
-
-
-// ==============================
 // VERIFICAR ARTISTAS
-// ==============================
 
 function verificarArtistas() {
-
-    const artistas =
-        listaArtistas.querySelectorAll(".artista");
-
-    const mensagem =
-        listaArtistas.querySelector(".sem-artistas");
-
+    const artistas = listaArtistas.querySelectorAll(".artista");
+    const mensagem = listaArtistas.querySelector(".sem-artistas");
 
     if (artistas.length === 0) {
-
         if (!mensagem) {
-
             const div = document.createElement("div");
-
             div.classList.add("sem-artistas");
-
             div.textContent =
                 "Nenhum artista adicionado.";
-
             listaArtistas.appendChild(div);
-
         }
-
     } else {
-
         if (mensagem) {
             mensagem.remove();
         }
-
     }
-
 }
-
-
-// ==============================
 // ADICIONAR INGRESSO
-// ==============================
 
 function adicionarIngresso(
     nome = "",
@@ -258,11 +196,8 @@ function adicionarIngresso(
 ) {
 
     const div = document.createElement("div");
-
     div.classList.add("ingresso");
-
     div.innerHTML = `
-
         <div class="campo">
 
             <label>Nome do ingresso</label>
@@ -276,7 +211,6 @@ function adicionarIngresso(
             >
 
         </div>
-
 
         <div class="campo preco">
 
@@ -292,7 +226,6 @@ function adicionarIngresso(
             >
 
         </div>
-
 
         <div class="campo status">
 
@@ -319,164 +252,92 @@ function adicionarIngresso(
 
         </div>
 
-
         <button
             type="button"
             class="btn-remover-ingresso"
         >
             Remover
         </button>
-
     `;
-
-
     const botaoRemover =
         div.querySelector(".btn-remover-ingresso");
-
-
-    botaoRemover.addEventListener("click", () => {
-
+        botaoRemover.addEventListener("click", () => {
         div.remove();
-
         verificarIngressos();
-
     });
 
-
     listaIngressos.appendChild(div);
-
     verificarIngressos();
-
 }
-
-
-// ==============================
 // VERIFICAR INGRESSOS
-// ==============================
 
 function verificarIngressos() {
-
-    const ingressos =
-        listaIngressos.querySelectorAll(".ingresso");
-
-    const mensagem =
-        listaIngressos.querySelector(".sem-ingressos");
-
+    const ingressos = listaIngressos.querySelectorAll(".ingresso");
+    const mensagem = listaIngressos.querySelector(".sem-ingressos");
 
     if (ingressos.length === 0) {
 
         if (!mensagem) {
-
             const div = document.createElement("div");
-
             div.classList.add("sem-ingressos");
-
             div.textContent =
                 "Nenhum ingresso adicionado.";
-
             listaIngressos.appendChild(div);
-
         }
-
     } else {
-
         if (mensagem) {
             mensagem.remove();
         }
-
     }
-
 }
-
-
-// ==============================
 // PEGAR ARTISTAS
-// ==============================
 
 function pegarArtistas() {
-
     const artistas =
         listaArtistas.querySelectorAll(".artista");
-
     return Array.from(artistas).map(artista => {
-
         const nome =
             artista.querySelector(".nome-artista").value;
-
         const imagem =
             artista.querySelector(".url-artista").value;
-
         return {
             nome: nome,
             imagem: imagem
         };
-
     });
-
 }
-
-
-// ==============================
 // PEGAR CATEGORIAS
-// ==============================
 
 function pegarCategoriasSelecionadas() {
-
     const selecionadas =
         document.querySelectorAll(
             'input[name="categorias"]:checked'
         );
-
     return Array.from(selecionadas).map(
         checkbox => Number(checkbox.value)
     );
-
 }
-
-
-// ==============================
 // PEGAR INGRESSOS
-// ==============================
 
 function pegarIngressos() {
-
-    const ingressos =
-        listaIngressos.querySelectorAll(".ingresso");
-
+    const ingressos = listaIngressos.querySelectorAll(".ingresso");
     return Array.from(ingressos).map(ingresso => {
-
-        const nome =
-            ingresso.querySelector(".nome-ingresso").value;
-
-        const preco =
-            Number(
-                ingresso.querySelector(".preco-ingresso").value
-            );
-
-        const status =
-            ingresso.querySelector(".status-ingresso").value;
-
+        const nome = ingresso.querySelector(".nome-ingresso").value;
+        const preco = Number(ingresso.querySelector(".preco-ingresso").value);
+        const status = ingresso.querySelector(".status-ingresso").value;
         return {
             nome_ingresso: nome,
             preco: preco,
             status: status
         };
-
     });
-
 }
 
-
-// ==============================
 // LIMPAR FORMULÁRIO
-// ==============================
 
 function limparFormulario() {
-
     formEvento.reset();
-
     document.getElementById("eventoId").value = "";
-
 
     document
         .querySelectorAll('input[name="categorias"]')
@@ -484,42 +345,25 @@ function limparFormulario() {
             checkbox.checked = false;
         });
 
-
     listaArtistas.innerHTML = "";
-
     listaIngressos.innerHTML = "";
 
-
     verificarArtistas();
-
     verificarIngressos();
-
 }
 
-
-// ==============================
 // NOVO EVENTO
-// ==============================
 
 btnNovoEvento.addEventListener("click", () => {
-
     tituloModal.textContent = "Novo Evento";
-
     limparFormulario();
-
     modal.style.display = "block";
-
 });
 
-
-// ==============================
 // FECHAR MODAL
-// ==============================
 
 function fecharModal() {
-
     modal.style.display = "none";
-
 }
 
 
@@ -528,191 +372,111 @@ btnFecharModal.addEventListener(
     fecharModal
 );
 
-
 btnCancelar.addEventListener(
     "click",
     fecharModal
 );
 
-
-// ==============================
 // FECHAR CLICANDO FORA
-// ==============================
 
 window.addEventListener("click", event => {
-
     if (event.target === modal) {
-
         fecharModal();
-
     }
-
 });
 
-
-// ==============================
 // BOTÃO ADICIONAR ARTISTA
-// ==============================
 
 function criarBotaoAdicionarArtista() {
-
-    const botao =
-        document.getElementById("btnAdicionarArtista");
-
+    const botao = document.getElementById("btnAdicionarArtista");
     if (!botao) {
         return;
     }
-
     botao.addEventListener(
         "click",
         () => adicionarArtista()
     );
-
 }
 
-
-// ==============================
 // BOTÃO ADICIONAR INGRESSO
-// ==============================
 
 btnAdicionarIngresso.addEventListener(
     "click",
     () => adicionarIngresso()
 );
 
-
-// ==============================
 // SALVAR EVENTO
-// ==============================
 
 formEvento.addEventListener("submit", async event => {
-
     event.preventDefault();
-
-
-    const eventoId =
-        document.getElementById("eventoId").value;
-
+    const eventoId = document.getElementById("eventoId").value;
 
     const dados = {
+        nome_evento: document.getElementById("nome_evento").value,
 
-        nome_evento:
-            document.getElementById("nome_evento").value,
+        descricao: document.getElementById("descricao").value,
 
-        descricao:
-            document.getElementById("descricao").value,
+        data: document.getElementById("data").value,
 
-        data:
-            document.getElementById("data").value,
+        hora_inicio:document.getElementById("hora_inicio").value,
 
-        hora_inicio:
-            document.getElementById("hora_inicio").value,
+        hora_fim: document.getElementById("hora_fim").value,
 
-        hora_fim:
-            document.getElementById("hora_fim").value,
+        logradouro: document.getElementById("logradouro").value,
 
-        logradouro:
-            document.getElementById("logradouro").value,
+        numero_local:Number(document.getElementById("numero_local").value),
 
-        numero_local:
-            Number(
-                document.getElementById("numero_local").value
-            ),
+        cidade: document.getElementById("cidade").value,
 
-        cidade:
-            document.getElementById("cidade").value,
+        estado: document.getElementById("estado").value,
 
-        estado:
-            document.getElementById("estado").value,
+        capacidade:Number(document.getElementById("capacidade").value),
 
-        capacidade:
-            Number(
-                document.getElementById("capacidade").value
-            ),
+        classificacao_etaria:Number(document.getElementById("classificacao_etaria").value),
 
-        classificacao_etaria:
-            Number(
-                document.getElementById(
-                    "classificacao_etaria"
-                ).value
-            ),
+        destaque_evento:document.getElementById("destaque_evento").value,
 
-        destaque_evento:
-            document.getElementById(
-                "destaque_evento"
-            ).value,
+        imagem: document.getElementById("imagem").value,
 
-        imagem:
-            document.getElementById("imagem").value,
-
-        link_compra:
-            document.getElementById(
-                "link_compra"
-            ).value,
-
-        categorias:
-            pegarCategoriasSelecionadas(),
-
-        artistas:
-            pegarArtistas(),
-
-        ingressos:
-            pegarIngressos()
-
+        link_compra: document.getElementById("link_compra").value,
+        categorias: pegarCategoriasSelecionadas(),
+        artistas: pegarArtistas(),
+        ingressos: pegarIngressos()
     };
 
-
     try {
-
         let resposta;
-
-
         if (eventoId) {
-
             resposta = await fetch(
                 `${API_URL}/${eventoId}`,
                 {
                     method: "PUT",
-
                     headers: {
                         "Content-Type": "application/json"
                     },
-
                     body: JSON.stringify(dados)
                 }
             );
 
         } else {
-
             resposta = await fetch(
                 API_URL,
                 {
                     method: "POST",
-
                     headers: {
                         "Content-Type": "application/json"
                     },
-
                     body: JSON.stringify(dados)
                 }
             );
-
         }
-
 
         if (!resposta.ok) {
-
-            const erro =
-                await resposta.json();
-
+            const erro = await resposta.json();
             console.error(erro);
-
             alert("Erro ao salvar evento.");
-
             return;
-
         }
-
 
         alert(
             eventoId
@@ -720,118 +484,72 @@ formEvento.addEventListener("submit", async event => {
                 : "Evento cadastrado com sucesso!"
         );
 
-
         fecharModal();
-
         listarEventos();
 
-
     } catch (erro) {
-
         console.error(
             "Erro ao salvar evento:",
             erro
         );
-
         alert(
             "Não foi possível conectar com o servidor."
         );
-
     }
-
 });
 
-
-// ==============================
 // EDITAR EVENTO
-// ==============================
 
 async function editarEvento(id) {
-
     try {
-
-        const resposta =
-            await fetch(`${API_URL}/${id}`);
-
-
+        const resposta = await fetch(`${API_URL}/${id}`);
         if (!resposta.ok) {
-
             alert(
                 "Não foi possível carregar o evento."
             );
-
             return;
-
         }
 
-
-        const evento =
-            await resposta.json();
-
+        const evento = await resposta.json();
 
         tituloModal.textContent =
             "Editar Evento";
 
+        document.getElementById("eventoId").value = evento.id;
 
-        document.getElementById("eventoId").value =
-            evento.id;
+        document.getElementById("nome_evento").value = evento.nome_evento;
 
+        document.getElementById("descricao").value = evento.descricao;
 
-        document.getElementById("nome_evento").value =
-            evento.nome_evento;
+        document.getElementById("data").value = formatarDataInput(evento.data);
 
-        document.getElementById("descricao").value =
-            evento.descricao;
+        document.getElementById("hora_inicio").value = evento.hora_inicio.substring(0, 5);
 
-        document.getElementById("data").value =
-            formatarDataInput(evento.data);
+        document.getElementById("hora_fim").value = evento.hora_fim.substring(0, 5);
 
-        document.getElementById("hora_inicio").value =
-            evento.hora_inicio.substring(0, 5);
+        document.getElementById("logradouro").value = evento.logradouro;
 
-        document.getElementById("hora_fim").value =
-            evento.hora_fim.substring(0, 5);
+        document.getElementById("numero_local").value = evento.numero_local;
 
-        document.getElementById("logradouro").value =
-            evento.logradouro;
+        document.getElementById("cidade").value = evento.cidade;
 
-        document.getElementById("numero_local").value =
-            evento.numero_local;
+        document.getElementById("estado").value = evento.estado;
 
-        document.getElementById("cidade").value =
-            evento.cidade;
+        document.getElementById("capacidade").value = evento.capacidade;
 
-        document.getElementById("estado").value =
-            evento.estado;
+        document.getElementById("classificacao_etaria").value = evento.classificacao_etaria;
 
-        document.getElementById("capacidade").value =
-            evento.capacidade;
+        document.getElementById("destaque_evento").value = evento.destaque_evento;
 
-        document.getElementById(
-            "classificacao_etaria"
-        ).value =
-            evento.classificacao_etaria;
+        document.getElementById("imagem").value = evento.imagem;
 
-        document.getElementById(
-            "destaque_evento"
-        ).value =
-            evento.destaque_evento;
+        document.getElementById("link_compra").value = evento.link_compra;
 
-        document.getElementById("imagem").value =
-            evento.imagem;
-
-        document.getElementById("link_compra").value =
-            evento.link_compra;
-
-
-        // ==========================
         // CATEGORIAS
-        // ==========================
 
         document
             .querySelectorAll('input[name="categorias"]')
             .forEach(checkbox => {
-
                 const categoriaId =
                     Number(checkbox.value);
 
@@ -840,97 +558,63 @@ async function editarEvento(id) {
                         categoria =>
                             Number(categoria.id) === categoriaId
                     );
-
             });
 
-
-        // ==========================
         // ARTISTAS
-        // ==========================
 
         listaArtistas.innerHTML = "";
 
         if (evento.artistas) {
-
             evento.artistas.forEach(artista => {
-
                 adicionarArtista(
                     artista.nome,
                     artista.imagem
                 );
-
             });
-
         } else {
-
             verificarArtistas();
-
         }
 
-
-        // ==========================
         // INGRESSOS
-        // ==========================
 
         listaIngressos.innerHTML = "";
-
         if (evento.ingressos) {
 
             evento.ingressos.forEach(ingresso => {
-
                 adicionarIngresso(
                     ingresso.nome_ingresso,
                     ingresso.preco,
                     ingresso.status
                 );
-
             });
-
         } else {
-
             verificarIngressos();
-
         }
-
-
         modal.style.display = "block";
-
-
     } catch (erro) {
-
         console.error(
             "Erro ao buscar evento:",
             erro
         );
-
         alert(
             "Não foi possível carregar o evento."
         );
-
     }
-
 }
 
-
-// ==============================
 // EXCLUIR EVENTO
-// ==============================
 
 async function excluirEvento(id) {
-
     const confirmar =
         confirm(
             "Tem certeza que deseja excluir este evento?"
         );
 
-
     if (!confirmar) {
         return;
     }
 
-
     try {
-
         const resposta =
             await fetch(
                 `${API_URL}/${id}`,
@@ -939,28 +623,20 @@ async function excluirEvento(id) {
                 }
             );
 
-
         if (!resposta.ok) {
 
             alert(
                 "Erro ao excluir evento."
             );
-
             return;
-
         }
-
 
         alert(
             "Evento excluído com sucesso!"
         );
 
-
         listarEventos();
-
-
     } catch (erro) {
-
         console.error(
             "Erro ao excluir evento:",
             erro
@@ -969,58 +645,32 @@ async function excluirEvento(id) {
         alert(
             "Não foi possível conectar com o servidor."
         );
-
     }
-
 }
-
-
-// ==============================
 // FORMATAR DATA
-// ==============================
 
 function formatarData(data) {
-
     if (!data) {
         return "";
     }
-
-
     const partes =
         data.split("T")[0].split("-");
 
-
     return `${partes[2]}/${partes[1]}/${partes[0]}`;
-
 }
-
-
-// ==============================
 // FORMATAR DATA PARA INPUT
-// ==============================
 
 function formatarDataInput(data) {
-
     if (!data) {
         return "";
     }
-
-
     return data.split("T")[0];
 
 }
-
-
-// ==============================
 // INICIAR
-// ==============================
 
 listarCategorias();
-
 listarEventos();
-
 criarBotaoAdicionarArtista();
-
 verificarArtistas();
-
 verificarIngressos();
