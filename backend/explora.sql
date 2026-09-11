@@ -115,7 +115,7 @@ INSERT INTO `eventos` (
     500,
     16,
     'Palestras com profissionais da área de tecnologia',
-    'https://exemplo.com/imagens/tech-conference.jpg',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMOQzMu2yHMn2F3ZkDJirtY1EYMFMPbBwg_u2GAZAmNw&s=10',
     'https://exemplo.com/ingressos/tech-conference'
 ),
 (
@@ -131,7 +131,7 @@ INSERT INTO `eventos` (
     2000,
     18,
     'Shows de artistas nacionais',
-    'https://exemplo.com/imagens/festival.jpg',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOkui4TCvPbX-JRb0fZ4F2CLYe5FszXgAmYdDNd6qSv7s2qwBpoebfW7G4&s=10',
     'https://exemplo.com/ingressos/festival'
 ),
 (
@@ -147,7 +147,7 @@ INSERT INTO `eventos` (
     100,
     14,
     'Aprenda HTML, CSS e JavaScript na prática',
-    'https://exemplo.com/imagens/workshop.jpg',
+    'https://flytour.com.br/wp-content/uploads/2022/07/tipos-de-eventos-corporativos.jpg',
     'https://exemplo.com/ingressos/workshop'
 );
 

@@ -7,16 +7,11 @@ import { DatabaseService } from '../database/database.service';
 
 @Injectable()
 export class FavoritosService {
-
     constructor(
         private readonly databaseService: DatabaseService
     ) {}
 
-
-    // ==============================
     // ADICIONAR FAVORITO
-    // ==============================
-
     async adicionar(
         usuarioId: number,
         eventoId: number
@@ -34,15 +29,11 @@ export class FavoritosService {
                 [eventoId]
             ) as any[];
 
-
         if (evento.length === 0) {
-
             throw new NotFoundException(
                 'Evento não encontrado'
             );
-
         }
-
 
         // Verificar se já está favoritado
 
@@ -66,7 +57,6 @@ export class FavoritosService {
             return {
                 mensagem: 'Evento já está nos favoritos'
             };
-
         }
 
 
@@ -86,17 +76,12 @@ export class FavoritosService {
             ]
         );
 
-
         return {
             mensagem: 'Evento adicionado aos favoritos'
         };
-
     }
 
-
-    // ==============================
     // REMOVER FAVORITO
-    // ==============================
 
     async remover(
         usuarioId: number,
@@ -115,23 +100,17 @@ export class FavoritosService {
             ]
         );
 
-
         return {
             mensagem: 'Evento removido dos favoritos'
         };
-
     }
 
-
-    // ==============================
     // VERIFICAR FAVORITO
-    // ==============================
 
     async verificar(
         usuarioId: number,
         eventoId: number
     ) {
-
         const resultado =
             await this.databaseService.query(
                 `
@@ -150,7 +129,5 @@ export class FavoritosService {
         return {
             favoritado: resultado.length > 0
         };
-
     }
-
 }
