@@ -13,7 +13,7 @@ function formatarDataLonga(data) {
     const d = new Date(data.split("T")[0] + "T00:00:00");
     const dias = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
     const meses = ["janeiro", "fevereiro", "março", "abril", "maio", "junho",
-                   "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+    "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
     return `${dias[d.getDay()]}, ${d.getDate()} de ${meses[d.getMonth()]} de ${d.getFullYear()}`;
 }
 

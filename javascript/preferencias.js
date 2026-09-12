@@ -29,10 +29,7 @@ if (!dadosCadastro) {
 
 }
 
-
-/* =========================
    DIALOG
-========================= */
 
 btnEscolherPreferencias.addEventListener(
     "click",
