@@ -179,7 +179,7 @@ async function carregarPerfil() {
     try {
 
         const resposta = await fetch(
-            "/usuarios/perfil",
+            "http://localhost:3000/usuarios/perfil",
             {
                 method: "GET",
 
@@ -389,7 +389,7 @@ if (btnSalvar) {
 
                 const resposta =
                     await fetch(
-                        "/usuarios/perfil",
+                        "http://localhost:3000/usuarios/perfil",
                         {
                             method: "PATCH",
 
