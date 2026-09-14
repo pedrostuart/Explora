@@ -66,7 +66,7 @@ if (btnLogout) {
 
             localStorage.removeItem("usuario");
 
-            window.location.href = "index.html";
+            window.location.href = "/public/index.html";
         }
         
 
@@ -169,7 +169,7 @@ async function carregarPerfil() {
 
     if (!token) {
 
-        window.location.href = "login.html";
+        window.location.href = "./login.html";
 
         return;
 
@@ -202,7 +202,7 @@ async function carregarPerfil() {
 
                 localStorage.removeItem("usuario");
 
-                window.location.href = "login.html";
+                window.location.href = "./login.html";
 
                 return;
 

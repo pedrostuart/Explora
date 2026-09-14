@@ -29,8 +29,6 @@ if (!dadosCadastro) {
 
 }
 
-   DIALOG
-
 btnEscolherPreferencias.addEventListener(
     "click",
     abriModal
@@ -336,18 +334,13 @@ async function finalizar(event) {
 
 
         if (!resposta.ok) {
-
             console.error(resultado);
-
             alert(
                 resultado.message ||
                 "Erro ao realizar cadastro."
             );
-
             return;
-
         }
-
 
         /* =========================
         CADASTRO CONCLUÍDO
@@ -358,7 +351,7 @@ async function finalizar(event) {
         );
 
         window.location.href =
-            "login.html";
+            "./login.html";
     } catch (erro) {
         console.error(
             "Erro ao cadastrar usuário:",

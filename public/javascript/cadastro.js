@@ -87,6 +87,6 @@ formCadastro.addEventListener("submit", function(event) {
     );
 
 
-    window.location.href = "preferencias.html";
+    window.location.href = "./preferencias.html";
 
 });

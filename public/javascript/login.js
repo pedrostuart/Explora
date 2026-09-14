@@ -88,11 +88,7 @@ formLogin.addEventListener("submit", async function(event) {
             "token",
             resultado.token
         );
-
-
-        /*
-         * Guarda os dados básicos do usuário.
-         */
+         
 
         localStorage.setItem(
             "usuario",
@@ -100,10 +96,7 @@ formLogin.addEventListener("submit", async function(event) {
         );
 
 
-        
-
-
-        window.location.href = "perfil.html";
+        window.location.href = "./perfil.html";
 
 
     } catch (erro) {
