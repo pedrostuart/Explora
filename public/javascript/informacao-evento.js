@@ -1,12 +1,6 @@
-// ==============================
-// CONFIG
-// ==============================
+
 
 const API_URL = "http://localhost:3000/eventos";
-
-// ==============================
-// HELPERS
-// ==============================
 
 function formatarDataLonga(data) {
     if (!data) return "--";
@@ -29,16 +23,16 @@ function corStatus(status) {
     return "orange";
 }
 
-// ==============================
+
 // PEGA ID DA URL
-// ==============================
+
 
 const params = new URLSearchParams(window.location.search);
 const eventoId = params.get("id");
 
-// ==============================
+
 // RENDERIZA O EVENTO
-// ==============================
+
 
 async function carregarEvento() {
 
@@ -88,7 +82,7 @@ async function carregarEvento() {
         carregarSimilares(evento.id);
 
     } catch (erro) {
-        console.error("❌ Erro ao carregar evento:", erro);
+        console.error("Erro ao carregar evento:", erro);
         document.getElementById("info-nome").textContent = "Evento não encontrado";
     }
 }
@@ -156,9 +150,7 @@ function renderizarArtistas(artistas) {
     });
 }
 
-// ==============================
 // CARREGA EVENTOS SIMILARES
-// ==============================
 
 async function carregarSimilares(idAtual) {
 

@@ -7,55 +7,37 @@ formLogin.addEventListener("submit", async function(event) {
 
     const email = document.getElementById("email");
     const senha = document.getElementById("senha");
-
     const inputs = [email, senha];
-
     let tudoPreenchido = true;
-
     inputs.forEach(input => {
-
         const barraInput = input.parentElement;
-
         if (input.value.trim() === "") {
-
             input.classList.add("placeholder-erro");
             barraInput.style.border = "1px solid red";
-
             tudoPreenchido = false;
-
         } else {
-
             input.classList.remove("placeholder-erro");
             barraInput.style.border = "1px solid #1A824D";
-
         }
-
     });
 
     if (!tudoPreenchido) {
         return;
     }
 
-
     const dadosLogin = {
-
         email: email.value,
         senha: senha.value
-
     };
 
-
     try {
-
         const resposta = await fetch(
             "http://localhost:3000/auth/login",
             {
                 method: "POST",
-
                 headers: {
                     "Content-Type": "application/json"
                 },
-
                 body: JSON.stringify(dadosLogin)
             }
         );
@@ -65,16 +47,12 @@ formLogin.addEventListener("submit", async function(event) {
 
 
         if (!resposta.ok) {
-
             alert(
                 resultado.message ||
                 "E-mail ou senha inválidos."
             );
-
             return;
-
         }
-
 
         console.log("Login realizado:", resultado);
 
@@ -88,7 +66,6 @@ formLogin.addEventListener("submit", async function(event) {
             "token",
             resultado.token
         );
-         
 
         localStorage.setItem(
             "usuario",

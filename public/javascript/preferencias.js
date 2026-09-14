@@ -11,9 +11,9 @@ const modal =
     document.querySelector(".modal");
 
 
-/* =========================
-   VERIFICAR DADOS DA PRIMEIRA TELA
-========================= */
+/* 
+VERIFICAR DADOS DA PRIMEIRA TELA
+ */
 
 const dadosCadastro =
     JSON.parse(

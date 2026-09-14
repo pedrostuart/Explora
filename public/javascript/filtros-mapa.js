@@ -30,9 +30,7 @@ labelsGostos.forEach(radio => {
         } else {
             valorGosto = radio.value;
             ultimoRadioDataClicado = radio;
-        }
-
-       
+        }   
     })
 })
 

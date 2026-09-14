@@ -14,7 +14,7 @@ import { UpdateCategoriaDto } from './dto/update-categoria.dto';
 import { CategoriasService } from './categorias.service';
 
 @Controller('categorias')
-export class CategoriasController {
+export class CategoriasController{
 
     constructor(
         private readonly categoriasService: CategoriasService
