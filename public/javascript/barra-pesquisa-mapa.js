@@ -18,7 +18,6 @@ btnPesquisar.addEventListener("click", ()=>{
     }else{
         mapa.src = `https://www.google.com/maps?q=${formatText}&z=${valorRadio || 15}&output=embed` 
     }
-      
     
 })
 
