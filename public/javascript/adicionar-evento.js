@@ -15,7 +15,7 @@ const btnAdicionarIngresso = document.getElementById("btnAdicionarIngresso");
 
 const tituloModal = document.getElementById("tituloModal");
 
-// LISTAR EVENTOS
+
 
 async function listarEventos() {
 
@@ -78,7 +78,7 @@ async function listarEventos() {
         console.error("Erro ao listar eventos:", erro);
     }
 }
-// LISTAR CATEGORIAS
+
 
 async function listarCategorias() {
 
@@ -116,7 +116,7 @@ async function listarCategorias() {
     }
 
 }
-// ADICIONAR ARTISTA
+
 
 function adicionarArtista(
     nome = "",
@@ -167,7 +167,7 @@ function adicionarArtista(
     listaArtistas.appendChild(div);
     verificarArtistas();
 }
-// VERIFICAR ARTISTAS
+
 
 function verificarArtistas() {
     const artistas = listaArtistas.querySelectorAll(".artista");
@@ -187,7 +187,6 @@ function verificarArtistas() {
         }
     }
 }
-// ADICIONAR INGRESSO
 
 function adicionarIngresso(
     nome = "",
@@ -269,8 +268,7 @@ function adicionarIngresso(
     listaIngressos.appendChild(div);
     verificarIngressos();
 }
-// VERIFICAR INGRESSOS
-
+  
 function verificarIngressos() {
     const ingressos = listaIngressos.querySelectorAll(".ingresso");
     const mensagem = listaIngressos.querySelector(".sem-ingressos");
@@ -290,7 +288,7 @@ function verificarIngressos() {
         }
     }
 }
-// PEGAR ARTISTAS
+
 
 function pegarArtistas() {
     const artistas =
@@ -306,7 +304,7 @@ function pegarArtistas() {
         };
     });
 }
-// PEGAR CATEGORIAS
+
 
 function pegarCategoriasSelecionadas() {
     const selecionadas =
@@ -333,7 +331,7 @@ function pegarIngressos() {
     });
 }
 
-// LIMPAR FORMULÁRIO
+
 
 function limparFormulario() {
     formEvento.reset();
@@ -352,7 +350,7 @@ function limparFormulario() {
     verificarIngressos();
 }
 
-// NOVO EVENTO
+
 
 btnNovoEvento.addEventListener("click", () => {
     tituloModal.textContent = "Novo Evento";
@@ -360,7 +358,7 @@ btnNovoEvento.addEventListener("click", () => {
     modal.style.display = "block";
 });
 
-// FECHAR MODAL
+
 
 function fecharModal() {
     modal.style.display = "none";
@@ -385,7 +383,6 @@ window.addEventListener("click", event => {
     }
 });
 
-// BOTÃO ADICIONAR ARTISTA
 
 function criarBotaoAdicionarArtista() {
     const botao = document.getElementById("btnAdicionarArtista");
@@ -398,14 +395,13 @@ function criarBotaoAdicionarArtista() {
     );
 }
 
-// BOTÃO ADICIONAR INGRESSO
 
 btnAdicionarIngresso.addEventListener(
     "click",
     () => adicionarIngresso()
 );
 
-// SALVAR EVENTO
+
 
 formEvento.addEventListener("submit", async event => {
     event.preventDefault();
@@ -498,7 +494,7 @@ formEvento.addEventListener("submit", async event => {
     }
 });
 
-// EDITAR EVENTO
+
 
 async function editarEvento(id) {
     try {
@@ -545,7 +541,7 @@ async function editarEvento(id) {
 
         document.getElementById("link_compra").value = evento.link_compra;
 
-        // CATEGORIAS
+       
 
         document
             .querySelectorAll('input[name="categorias"]')
@@ -560,8 +556,7 @@ async function editarEvento(id) {
                     );
             });
 
-        // ARTISTAS
-
+        
         listaArtistas.innerHTML = "";
 
         if (evento.artistas) {
@@ -575,7 +570,6 @@ async function editarEvento(id) {
             verificarArtistas();
         }
 
-        // INGRESSOS
 
         listaIngressos.innerHTML = "";
         if (evento.ingressos) {
@@ -602,7 +596,7 @@ async function editarEvento(id) {
     }
 }
 
-// EXCLUIR EVENTO
+
 
 async function excluirEvento(id) {
     const confirmar =
@@ -647,7 +641,7 @@ async function excluirEvento(id) {
         );
     }
 }
-// FORMATAR DATA
+
 
 function formatarData(data) {
     if (!data) {
@@ -658,7 +652,7 @@ function formatarData(data) {
 
     return `${partes[2]}/${partes[1]}/${partes[0]}`;
 }
-// FORMATAR DATA PARA INPUT
+
 
 function formatarDataInput(data) {
     if (!data) {
@@ -667,7 +661,7 @@ function formatarDataInput(data) {
     return data.split("T")[0];
 
 }
-// INICIAR
+
 
 listarCategorias();
 listarEventos();
