@@ -1,9 +1,3 @@
-/*ABRIR MENU FILTROS*/
-
-
-/*valores radios*/
-
-
 let btnFiltrar = document.querySelector(".btn-filtrar .btn-preferencia-mapa")
 let btnPesquisar = document.querySelector(".btn_pesquisar")
 

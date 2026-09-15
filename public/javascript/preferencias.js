@@ -11,10 +11,6 @@ const modal =
     document.querySelector(".modal");
 
 
-/* 
-VERIFICAR DADOS DA PRIMEIRA TELA
- */
-
 const dadosCadastro =
     JSON.parse(
         sessionStorage.getItem("dadosCadastro")
@@ -58,11 +54,6 @@ function fecharModal(event) {
 
 }
 
-
-/* =========================
-   FINALIZAR CADASTRO
-========================= */
-
 finalizarCadastro.addEventListener(
     "click",
     finalizar
@@ -72,11 +63,6 @@ finalizarCadastro.addEventListener(
 async function finalizar(event) {
 
     event.preventDefault();
-
-
-    /* =========================
-       ESTADO
-    ========================= */
 
     const estado =
         document.getElementById("local").value;
@@ -111,10 +97,6 @@ async function finalizar(event) {
     );
 
 
-    /* =========================
-       ORÇAMENTO
-    ========================= */
-
     const orcamento =
         Number(
             document.getElementById("preco").value
@@ -148,11 +130,6 @@ async function finalizar(event) {
     );
 
     labelPreco.style.display = "none";
-
-
-    /* =========================
-       DATA DE NASCIMENTO
-    ========================= */
 
     const dia =
         Number(
@@ -231,11 +208,6 @@ async function finalizar(event) {
         "barra_input-erro"
     );
 
-
-    /* =========================
-    PREFERÊNCIAS
-    ========================= */
-
     const preferenciasSelecionadas =
         document.querySelectorAll(
             'input[name="preferencias[]"]:checked'
@@ -264,11 +236,6 @@ async function finalizar(event) {
             ];
 
         });
-
-
-    /* =========================
-    DADOS COMPLETOS
-    ========================= */
 
     const dadosUsuario = {
 
@@ -336,10 +303,6 @@ async function finalizar(event) {
             );
             return;
         }
-
-        /* =========================
-        CADASTRO CONCLUÍDO
-        ========================= */
 
         sessionStorage.removeItem(
             "dadosCadastro"

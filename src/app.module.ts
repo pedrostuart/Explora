@@ -15,7 +15,6 @@ import { join } from 'path';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      //para que as variaveis presententes no .env consiga ser visto por toda aplicação
       isGlobal: true
     }),
 

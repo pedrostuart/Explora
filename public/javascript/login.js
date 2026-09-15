@@ -56,12 +56,6 @@ formLogin.addEventListener("submit", async function(event) {
 
         console.log("Login realizado:", resultado);
 
-
-        /*
-         * Guarda o token para utilizar
-         * nas próximas requisições protegidas.
-         */
-
         localStorage.setItem(
             "token",
             resultado.token

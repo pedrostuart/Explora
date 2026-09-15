@@ -7,7 +7,7 @@ labelsGostos.forEach(btns =>{
             valorPreferencia.push(btns.value)
         }else{
             btns.classList.remove("selecionado")
-            let posicao = valorPreferencia.indexOf(btns.value)/*indexOf olha o que ta dentro do array e compara com valor do btns*/ 
+            let posicao = valorPreferencia.indexOf(btns.value)
             valorPreferencia.splice(posicao, 1)
         }
         console.log(valorPreferencia)

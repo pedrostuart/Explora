@@ -43,7 +43,6 @@ async function carregarEvento() {
 
         const evento = await resposta.json();
 
-        // ---- TOPO ----
         document.getElementById("info-nome").textContent = evento.nome_evento;
         document.getElementById("info-descricao").textContent = evento.descricao;
         document.getElementById("info-data").textContent = formatarDataLonga(evento.data);
@@ -52,7 +51,6 @@ async function carregarEvento() {
         document.getElementById("info-local").textContent =
             `${evento.logradouro}, ${evento.numero_local} - ${evento.cidade}/${evento.estado}`;
 
-        // ---- SOBRE ----
         document.getElementById("info-sobre").textContent = evento.descricao;
         document.getElementById("info-destaque").textContent = evento.destaque_evento || "--";
         document.getElementById("info-capacidade").textContent =
@@ -61,20 +59,16 @@ async function carregarEvento() {
         document.getElementById("info-classificacao").textContent =
             `+${evento.classificacao_etaria} anos`;
 
-        // ---- INGRESSOS ----
         renderizarIngressos(evento.ingressos || []);
 
-        // ---- LOCAL ----
         document.getElementById("info-local-nome").textContent = evento.logradouro;
         document.getElementById("info-local-endereco").textContent =
             `${evento.logradouro}, ${evento.numero_local} - ${evento.cidade} - ${evento.estado}`;
 
         document.getElementById("info-link-compra").href = evento.link_compra || "#";
 
-        // ---- ARTISTAS ----
         renderizarArtistas(evento.artistas || []);
 
-        // ---- EVENTOS SIMILARES ----
         carregarSimilares(evento.id);
 
     } catch (erro) {
@@ -94,7 +88,6 @@ function renderizarIngressos(ingressos) {
         return;
     }
 
-    // Ordena por preço e pega o menor
     const ordenados = [...ingressos].sort((a, b) => Number(a.preco) - Number(b.preco));
     const precoMin = ordenados[0].preco;
 
@@ -140,8 +133,6 @@ function renderizarArtistas(artistas) {
     });
 }
 
-// CARREGA EVENTOS SIMILARES
-
 async function carregarSimilares(idAtual) {
 
     const container = document.getElementById("lista-similares");
@@ -151,7 +142,6 @@ async function carregarSimilares(idAtual) {
         const resposta = await fetch(API_URL);
         const todos = await resposta.json();
 
-        // Qualquer evento que não seja o atual, pega 3
         const similares = todos
             .filter(e => Number(e.id) !== Number(idAtual))
             .slice(0, 3);
@@ -181,10 +171,6 @@ async function carregarSimilares(idAtual) {
     }
 }
 
-// ==============================
-// INTERAÇÕES (manter os listeners do seu código original)
-// ==============================
-
 document.addEventListener("DOMContentLoaded", () => {
 
     // Abrir/fechar ingressos
@@ -206,7 +192,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Ler mais
     const lerMais = document.querySelector(".ler-mais");
     const extras = document.getElementById("extras");
     if (lerMais && extras) {
@@ -221,7 +206,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Salvar / Visitado
     const btns = document.querySelector(".btns-ingressos");
     if (btns) {
         const btnSalvar = btns.children[0];

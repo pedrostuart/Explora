@@ -1,4 +1,3 @@
-/*ABRIR MENU FILTROS*/
 let btnFiltrarResponsivo = document.querySelector(".btn-preferencia-resposivo")
 let menuFiltrar = document.querySelector(".menu-lateral")
 
@@ -6,7 +5,6 @@ btnFiltrarResponsivo.addEventListener("click", (e) =>{
     e.preventDefault()
     menuFiltrar.style.display = 'flex'
 })
-/*FECHAR MENU FILTROS*/
 let fecharMenuFiltros = document.querySelector(".fechar-link .fechar-menu")
 fecharMenuFiltros.addEventListener("click", ()=>{
     
@@ -21,7 +19,6 @@ let ultimaPreferenciaClicada = null;
 
 labelsGostos.forEach(radio => {
     radio.addEventListener("click", () => {
-        // Esta lógica permite desmarcar o botão de rádio clicando nele novamente
         if (ultimaPreferenciaClicada === radio) {
             radio.checked = false;
             valorGosto = undefined;
@@ -33,9 +30,6 @@ labelsGostos.forEach(radio => {
         }   
     })
 })
-
-
-/*valores radios*/
 
 let radiosKm = document.querySelectorAll(".radio")
 let valorRadio     
