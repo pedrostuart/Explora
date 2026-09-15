@@ -2,22 +2,13 @@ let boxPesquisa = document.querySelector(".itens-pesquisa");
 let inputCarrosel = document.querySelector(".input-pesquisa");
 
 
-// ==============================
-// FORMATAR TEXTO
-// ==============================
-
 function formatText(valorText) {
     return valorText.toLowerCase().trim();
 }
 
-
-// ==============================
-// FILTRO DA BARRA DE PESQUISA
-// ==============================
-
 inputCarrosel.addEventListener("input", (evento) => {
 
-    // Valor digitado, já formatado
+   
     let valorInput = formatText(evento.target.value);
 
     let itens = document.querySelectorAll(
@@ -29,7 +20,7 @@ inputCarrosel.addEventListener("input", (evento) => {
 
     let todosResultados = false;
 
-    // Filtra cada item
+   
     itens.forEach(item => {
 
         if (formatText(item.textContent).indexOf(valorInput) === -1) {
@@ -41,7 +32,7 @@ inputCarrosel.addEventListener("input", (evento) => {
 
     });
 
-    // Mostra mensagem de "sem resultados" ou "ver mais"
+   
     if (todosResultados) {
         if (txtSemResultados) txtSemResultados.style.display = 'none';
         if (vermaisEventos) vermaisEventos.style.display = 'block';
@@ -50,7 +41,7 @@ inputCarrosel.addEventListener("input", (evento) => {
         if (vermaisEventos) vermaisEventos.style.display = 'none';
     }
 
-    // Abre a caixa de pesquisa
+    
     boxPesquisa.style.display = 'flex';
 
 });
