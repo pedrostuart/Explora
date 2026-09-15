@@ -1,6 +1,5 @@
 const API_URL_EVENTOS = "http://localhost:3000/eventos";
 
-// Formata data (YYYY-MM-DD -> DD/MM)
 function formatarDataEvento(data) {
     if (!data) return "";
 
@@ -8,7 +7,7 @@ function formatarDataEvento(data) {
     return `${partes[2]}/${partes[1]}`;
 }
 
-// Normaliza nome de categoria
+
 function normalizarCategoria(nome) {
     if (!nome) return "";
 
@@ -20,7 +19,6 @@ function normalizarCategoria(nome) {
         .trim();
 }
 
-// Monta o card
 function criarCardEventos(evento) {
     const preferencias = (evento.categorias || [])
         .map(c => normalizarCategoria(c.nome))
@@ -49,7 +47,6 @@ function criarCardEventos(evento) {
     `;
 }
 
-// Busca e renderiza
 async function carregarEventosPagina() {
     const container = document.querySelector(".itens-pesquisa");
     if (!container) return;
@@ -63,10 +60,8 @@ async function carregarEventosPagina() {
             return;
         }
 
-        // Remove cards antigos estáticos
         container.querySelectorAll(".caixa_eventos").forEach(el => el.remove());
 
-        // Insere os novos
         const html = eventos.map(criarCardEventos).join("");
         container.insertAdjacentHTML("afterbegin", html);
 
@@ -76,7 +71,6 @@ async function carregarEventosPagina() {
     }
 }
 
-// Inicia
 if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", carregarEventosPagina);
 } else {
