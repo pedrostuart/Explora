@@ -1,4 +1,3 @@
-
 /* =========================================
    AUTENTICAÇÃO
 ========================================= */
@@ -54,21 +53,23 @@ atualizarMenu();
 
 
 /* =========================================
-SAIR
+   SAIR
 ========================================= */
 
 if (btnLogout) {
-
     btnLogout.addEventListener("click", () => {
-        let confirmacao = confirm('Tem certeza que quer sair da conta')
-        if(confirmacao){
-            localStorage.removeItem("token");
 
+        let confirmacao =
+            confirm("Tem certeza que quer sair da conta");
+
+        if (confirmacao) {
+
+            localStorage.removeItem("token");
             localStorage.removeItem("usuario");
 
             window.location.href = "/public/index.html";
+
         }
-        
 
     });
 
@@ -87,6 +88,9 @@ const descricaoPerfil =
 
 const inputNome =
     document.getElementById("nome-usuario");
+
+const inputSobrenome =
+    document.getElementById("sobrenome-usuario");
 
 const inputEmail =
     document.getElementById("email-usuario");
@@ -175,19 +179,21 @@ async function carregarPerfil() {
 
     }
 
-
     try {
 
-        const resposta = await fetch(
-            "http://localhost:3000/usuarios/perfil",
-            {
-                method: "GET",
+        const resposta =
+            await fetch(
+                "http://localhost:3000/usuarios/perfil",
+                {
+                    method: "GET",
 
-                headers: {
-                    "Authorization": `Bearer ${token}`
+                    headers: {
+                        "Authorization":
+                            `Bearer ${token}`
+                    }
+
                 }
-            }
-        );
+            );
 
 
         const resultado =
@@ -202,7 +208,8 @@ async function carregarPerfil() {
 
                 localStorage.removeItem("usuario");
 
-                window.location.href = "./login.html";
+                window.location.href =
+                    "./login.html";
 
                 return;
 
@@ -237,6 +244,10 @@ async function carregarPerfil() {
 
         inputNome.value =
             usuario.nome;
+
+
+        inputSobrenome.value =
+            usuario.sobrenome;
 
 
         inputEmail.value =
@@ -313,6 +324,7 @@ async function carregarPerfil() {
         );
 
     }
+
 }
 
 
@@ -320,7 +332,7 @@ carregarPerfil();
 
 
 /* =========================================
-SALVAR ALTERAÇÕES
+   SALVAR ALTERAÇÕES
 ========================================= */
 
 if (btnSalvar) {
@@ -332,29 +344,21 @@ if (btnSalvar) {
             event.preventDefault();
 
 
-            const nomeCompleto =
+            const nome =
                 inputNome.value.trim();
 
 
-            if (!nomeCompleto) {
+            const sobrenome =
+                inputSobrenome.value.trim();
+
+
+            if (!nome) {
 
                 alert("Digite seu nome.");
 
                 return;
 
             }
-
-
-            const partesNome =
-                nomeCompleto.split(/\s+/);
-
-
-            const nome =
-                partesNome.shift();
-
-
-            const sobrenome =
-                partesNome.join(" ");
 
 
             if (!sobrenome) {
@@ -475,7 +479,7 @@ if (btnSalvar) {
                     modalSalvar.style.display =
                         "none";
 
-                }, 1000);
+                }, 1600);
 
 
             } catch (erro) {
@@ -645,4 +649,3 @@ if (btnAplicarModal) {
     );
 
 }
-

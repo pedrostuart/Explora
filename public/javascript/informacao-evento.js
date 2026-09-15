@@ -23,16 +23,12 @@ function corStatus(status) {
     return "orange";
 }
 
-
 // PEGA ID DA URL
-
 
 const params = new URLSearchParams(window.location.search);
 const eventoId = params.get("id");
 
-
 // RENDERIZA O EVENTO
-
 
 async function carregarEvento() {
 
@@ -87,12 +83,9 @@ async function carregarEvento() {
     }
 }
 
-// ==============================
 // RENDERIZA INGRESSOS
-// ==============================
 
 function renderizarIngressos(ingressos) {
-
     const container = document.getElementById("lista-ingressos");
     container.innerHTML = "";
 
@@ -105,8 +98,7 @@ function renderizarIngressos(ingressos) {
     const ordenados = [...ingressos].sort((a, b) => Number(a.preco) - Number(b.preco));
     const precoMin = ordenados[0].preco;
 
-    document.getElementById("info-preco-min").textContent =
-        `${Number(precoMin).toFixed(0)}R$`;
+    document.getElementById("info-preco-min").textContent = `R$${Number(precoMin).toFixed(0)}`;
 
     ingressos.forEach(ing => {
         const div = document.createElement("div");
@@ -115,16 +107,14 @@ function renderizarIngressos(ingressos) {
             <h2>${ing.nome_ingresso}</h2>
             <p>
                 <span style="color: ${corStatus(ing.status)};">&bull;</span>
-                ${Number(ing.preco).toFixed(0)}R$ - ${ing.status}
+                R$${Number(ing.preco).toFixed(0)} - ${ing.status}
             </p>
         `;
         container.appendChild(div);
     });
 }
 
-// ==============================
 // RENDERIZA ARTISTAS
-// ==============================
 
 function renderizarArtistas(artistas) {
 
@@ -186,7 +176,6 @@ async function carregarSimilares(idAtual) {
             `;
             container.appendChild(div);
         });
-
     } catch (erro) {
         console.error("Erro ao carregar similares:", erro);
     }

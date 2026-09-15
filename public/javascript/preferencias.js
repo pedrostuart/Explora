@@ -315,12 +315,10 @@ async function finalizar(event) {
                 "http://localhost:3000/usuarios",
                 {
                     method: "POST",
-
                     headers: {
                         "Content-Type":
                             "application/json"
                     },
-
                     body:
                         JSON.stringify(
                             dadosUsuario
@@ -328,10 +326,7 @@ async function finalizar(event) {
                 }
             );
 
-
-        const resultado =
-            await resposta.json();
-
+        const resultado = await resposta.json();
 
         if (!resposta.ok) {
             console.error(resultado);
