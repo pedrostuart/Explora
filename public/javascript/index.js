@@ -1,5 +1,3 @@
-// BARRA DE PESQUISA
-
 let boxPesquisa = document.querySelector(".itens-pesquisa");
 let inputCarrosel = document.querySelector(".input-pesquisa");
 
@@ -46,7 +44,6 @@ document.addEventListener("click", (event) => {
     }
 });
 
-// CARREGAR EVENTOS DA API
 
 const API_URL = "http://localhost:3000/eventos";
 
