@@ -1,8 +1,3 @@
-
-/* =========================================
-   AUTENTICAÇÃO
-========================================= */
-
 const token = localStorage.getItem("token");
 
 const btnEntrar =
@@ -52,11 +47,6 @@ function atualizarMenu() {
 
 atualizarMenu();
 
-
-/* =========================================
-SAIR
-========================================= */
-
 if (btnLogout) {
 
     btnLogout.addEventListener("click", () => {
@@ -73,11 +63,6 @@ if (btnLogout) {
     });
 
 }
-
-
-/* =========================================
-   ELEMENTOS DO PERFIL
-========================================= */
 
 const nomePerfil =
     document.querySelector(".info-usuario h1");
@@ -102,11 +87,6 @@ const btnSalvar =
 
 const modalSalvar =
     document.querySelector(".modal-salvar");
-
-
-/* =========================================
-   ESTADOS
-========================================= */
 
 function transformarEstado(estado) {
 
@@ -159,11 +139,6 @@ function nomeEstado(value) {
         : value;
 
 }
-
-
-/* =========================================
-   CARREGAR PERFIL
-========================================= */
 
 async function carregarPerfil() {
 
@@ -223,7 +198,6 @@ async function carregarPerfil() {
             resultado.usuario;
 
 
-        /* CABEÇALHO */
 
         nomePerfil.textContent =
             `${usuario.nome} ${usuario.sobrenome}`;
@@ -232,8 +206,6 @@ async function carregarPerfil() {
         descricaoPerfil.textContent =
             `Explorador de eventos - ${usuario.estado}`;
 
-
-        /* CAMPOS */
 
         inputNome.value =
             usuario.nome;
@@ -250,8 +222,6 @@ async function carregarPerfil() {
         selectEstado.value =
             transformarEstado(usuario.estado);
 
-
-        /* NOTIFICAÇÕES */
 
         const notificacaoEmail =
             document.querySelector(
@@ -292,9 +262,6 @@ async function carregarPerfil() {
 
         }
 
-
-        /* LOCAL STORAGE */
-
         localStorage.setItem(
             "usuario",
             JSON.stringify(usuario)
@@ -317,11 +284,6 @@ async function carregarPerfil() {
 
 
 carregarPerfil();
-
-
-/* =========================================
-SALVAR ALTERAÇÕES
-========================================= */
 
 if (btnSalvar) {
 
@@ -422,9 +384,6 @@ if (btnSalvar) {
 
                 }
 
-
-                /* ATUALIZA CABEÇALHO */
-
                 nomePerfil.textContent =
                     `${dados.nome} ${dados.sobrenome}`;
 
@@ -432,8 +391,6 @@ if (btnSalvar) {
                 descricaoPerfil.textContent =
                     `Explorador de eventos - ${dados.estado}`;
 
-
-                /* ATUALIZA LOCAL STORAGE */
 
                 const usuarioAtual =
                     JSON.parse(
@@ -464,8 +421,6 @@ if (btnSalvar) {
                 );
 
 
-                /* MODAL */
-
                 modalSalvar.style.display =
                     "flex";
 
@@ -495,11 +450,6 @@ if (btnSalvar) {
     );
 
 }
-
-
-/* =========================================
-   ABRIR E FECHAR CAIXAS
-========================================= */
 
 const botoes =
     document.querySelectorAll(
@@ -534,9 +484,6 @@ function boxSome() {
 
 }
 
-
-/* ATIVIDADE */
-
 botoes[0].addEventListener(
     "click",
     () => {
@@ -553,9 +500,6 @@ botoes[0].addEventListener(
 
     }
 );
-
-
-/* FAVORITOS */
 
 botoes[1].addEventListener(
     "click",
@@ -574,9 +518,6 @@ botoes[1].addEventListener(
     }
 );
 
-
-/* CONFIGURAÇÕES */
-
 botoes[2].addEventListener(
     "click",
     () => {
@@ -593,11 +534,6 @@ botoes[2].addEventListener(
 
     }
 );
-
-
-/* =========================================
-   MODAL DE PREFERÊNCIAS
-========================================= */
 
 const btnEscolherPreferencias =
     document.querySelector(
